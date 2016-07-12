@@ -1,0 +1,74 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="mySuperficieLabel" translate="istruttoriaApp.superficie.home.createOrEditLabel">Create or edit a Superficie</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.superficie.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.superficie.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficie.codNazionale" for="field_codNazionale">Cod Nazionale</label>
+            <input type="text" class="form-control" name="codNazionale" id="field_codNazionale"
+                    ng-model="vm.superficie.codNazionale"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficie.foglio" for="field_foglio">Foglio</label>
+            <input type="number" class="form-control" name="foglio" id="field_foglio"
+                    ng-model="vm.superficie.foglio"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficie.codIntervento" for="field_codIntervento">Cod Intervento</label>
+            <input type="text" class="form-control" name="codIntervento" id="field_codIntervento"
+                    ng-model="vm.superficie.codIntervento"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficie.codColtura" for="field_codColtura">Cod Coltura</label>
+            <input type="text" class="form-control" name="codColtura" id="field_codColtura"
+                    ng-model="vm.superficie.codColtura"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficie.supeDich" for="field_supeDich">Supe Dich</label>
+            <input type="number" class="form-control" name="supeDich" id="field_supeDich"
+                    ng-model="vm.superficie.supeDich"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficie.supeAmmi" for="field_supeAmmi">Supe Ammi</label>
+            <input type="number" class="form-control" name="supeAmmi" id="field_supeAmmi"
+                    ng-model="vm.superficie.supeAmmi"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficie.supeAmmiNetta" for="field_supeAmmiNetta">Supe Ammi Netta</label>
+            <input type="number" class="form-control" name="supeAmmiNetta" id="field_supeAmmiNetta"
+                    ng-model="vm.superficie.supeAmmiNetta"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="istruttoriaApp.superficie.domanda" for="field_domanda">Domanda</label>
+            <select class="form-control" id="field_domanda" name="domanda" ng-model="vm.superficie.domanda" ng-options="domanda as domanda.id for domanda in vm.domandas | orderBy:'id' track by domanda.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

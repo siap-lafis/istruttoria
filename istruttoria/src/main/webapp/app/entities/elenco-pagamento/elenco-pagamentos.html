@@ -1,0 +1,79 @@
+<div>
+    <h2 translate="istruttoriaApp.elencoPagamento.home.title">Elenco Pagamentos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="elenco-pagamento.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  translate="istruttoriaApp.elencoPagamento.home.createLabel">
+                        Create new Elenco Pagamento
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'istruttoriaApp.elencoPagamento.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="istruttoriaApp.elencoPagamento.idDecr">Id Decr</span></th>
+                    <th><span translate="istruttoriaApp.elencoPagamento.dataDecr">Data Decr</span></th>
+                    <th><span translate="istruttoriaApp.elencoPagamento.domanda">Domanda</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="elencoPagamento in vm.elencoPagamentos track by elencoPagamento.id">
+                    <td><a ui-sref="elenco-pagamento-detail({id:elencoPagamento.id})">{{elencoPagamento.id}}</a></td>
+                    <td>{{elencoPagamento.idDecr}}</td>
+                    <td>{{elencoPagamento.dataDecr}}</td>
+                    <td>
+                        <a ui-sref="domanda-detail({id:elencoPagamento.domanda.id})">{{elencoPagamento.domanda.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="elenco-pagamento-detail({id:elencoPagamento.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="elenco-pagamento.edit({id:elencoPagamento.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="elenco-pagamento.delete({id:elencoPagamento.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+
+<div>
+    <h2><span translate="istruttoriaApp.obbligoInverdimento.detail.title">Obbligo Inverdimento</span> {{vm.obbligoInverdimento.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="istruttoriaApp.obbligoInverdimento.supeSemi">Supe Semi</span></dt>
+        <dd>
+            <span>{{vm.obbligoInverdimento.supeSemi}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.obbligoInverdimento.supePratPerm">Supe Prat Perm</span></dt>
+        <dd>
+            <span>{{vm.obbligoInverdimento.supePratPerm}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.obbligoInverdimento.supeFora">Supe Fora</span></dt>
+        <dd>
+            <span>{{vm.obbligoInverdimento.supeFora}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.obbligoInverdimento.decoEsonDive">Deco Eson Dive</span></dt>
+        <dd>
+            <span>{{vm.obbligoInverdimento.decoEsonDive}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.obbligoInverdimento.decoEsonEfa">Deco Eson Efa</span></dt>
+        <dd>
+            <span>{{vm.obbligoInverdimento.decoEsonEfa}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.obbligoInverdimento.flagRispColt">Flag Risp Colt</span></dt>
+        <dd>
+            <span>{{vm.obbligoInverdimento.flagRispColt}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.obbligoInverdimento.flagRispColtRima">Flag Risp Colt Rima</span></dt>
+        <dd>
+            <span>{{vm.obbligoInverdimento.flagRispColtRima}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.obbligoInverdimento.flagRisp75P">Flag Risp 75 P</span></dt>
+        <dd>
+            <span>{{vm.obbligoInverdimento.flagRisp75P}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.obbligoInverdimento.flagRisp95P">Flag Risp 95 P</span></dt>
+        <dd>
+            <span>{{vm.obbligoInverdimento.flagRisp95P}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.obbligoInverdimento.flagRispEfa">Flag Risp Efa</span></dt>
+        <dd>
+            <span>{{vm.obbligoInverdimento.flagRispEfa}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.obbligoInverdimento.superficiInverdimento">Superfici Inverdimento</span></dt>
+        <dd>
+            <a ui-sref="superficie-inverdimento-detail({id:vm.obbligoInverdimento.superficiInverdimento.id})">{{vm.obbligoInverdimento.superficiInverdimento.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

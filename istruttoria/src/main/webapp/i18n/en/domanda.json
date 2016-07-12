@@ -1,0 +1,29 @@
+{
+    "istruttoriaApp": {
+        "domanda" : {
+            "home": {
+                "title": "Domandas",
+                "createLabel": "Create a new Domanda",
+                "createOrEditLabel": "Create or edit a Domanda",
+                "search": "Search for Domanda"
+            },
+            "created": "A new Domanda is created with identifier {{ param }}",
+            "updated": "A Domanda is updated with identifier {{ param }}",
+            "deleted": "A Domanda is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Domanda {{ id }}?"
+            },
+            "detail": {
+                "title": "Domanda"
+            },
+            "idDomanda": "Id Domanda",
+            "dataPres": "Data Pres",
+            "dataInse": "Data Inse",
+            "codSettore": "Cod Settore",
+            "anno": "Year",
+            "soggetto": "Farm",
+            "superfici": "Land parcels",
+            "pagamenti": "Payments"
+        }
+    }
+}

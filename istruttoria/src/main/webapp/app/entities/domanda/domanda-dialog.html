@@ -1,0 +1,62 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myDomandaLabel" translate="istruttoriaApp.domanda.home.createOrEditLabel">Create or edit a Domanda</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.domanda.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.domanda.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.domanda.idDomanda" for="field_idDomanda">Id Domanda</label>
+            <input type="number" class="form-control" name="idDomanda" id="field_idDomanda"
+                    ng-model="vm.domanda.idDomanda"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.domanda.dataPres" for="field_dataPres">Data Pres</label>
+            <input type="text" class="form-control" name="dataPres" id="field_dataPres"
+                    ng-model="vm.domanda.dataPres"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.domanda.dataInse" for="field_dataInse">Data Inse</label>
+            <input type="text" class="form-control" name="dataInse" id="field_dataInse"
+                    ng-model="vm.domanda.dataInse"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.domanda.codSettore" for="field_codSettore">Cod Settore</label>
+            <input type="text" class="form-control" name="codSettore" id="field_codSettore"
+                    ng-model="vm.domanda.codSettore"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.domanda.anno" for="field_anno">Anno</label>
+            <input type="number" class="form-control" name="anno" id="field_anno"
+                    ng-model="vm.domanda.anno"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="istruttoriaApp.domanda.soggetto" for="field_soggetto">Soggetto</label>
+            <select class="form-control" id="field_soggetto" name="soggetto" ng-model="vm.domanda.soggetto" ng-options="soggetto as soggetto.id for soggetto in vm.soggettos | orderBy:'id' track by soggetto.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

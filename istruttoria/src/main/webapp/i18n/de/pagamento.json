@@ -1,0 +1,40 @@
+{
+    "istruttoriaApp": {
+        "pagamento" : {
+            "home": {
+                "title": "Pagamentos",
+                "createLabel": "Pagamento erstellen",
+                "createOrEditLabel": "Pagamento erstellen oder bearbeiten",
+                "search": "Suche nach Pagamento"
+            },
+            "created": "Pagamento erstellt mit ID {{ param }}",
+            "updated": "Pagamento aktualisiert mit ID {{ param }}",
+            "deleted": "Pagamento gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Pagamento {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Pagamento"
+            },
+            "codIntervento": "Cod Intervento",
+            "qntaDich": "Qnta Dich",
+            "qntaAmme": "Qnta Amme",
+            "qntaLiqu": "Qnta Liqu",
+            "impoDich": "Impo Dich",
+            "impoAmme": "Impo Amme",
+            "impoLiqu": "Impo Liqu",
+            "statLiqu": "Stat Liqu",
+            "unitMisu": "Unit Misu",
+            "codiNumeCapiSpes": "Codi Nume Capi Spes",
+            "dataElab": "Data Elab",
+            "codiEsiGcol": "Codi Esi Gcol",
+            "percSanzGcol": "Perc Sanz Gcol",
+            "percSanzAzie": "Perc Sanz Azie",
+            "valoMediTito": "Valo Medi Tito",
+            "impoTratModu": "Impo Trat Modu",
+            "fascModu": "Fasc Modu",
+            "impoTratFina": "Impo Trat Fina",
+            "elencoPagamento": "Elenco Pagamento"
+        }
+    }
+}

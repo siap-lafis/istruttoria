@@ -1,0 +1,40 @@
+{
+    "istruttoriaApp": {
+        "pagamento" : {
+            "home": {
+                "title": "Pagamenti",
+                "createLabel": "Crea un nuovo Pagamento",
+                "createOrEditLabel": "Crea o modifica un Pagamento",
+                "search": "Ricerca per Pagamento"
+            },
+            "created": "Un nuovo Pagamento è stato creato con identificativo {{ param }}",
+            "updated": "Un Pagamento è stato aggiornato con identificativo {{ param }}",
+            "deleted": "Un Pagamento è stato cancellato con identificativo {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di voler cancellare il Pagamento {{ id }}?"
+            },
+            "detail": {
+                "title": "Pagamento"
+            },
+            "codIntervento": "Cod Intervento",
+            "qntaDich": "Qnta Dich",
+            "qntaAmme": "Qnta Amme",
+            "qntaLiqu": "Qnta Liqu",
+            "impoDich": "Impo Dich",
+            "impoAmme": "Impo Amme",
+            "impoLiqu": "Impo Liqu",
+            "statLiqu": "Stat Liqu",
+            "unitMisu": "Unit Misu",
+            "codiNumeCapiSpes": "Codi Nume Capi Spes",
+            "dataElab": "Data Elab",
+            "codiEsiGcol": "Codi Esi Gcol",
+            "percSanzGcol": "Perc Sanz Gcol",
+            "percSanzAzie": "Perc Sanz Azie",
+            "valoMediTito": "Valo Medi Tito",
+            "impoTratModu": "Impo Trat Modu",
+            "fascModu": "Fasc Modu",
+            "impoTratFina": "Impo Trat Fina",
+            "elencoPagamento": "Elenco Pagamento"
+        }
+    }
+}

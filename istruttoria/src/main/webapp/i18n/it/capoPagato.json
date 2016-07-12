@@ -1,0 +1,35 @@
+{
+    "istruttoriaApp": {
+        "capoPagato" : {
+            "home": {
+                "title": "CapoPagatoes",
+                "createLabel": "Create a new Capo Pagato",
+                "createOrEditLabel": "Create or edit a Capo Pagato",
+                "search": "Search for Capo Pagato"
+            },
+            "created": "A new Capo Pagato is created with identifier {{ param }}",
+            "updated": "A Capo Pagato is updated with identifier {{ param }}",
+            "deleted": "A Capo Pagato is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Capo Pagato {{ id }}?"
+            },
+            "detail": {
+                "title": "Capo Pagato"
+            },
+            "marcaCapo": "Marca Capo",
+            "ammissibile": "Ammissibile",
+            "numUba": "Num Uba",
+            "mancanzaAnalisiLatte": "Mancanza Analisi Latte",
+            "medieLatteSoma": "Medie Latte Soma",
+            "medieLatteGerm": "Medie Latte Germ",
+            "medieLatteProt": "Medie Latte Prot",
+            "codAsl": "Cod Asl",
+            "flagSess": "Flag Sess",
+            "dataNasc": "Data Nasc",
+            "codiRazz": "Codi Razz",
+            "dataInizDete": "Data Iniz Dete",
+            "dataFineDete": "Data Fine Dete",
+            "pagamento": "Pagamento"
+        }
+    }
+}

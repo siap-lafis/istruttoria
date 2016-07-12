@@ -1,0 +1,32 @@
+{
+    "istruttoriaApp": {
+        "obbligoInverdimento" : {
+            "home": {
+                "title": "ObbligoInverdimentos",
+                "createLabel": "Create a new Obbligo Inverdimento",
+                "createOrEditLabel": "Create or edit a Obbligo Inverdimento",
+                "search": "Search for Obbligo Inverdimento"
+            },
+            "created": "A new Obbligo Inverdimento is created with identifier {{ param }}",
+            "updated": "A Obbligo Inverdimento is updated with identifier {{ param }}",
+            "deleted": "A Obbligo Inverdimento is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Obbligo Inverdimento {{ id }}?"
+            },
+            "detail": {
+                "title": "Obbligo Inverdimento"
+            },
+            "supeSemi": "Supe Semi",
+            "supePratPerm": "Supe Prat Perm",
+            "supeFora": "Supe Fora",
+            "decoEsonDive": "Deco Eson Dive",
+            "decoEsonEfa": "Deco Eson Efa",
+            "flagRispColt": "Flag Risp Colt",
+            "flagRispColtRima": "Flag Risp Colt Rima",
+            "flagRisp75P": "Flag Risp 75 P",
+            "flagRisp95P": "Flag Risp 95 P",
+            "flagRispEfa": "Flag Risp Efa",
+            "superficiInverdimento": "Superfici Inverdimento"
+        }
+    }
+}

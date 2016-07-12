@@ -1,0 +1,89 @@
+<div>
+    <h2 translate="istruttoriaApp.superficie.home.title">Superficies</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="superficie.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  translate="istruttoriaApp.superficie.home.createLabel">
+                        Create new Superficie
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'istruttoriaApp.superficie.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="istruttoriaApp.superficie.codNazionale">Cod Nazionale</span></th>
+                    <th><span translate="istruttoriaApp.superficie.foglio">Foglio</span></th>
+                    <th><span translate="istruttoriaApp.superficie.codIntervento">Cod Intervento</span></th>
+                    <th><span translate="istruttoriaApp.superficie.codColtura">Cod Coltura</span></th>
+                    <th><span translate="istruttoriaApp.superficie.supeDich">Supe Dich</span></th>
+                    <th><span translate="istruttoriaApp.superficie.supeAmmi">Supe Ammi</span></th>
+                    <th><span translate="istruttoriaApp.superficie.supeAmmiNetta">Supe Ammi Netta</span></th>
+                    <th><span translate="istruttoriaApp.superficie.domanda">Domanda</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="superficie in vm.superficies track by superficie.id">
+                    <td><a ui-sref="superficie-detail({id:superficie.id})">{{superficie.id}}</a></td>
+                    <td>{{superficie.codNazionale}}</td>
+                    <td>{{superficie.foglio}}</td>
+                    <td>{{superficie.codIntervento}}</td>
+                    <td>{{superficie.codColtura}}</td>
+                    <td>{{superficie.supeDich}}</td>
+                    <td>{{superficie.supeAmmi}}</td>
+                    <td>{{superficie.supeAmmiNetta}}</td>
+                    <td>
+                        <a ui-sref="domanda-detail({id:superficie.domanda.id})">{{superficie.domanda.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="superficie-detail({id:superficie.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="superficie.edit({id:superficie.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="superficie.delete({id:superficie.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

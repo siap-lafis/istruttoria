@@ -1,0 +1,23 @@
+{
+    "istruttoriaApp": {
+        "soggetto" : {
+            "home": {
+                "title": "Soggetti",
+                "createLabel": "Crea un nuovo Soggetto",
+                "createOrEditLabel": "Crea o modifica un Soggetto",
+                "search": "Ricerca per Soggetto"
+            },
+            "created": "Un nuovo Soggetto è stato creato con identificativo {{ param }}",
+            "updated": "Un Soggetto è stato aggiornato con identificativo {{ param }}",
+            "deleted": "Un Soggetto è stato cancellato con identificativo {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di voler cancellare Soggetto {{ id }}?"
+            },
+            "detail": {
+                "title": "Soggetto"
+            },
+            "cuaa": "Cuaa",
+            "denominazione": "Denominazione"
+        }
+    }
+}

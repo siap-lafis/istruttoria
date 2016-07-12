@@ -1,0 +1,50 @@
+
+<div>
+    <h2><span translate="istruttoriaApp.superficiePagata.detail.title">Superficie Pagata</span> {{vm.superficiePagata.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="istruttoriaApp.superficiePagata.supeDich">Supe Dich</span></dt>
+        <dd>
+            <span>{{vm.superficiePagata.supeDich}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.superficiePagata.supeAmmi">Supe Ammi</span></dt>
+        <dd>
+            <span>{{vm.superficiePagata.supeAmmi}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.superficiePagata.supeRefr">Supe Refr</span></dt>
+        <dd>
+            <span>{{vm.superficiePagata.supeRefr}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.superficiePagata.supeDete">Supe Dete</span></dt>
+        <dd>
+            <span>{{vm.superficiePagata.supeDete}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.superficiePagata.supeNsan">Supe Nsan</span></dt>
+        <dd>
+            <span>{{vm.superficiePagata.supeNsan}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.superficiePagata.supeAcce">Supe Acce</span></dt>
+        <dd>
+            <span>{{vm.superficiePagata.supeAcce}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.superficiePagata.numTitoDich">Num Tito Dich</span></dt>
+        <dd>
+            <span>{{vm.superficiePagata.numTitoDich}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.superficiePagata.numTitoDete">Num Tito Dete</span></dt>
+        <dd>
+            <span>{{vm.superficiePagata.numTitoDete}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.superficiePagata.pagamento">Pagamento</span></dt>
+        <dd>
+            <a ui-sref="pagamento-detail({id:vm.superficiePagata.pagamento.id})">{{vm.superficiePagata.pagamento.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

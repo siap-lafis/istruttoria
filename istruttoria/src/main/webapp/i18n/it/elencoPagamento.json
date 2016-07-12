@@ -1,0 +1,24 @@
+{
+    "istruttoriaApp": {
+        "elencoPagamento" : {
+            "home": {
+                "title": "Elenchi Pagamento",
+                "createLabel": "Crea un nuovo Elenco Pagamento",
+                "createOrEditLabel": "Crea o modifica un Elenco Pagamento",
+                "search": "Ricerca per Elenco Pagamento"
+            },
+            "created": "Un nuovo Elenco Pagamento è stato creato con identificativo {{ param }}",
+            "updated": "Un Elenco Pagamento è stato aggiornato con identificativo {{ param }}",
+            "deleted": "Un Elenco Pagamento è stato cancellato con identificativo {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di voler cancellare Elenco Pagamento {{ id }}?"
+            },
+            "detail": {
+                "title": "Elenco Pagamento"
+            },
+            "idDecr": "Id Elenco",
+            "dataDecr": "Data Elenco",
+            "domanda": "Domanda"
+        }
+    }
+}

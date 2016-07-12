@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?><uml:Model xmlns:uml="http://www.omg.org/spec/UML/20110701" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmi:version="2.1" xmi:id="_J87MEETxEeaoDPhhFB3sww" name="istruttoria">
+  <eAnnotations xmi:id="_J87MEUTxEeaoDPhhFB3sww" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_J87MEkTxEeaoDPhhFB3sww" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_J87ME0TxEeaoDPhhFB3sww" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Class" xmi:id="_J87MFETxEeaoDPhhFB3sww" name="Domanda">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MFUTxEeaoDPhhFB3sww" name="soggetto" visibility="public" type="_J87MHkTxEeaoDPhhFB3sww" aggregation="composite" association="_J87MHETxEeaoDPhhFB3sww">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J87MFkTxEeaoDPhhFB3sww"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MF0TxEeaoDPhhFB3sww" name="idDomanda" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MGETxEeaoDPhhFB3sww" name="dataPres" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MGUTxEeaoDPhhFB3sww" name="dataInse" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MGkTxEeaoDPhhFB3sww" name="codSettore" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MG0TxEeaoDPhhFB3sww" name="anno" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_J87MHETxEeaoDPhhFB3sww" memberEnd="_J87MFUTxEeaoDPhhFB3sww _J87MHUTxEeaoDPhhFB3sww">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_J87MHUTxEeaoDPhhFB3sww" visibility="public" type="_J87MFETxEeaoDPhhFB3sww" association="_J87MHETxEeaoDPhhFB3sww"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_J87MHkTxEeaoDPhhFB3sww" name="Soggetto">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MH0TxEeaoDPhhFB3sww" name="cuaa" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MIETxEeaoDPhhFB3sww" name="denominazione" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_J87MIUTxEeaoDPhhFB3sww" name="Superficie">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MIkTxEeaoDPhhFB3sww" name="domanda" visibility="public" type="_J87MFETxEeaoDPhhFB3sww" aggregation="composite" association="_J87MK0TxEeaoDPhhFB3sww">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J87MI0TxEeaoDPhhFB3sww"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MJETxEeaoDPhhFB3sww" name="codNazionale" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MJUTxEeaoDPhhFB3sww" name="foglio" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MJkTxEeaoDPhhFB3sww" name="codIntervento" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MJ0TxEeaoDPhhFB3sww" name="codColtura" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MKETxEeaoDPhhFB3sww" name="supeDich" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MKUTxEeaoDPhhFB3sww" name="supeAmmi" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MKkTxEeaoDPhhFB3sww" name="supeAmmiNetta" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_J87MK0TxEeaoDPhhFB3sww" memberEnd="_J87MIkTxEeaoDPhhFB3sww _J87MLETxEeaoDPhhFB3sww">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_J87MLETxEeaoDPhhFB3sww" visibility="public" type="_J87MIUTxEeaoDPhhFB3sww" association="_J87MK0TxEeaoDPhhFB3sww"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_J87MLUTxEeaoDPhhFB3sww" name="ObbligoInverdimento">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MLkTxEeaoDPhhFB3sww" name="superficiInverdimento" visibility="public" type="_J87MPETxEeaoDPhhFB3sww" aggregation="composite" association="_J87MOkTxEeaoDPhhFB3sww">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J87ML0TxEeaoDPhhFB3sww"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MMETxEeaoDPhhFB3sww" name="supeSemi" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MMUTxEeaoDPhhFB3sww" name="supePratPerm" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MMkTxEeaoDPhhFB3sww" name="supeFora" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MM0TxEeaoDPhhFB3sww" name="decoEsonDive" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MNETxEeaoDPhhFB3sww" name="decoEsonEfa" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MNUTxEeaoDPhhFB3sww" name="flagRispColt" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MNkTxEeaoDPhhFB3sww" name="flagRispColtRima" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MN0TxEeaoDPhhFB3sww" name="flagRisp75p" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MOETxEeaoDPhhFB3sww" name="flagRisp95p" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MOUTxEeaoDPhhFB3sww" name="flagRispEfa" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_J87MOkTxEeaoDPhhFB3sww" memberEnd="_J87MLkTxEeaoDPhhFB3sww _J87MO0TxEeaoDPhhFB3sww">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_J87MO0TxEeaoDPhhFB3sww" visibility="public" type="_J87MLUTxEeaoDPhhFB3sww" association="_J87MOkTxEeaoDPhhFB3sww"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_J87MPETxEeaoDPhhFB3sww" name="SuperficieInverdimento">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MPUTxEeaoDPhhFB3sww" name="domanda" visibility="public" type="_J87MFETxEeaoDPhhFB3sww" aggregation="composite" association="_J87MWkTxEeaoDPhhFB3sww">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J87MPkTxEeaoDPhhFB3sww"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MP0TxEeaoDPhhFB3sww" name="supeSemi" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MQETxEeaoDPhhFB3sww" name="supePrimColt" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MQUTxEeaoDPhhFB3sww" name="supeSecoColt" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MQkTxEeaoDPhhFB3sww" name="supeAltrColt" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MQ0TxEeaoDPhhFB3sww" name="supePrimMax" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MRETxEeaoDPhhFB3sww" name="supeSecoMax" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MRUTxEeaoDPhhFB3sww" name="supePrimDiff1" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MRkTxEeaoDPhhFB3sww" name="supePrimDiff2" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MR0TxEeaoDPhhFB3sww" name="tassoDiffPrim" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MSETxEeaoDPhhFB3sww" name="supePrimRidu" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MSUTxEeaoDPhhFB3sww" name="supeSecoDiff1" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MSkTxEeaoDPhhFB3sww" name="supeSecoDiff2" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MS0TxEeaoDPhhFB3sww" name="tassoDiffSeco" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MTETxEeaoDPhhFB3sww" name="supeSecoRidu" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MTUTxEeaoDPhhFB3sww" name="totaTassoDiff" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MTkTxEeaoDPhhFB3sww" name="supeRiduDive" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MT0TxEeaoDPhhFB3sww" name="supeEfa" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MUETxEeaoDPhhFB3sww" name="supeEfaObbl" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MUUTxEeaoDPhhFB3sww" name="supeEfaDiff" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MUkTxEeaoDPhhFB3sww" name="tassoDiffEfa" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MU0TxEeaoDPhhFB3sww" name="supeRiduEfa" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MVETxEeaoDPhhFB3sww" name="totaRidu" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MVUTxEeaoDPhhFB3sww" name="supePagaSemi" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MVkTxEeaoDPhhFB3sww" name="supePratSens" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MV0TxEeaoDPhhFB3sww" name="supePratNsens" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MWETxEeaoDPhhFB3sww" name="supePerm" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MWUTxEeaoDPhhFB3sww" name="supeInve" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_J87MWkTxEeaoDPhhFB3sww" memberEnd="_J87MPUTxEeaoDPhhFB3sww _J87MW0TxEeaoDPhhFB3sww">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_J87MW0TxEeaoDPhhFB3sww" visibility="public" type="_J87MPETxEeaoDPhhFB3sww" association="_J87MWkTxEeaoDPhhFB3sww"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_J87MXETxEeaoDPhhFB3sww" name="Pagamento">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MXUTxEeaoDPhhFB3sww" name="elencoPagamento" visibility="public" type="_J87Mc0TxEeaoDPhhFB3sww" aggregation="composite" association="_J87McUTxEeaoDPhhFB3sww">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J87MXkTxEeaoDPhhFB3sww"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MX0TxEeaoDPhhFB3sww" name="codIntervento" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MYETxEeaoDPhhFB3sww" name="qntaDich" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MYUTxEeaoDPhhFB3sww" name="qntaAmme" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MYkTxEeaoDPhhFB3sww" name="qntaLiqu" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MY0TxEeaoDPhhFB3sww" name="impoDich" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MZETxEeaoDPhhFB3sww" name="impoAmme" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MZUTxEeaoDPhhFB3sww" name="impoLiqu" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MZkTxEeaoDPhhFB3sww" name="statLiqu" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MZ0TxEeaoDPhhFB3sww" name="unitMisu" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MaETxEeaoDPhhFB3sww" name="codiNumeCapiSpes" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MaUTxEeaoDPhhFB3sww" name="dataElab" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MakTxEeaoDPhhFB3sww" name="codiEsiGcol" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87Ma0TxEeaoDPhhFB3sww" name="percSanzGcol" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MbETxEeaoDPhhFB3sww" name="percSanzAzie" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MbUTxEeaoDPhhFB3sww" name="valoMediTito" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MbkTxEeaoDPhhFB3sww" name="impoTratModu" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87Mb0TxEeaoDPhhFB3sww" name="fascModu" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87McETxEeaoDPhhFB3sww" name="impoTratFina" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_J87McUTxEeaoDPhhFB3sww" memberEnd="_J87MXUTxEeaoDPhhFB3sww _J87MckTxEeaoDPhhFB3sww">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_J87MckTxEeaoDPhhFB3sww" visibility="public" type="_J87MXETxEeaoDPhhFB3sww" association="_J87McUTxEeaoDPhhFB3sww"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_J87Mc0TxEeaoDPhhFB3sww" name="ElencoPagamento">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MdETxEeaoDPhhFB3sww" name="domanda" visibility="public" type="_J87MFETxEeaoDPhhFB3sww" aggregation="composite" association="_J87MeETxEeaoDPhhFB3sww">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J87MdUTxEeaoDPhhFB3sww"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MdkTxEeaoDPhhFB3sww" name="idDecr" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87Md0TxEeaoDPhhFB3sww" name="dataDecr" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_J87MeETxEeaoDPhhFB3sww" memberEnd="_J87MdETxEeaoDPhhFB3sww _J87MeUTxEeaoDPhhFB3sww">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_J87MeUTxEeaoDPhhFB3sww" visibility="public" type="_J87Mc0TxEeaoDPhhFB3sww" association="_J87MeETxEeaoDPhhFB3sww"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_J87MekTxEeaoDPhhFB3sww" name="Penalita">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87Me0TxEeaoDPhhFB3sww" name="pagamento" visibility="public" type="_J87MXETxEeaoDPhhFB3sww" aggregation="composite" association="_J87MgUTxEeaoDPhhFB3sww">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J87MfETxEeaoDPhhFB3sww"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MfUTxEeaoDPhhFB3sww" name="decoTipoPena" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MfkTxEeaoDPhhFB3sww" name="qntaPena" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87Mf0TxEeaoDPhhFB3sww" name="impoPena" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MgETxEeaoDPhhFB3sww" name="unitMisu" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_J87MgUTxEeaoDPhhFB3sww" memberEnd="_J87Me0TxEeaoDPhhFB3sww _J87MgkTxEeaoDPhhFB3sww">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_J87MgkTxEeaoDPhhFB3sww" visibility="public" type="_J87MekTxEeaoDPhhFB3sww" association="_J87MgUTxEeaoDPhhFB3sww"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_J87Mg0TxEeaoDPhhFB3sww" name="SuperficiePagata">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_J87MhETxEeaoDPhhFB3sww">
+      <body>&lt;p&gt;Dettaglio superfici per parcella o particella&lt;/p&gt;
+</body>
+    </ownedComment>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MhUTxEeaoDPhhFB3sww" name="pagamento" visibility="public" type="_J87MXETxEeaoDPhhFB3sww" aggregation="composite" association="_J87Mj0TxEeaoDPhhFB3sww">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J87MhkTxEeaoDPhhFB3sww"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87Mh0TxEeaoDPhhFB3sww" name="supeDich" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MiETxEeaoDPhhFB3sww" name="supeAmmi" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MiUTxEeaoDPhhFB3sww" name="supeRefr" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MikTxEeaoDPhhFB3sww" name="supeDete" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87Mi0TxEeaoDPhhFB3sww" name="supeNsan" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MjETxEeaoDPhhFB3sww" name="supeAcce" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MjUTxEeaoDPhhFB3sww" name="numTitoDich" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MjkTxEeaoDPhhFB3sww" name="numTitoDete" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_J87Mj0TxEeaoDPhhFB3sww" memberEnd="_J87MhUTxEeaoDPhhFB3sww _J87MkETxEeaoDPhhFB3sww">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_J87MkETxEeaoDPhhFB3sww" visibility="public" type="_J87Mg0TxEeaoDPhhFB3sww" association="_J87Mj0TxEeaoDPhhFB3sww"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_J87MkUTxEeaoDPhhFB3sww" name="CapoPagato">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MkkTxEeaoDPhhFB3sww" name="pagamento" visibility="public" type="_J87MXETxEeaoDPhhFB3sww" aggregation="composite" association="_J87MoUTxEeaoDPhhFB3sww">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J87Mk0TxEeaoDPhhFB3sww"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MlETxEeaoDPhhFB3sww" name="marcaCapo" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MlUTxEeaoDPhhFB3sww" name="ammissibile" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MlkTxEeaoDPhhFB3sww" name="numUba" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87Ml0TxEeaoDPhhFB3sww" name="mancanzaAnalisiLatte" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MmETxEeaoDPhhFB3sww" name="medieLatteSoma" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MmUTxEeaoDPhhFB3sww" name="medieLatteGerm" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MmkTxEeaoDPhhFB3sww" name="medieLatteProt" visibility="public" type="_J87Mo0TxEeaoDPhhFB3sww" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87Mm0TxEeaoDPhhFB3sww" name="codAsl" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MnETxEeaoDPhhFB3sww" name="flagSess" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MnUTxEeaoDPhhFB3sww" name="dataNasc" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MnkTxEeaoDPhhFB3sww" name="codiRazz" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87Mn0TxEeaoDPhhFB3sww" name="dataInizDete" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J87MoETxEeaoDPhhFB3sww" name="dataFineDete" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_J87MoUTxEeaoDPhhFB3sww" memberEnd="_J87MkkTxEeaoDPhhFB3sww _J87MokTxEeaoDPhhFB3sww">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_J87MokTxEeaoDPhhFB3sww" visibility="public" type="_J87MkUTxEeaoDPhhFB3sww" association="_J87MoUTxEeaoDPhhFB3sww"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_J87Mo0TxEeaoDPhhFB3sww" name="float"/>
+</uml:Model>

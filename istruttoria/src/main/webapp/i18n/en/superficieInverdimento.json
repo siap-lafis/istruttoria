@@ -1,0 +1,49 @@
+{
+    "istruttoriaApp": {
+        "superficieInverdimento" : {
+            "home": {
+                "title": "Superficie Inverdimentos",
+                "createLabel": "Create a new Superficie Inverdimento",
+                "createOrEditLabel": "Create or edit a Superficie Inverdimento",
+                "search": "Search for Superficie Inverdimento"
+            },
+            "created": "A new Superficie Inverdimento is created with identifier {{ param }}",
+            "updated": "A Superficie Inverdimento is updated with identifier {{ param }}",
+            "deleted": "A Superficie Inverdimento is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Superficie Inverdimento {{ id }}?"
+            },
+            "detail": {
+                "title": "Superficie Inverdimento"
+            },
+            "supeSemi": "Supe Semi",
+            "supePrimColt": "Supe Prim Colt",
+            "supeSecoColt": "Supe Seco Colt",
+            "supeAltrColt": "Supe Altr Colt",
+            "supePrimMax": "Supe Prim Max",
+            "supeSecoMax": "Supe Seco Max",
+            "supePrimDiff1": "Supe Prim Diff 1",
+            "supePrimDiff2": "Supe Prim Diff 2",
+            "tassoDiffPrim": "Tasso Diff Prim",
+            "supePrimRidu": "Supe Prim Ridu",
+            "supeSecoDiff1": "Supe Seco Diff 1",
+            "supeSecoDiff2": "Supe Seco Diff 2",
+            "tassoDiffSeco": "Tasso Diff Seco",
+            "supeSecoRidu": "Supe Seco Ridu",
+            "totaTassoDiff": "Tota Tasso Diff",
+            "supeRiduDive": "Supe Ridu Dive",
+            "supeEfa": "Supe Efa",
+            "supeEfaObbl": "Supe Efa Obbl",
+            "supeEfaDiff": "Supe Efa Diff",
+            "tassoDiffEfa": "Tasso Diff Efa",
+            "supeRiduEfa": "Supe Ridu Efa",
+            "totaRidu": "Tota Ridu",
+            "supePagaSemi": "Supe Paga Semi",
+            "supePratSens": "Supe Prat Sens",
+            "supePratNsens": "Supe Prat Nsens",
+            "supePerm": "Supe Perm",
+            "supeInve": "Supe Inve",
+            "domanda": "Domanda"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "istruttoriaApp": {
+        "superficiePagata" : {
+            "home": {
+                "title": "SuperficiePagatas",
+                "createLabel": "Create a new Superficie Pagata",
+                "createOrEditLabel": "Create or edit a Superficie Pagata",
+                "search": "Search for Superficie Pagata"
+            },
+            "created": "A new Superficie Pagata is created with identifier {{ param }}",
+            "updated": "A Superficie Pagata is updated with identifier {{ param }}",
+            "deleted": "A Superficie Pagata is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Superficie Pagata {{ id }}?"
+            },
+            "detail": {
+                "title": "Superficie Pagata"
+            },
+            "supeDich": "Supe Dich",
+            "supeAmmi": "Supe Ammi",
+            "supeRefr": "Supe Refr",
+            "supeDete": "Supe Dete",
+            "supeNsan": "Supe Nsan",
+            "supeAcce": "Supe Acce",
+            "numTitoDich": "Num Tito Dich",
+            "numTitoDete": "Num Tito Dete",
+            "pagamento": "Pagamento"
+        }
+    }
+}

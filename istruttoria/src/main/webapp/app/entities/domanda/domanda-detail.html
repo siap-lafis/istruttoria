@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span translate="istruttoriaApp.domanda.detail.title">Domanda</span> {{vm.domanda.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="istruttoriaApp.domanda.idDomanda">Id Domanda</span></dt>
+        <dd>
+            <span>{{vm.domanda.idDomanda}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.domanda.dataPres">Data Pres</span></dt>
+        <dd>
+            <span>{{vm.domanda.dataPres}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.domanda.dataInse">Data Inse</span></dt>
+        <dd>
+            <span>{{vm.domanda.dataInse}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.domanda.codSettore">Cod Settore</span></dt>
+        <dd>
+            <span>{{vm.domanda.codSettore}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.domanda.anno">Anno</span></dt>
+        <dd>
+            <span>{{vm.domanda.anno}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.domanda.soggetto">Soggetto</span></dt>
+        <dd>
+            <a ui-sref="soggetto-detail({id:vm.domanda.soggetto.id})">{{vm.domanda.soggetto.id}}</a>
+        </dd>
+        <dt><span translate="istruttoriaApp.domanda.superfici">Superfici</span></dt>
+        <dd>
+            <a ui-sref="superficie.domanda({id:vm.domanda.id})">{{vm.domanda.id}}</a>
+        </dd>
+        <dt><span translate="istruttoriaApp.domanda.pagamenti">Pagamenti</span></dt>
+        <dd>
+            <a ui-sref="pagamento.domanda({id:vm.domanda.id})">{{vm.domanda.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

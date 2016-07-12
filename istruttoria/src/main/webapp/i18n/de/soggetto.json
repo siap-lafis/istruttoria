@@ -1,0 +1,23 @@
+{
+    "istruttoriaApp": {
+        "soggetto" : {
+            "home": {
+                "title": "Soggettos",
+                "createLabel": "Soggetto erstellen",
+                "createOrEditLabel": "Soggetto erstellen oder bearbeiten",
+                "search": "Suche nach Soggetto"
+            },
+            "created": "Soggetto erstellt mit ID {{ param }}",
+            "updated": "Soggetto aktualisiert mit ID {{ param }}",
+            "deleted": "Soggetto gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Soggetto {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Soggetto"
+            },
+            "cuaa": "Cuaa",
+            "denominazione": "Denominazione"
+        }
+    }
+}

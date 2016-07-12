@@ -1,0 +1,194 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="mySuperficieInverdimentoLabel" translate="istruttoriaApp.superficieInverdimento.home.createOrEditLabel">Create or edit a Superficie Inverdimento</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.superficieInverdimento.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.superficieInverdimento.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supeSemi" for="field_supeSemi">Supe Semi</label>
+            <input type="number" class="form-control" name="supeSemi" id="field_supeSemi"
+                    ng-model="vm.superficieInverdimento.supeSemi"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supePrimColt" for="field_supePrimColt">Supe Prim Colt</label>
+            <input type="number" class="form-control" name="supePrimColt" id="field_supePrimColt"
+                    ng-model="vm.superficieInverdimento.supePrimColt"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supeSecoColt" for="field_supeSecoColt">Supe Seco Colt</label>
+            <input type="number" class="form-control" name="supeSecoColt" id="field_supeSecoColt"
+                    ng-model="vm.superficieInverdimento.supeSecoColt"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supeAltrColt" for="field_supeAltrColt">Supe Altr Colt</label>
+            <input type="number" class="form-control" name="supeAltrColt" id="field_supeAltrColt"
+                    ng-model="vm.superficieInverdimento.supeAltrColt"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supePrimMax" for="field_supePrimMax">Supe Prim Max</label>
+            <input type="number" class="form-control" name="supePrimMax" id="field_supePrimMax"
+                    ng-model="vm.superficieInverdimento.supePrimMax"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supeSecoMax" for="field_supeSecoMax">Supe Seco Max</label>
+            <input type="number" class="form-control" name="supeSecoMax" id="field_supeSecoMax"
+                    ng-model="vm.superficieInverdimento.supeSecoMax"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supePrimDiff1" for="field_supePrimDiff1">Supe Prim Diff 1</label>
+            <input type="number" class="form-control" name="supePrimDiff1" id="field_supePrimDiff1"
+                    ng-model="vm.superficieInverdimento.supePrimDiff1"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supePrimDiff2" for="field_supePrimDiff2">Supe Prim Diff 2</label>
+            <input type="number" class="form-control" name="supePrimDiff2" id="field_supePrimDiff2"
+                    ng-model="vm.superficieInverdimento.supePrimDiff2"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.tassoDiffPrim" for="field_tassoDiffPrim">Tasso Diff Prim</label>
+            <input type="number" class="form-control" name="tassoDiffPrim" id="field_tassoDiffPrim"
+                    ng-model="vm.superficieInverdimento.tassoDiffPrim"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supePrimRidu" for="field_supePrimRidu">Supe Prim Ridu</label>
+            <input type="number" class="form-control" name="supePrimRidu" id="field_supePrimRidu"
+                    ng-model="vm.superficieInverdimento.supePrimRidu"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supeSecoDiff1" for="field_supeSecoDiff1">Supe Seco Diff 1</label>
+            <input type="number" class="form-control" name="supeSecoDiff1" id="field_supeSecoDiff1"
+                    ng-model="vm.superficieInverdimento.supeSecoDiff1"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supeSecoDiff2" for="field_supeSecoDiff2">Supe Seco Diff 2</label>
+            <input type="number" class="form-control" name="supeSecoDiff2" id="field_supeSecoDiff2"
+                    ng-model="vm.superficieInverdimento.supeSecoDiff2"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.tassoDiffSeco" for="field_tassoDiffSeco">Tasso Diff Seco</label>
+            <input type="number" class="form-control" name="tassoDiffSeco" id="field_tassoDiffSeco"
+                    ng-model="vm.superficieInverdimento.tassoDiffSeco"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supeSecoRidu" for="field_supeSecoRidu">Supe Seco Ridu</label>
+            <input type="number" class="form-control" name="supeSecoRidu" id="field_supeSecoRidu"
+                    ng-model="vm.superficieInverdimento.supeSecoRidu"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.totaTassoDiff" for="field_totaTassoDiff">Tota Tasso Diff</label>
+            <input type="number" class="form-control" name="totaTassoDiff" id="field_totaTassoDiff"
+                    ng-model="vm.superficieInverdimento.totaTassoDiff"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supeRiduDive" for="field_supeRiduDive">Supe Ridu Dive</label>
+            <input type="number" class="form-control" name="supeRiduDive" id="field_supeRiduDive"
+                    ng-model="vm.superficieInverdimento.supeRiduDive"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supeEfa" for="field_supeEfa">Supe Efa</label>
+            <input type="number" class="form-control" name="supeEfa" id="field_supeEfa"
+                    ng-model="vm.superficieInverdimento.supeEfa"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supeEfaObbl" for="field_supeEfaObbl">Supe Efa Obbl</label>
+            <input type="number" class="form-control" name="supeEfaObbl" id="field_supeEfaObbl"
+                    ng-model="vm.superficieInverdimento.supeEfaObbl"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supeEfaDiff" for="field_supeEfaDiff">Supe Efa Diff</label>
+            <input type="number" class="form-control" name="supeEfaDiff" id="field_supeEfaDiff"
+                    ng-model="vm.superficieInverdimento.supeEfaDiff"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.tassoDiffEfa" for="field_tassoDiffEfa">Tasso Diff Efa</label>
+            <input type="number" class="form-control" name="tassoDiffEfa" id="field_tassoDiffEfa"
+                    ng-model="vm.superficieInverdimento.tassoDiffEfa"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supeRiduEfa" for="field_supeRiduEfa">Supe Ridu Efa</label>
+            <input type="number" class="form-control" name="supeRiduEfa" id="field_supeRiduEfa"
+                    ng-model="vm.superficieInverdimento.supeRiduEfa"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.totaRidu" for="field_totaRidu">Tota Ridu</label>
+            <input type="number" class="form-control" name="totaRidu" id="field_totaRidu"
+                    ng-model="vm.superficieInverdimento.totaRidu"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supePagaSemi" for="field_supePagaSemi">Supe Paga Semi</label>
+            <input type="number" class="form-control" name="supePagaSemi" id="field_supePagaSemi"
+                    ng-model="vm.superficieInverdimento.supePagaSemi"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supePratSens" for="field_supePratSens">Supe Prat Sens</label>
+            <input type="number" class="form-control" name="supePratSens" id="field_supePratSens"
+                    ng-model="vm.superficieInverdimento.supePratSens"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supePratNsens" for="field_supePratNsens">Supe Prat Nsens</label>
+            <input type="number" class="form-control" name="supePratNsens" id="field_supePratNsens"
+                    ng-model="vm.superficieInverdimento.supePratNsens"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supePerm" for="field_supePerm">Supe Perm</label>
+            <input type="number" class="form-control" name="supePerm" id="field_supePerm"
+                    ng-model="vm.superficieInverdimento.supePerm"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.superficieInverdimento.supeInve" for="field_supeInve">Supe Inve</label>
+            <input type="number" class="form-control" name="supeInve" id="field_supeInve"
+                    ng-model="vm.superficieInverdimento.supeInve"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="istruttoriaApp.superficieInverdimento.domanda" for="field_domanda">Domanda</label>
+            <select class="form-control" id="field_domanda" name="domanda" ng-model="vm.superficieInverdimento.domanda" ng-options="domanda as domanda.id for domanda in vm.domandas | orderBy:'id' track by domanda.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,83 @@
+<div>
+    <h2 translate="istruttoriaApp.penalita.home.title">Penalitas</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="penalita.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  translate="istruttoriaApp.penalita.home.createLabel">
+                        Create new Penalita
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'istruttoriaApp.penalita.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="istruttoriaApp.penalita.decoTipoPena">Deco Tipo Pena</span></th>
+                    <th><span translate="istruttoriaApp.penalita.qntaPena">Qnta Pena</span></th>
+                    <th><span translate="istruttoriaApp.penalita.impoPena">Impo Pena</span></th>
+                    <th><span translate="istruttoriaApp.penalita.unitMisu">Unit Misu</span></th>
+                    <th><span translate="istruttoriaApp.penalita.pagamento">Pagamento</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="penalita in vm.penalitas track by penalita.id">
+                    <td><a ui-sref="penalita-detail({id:penalita.id})">{{penalita.id}}</a></td>
+                    <td>{{penalita.decoTipoPena}}</td>
+                    <td>{{penalita.qntaPena}}</td>
+                    <td>{{penalita.impoPena}}</td>
+                    <td>{{penalita.unitMisu}}</td>
+                    <td>
+                        <a ui-sref="pagamento-detail({id:penalita.pagamento.id})">{{penalita.pagamento.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="penalita-detail({id:penalita.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="penalita.edit({id:penalita.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="penalita.delete({id:penalita.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myObbligoInverdimentoLabel" translate="istruttoriaApp.obbligoInverdimento.home.createOrEditLabel">Create or edit a Obbligo Inverdimento</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.obbligoInverdimento.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.obbligoInverdimento.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.obbligoInverdimento.supeSemi" for="field_supeSemi">Supe Semi</label>
+            <input type="number" class="form-control" name="supeSemi" id="field_supeSemi"
+                    ng-model="vm.obbligoInverdimento.supeSemi"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.obbligoInverdimento.supePratPerm" for="field_supePratPerm">Supe Prat Perm</label>
+            <input type="number" class="form-control" name="supePratPerm" id="field_supePratPerm"
+                    ng-model="vm.obbligoInverdimento.supePratPerm"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.obbligoInverdimento.supeFora" for="field_supeFora">Supe Fora</label>
+            <input type="number" class="form-control" name="supeFora" id="field_supeFora"
+                    ng-model="vm.obbligoInverdimento.supeFora"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.obbligoInverdimento.decoEsonDive" for="field_decoEsonDive">Deco Eson Dive</label>
+            <input type="number" class="form-control" name="decoEsonDive" id="field_decoEsonDive"
+                    ng-model="vm.obbligoInverdimento.decoEsonDive"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.obbligoInverdimento.decoEsonEfa" for="field_decoEsonEfa">Deco Eson Efa</label>
+            <input type="number" class="form-control" name="decoEsonEfa" id="field_decoEsonEfa"
+                    ng-model="vm.obbligoInverdimento.decoEsonEfa"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.obbligoInverdimento.flagRispColt" for="field_flagRispColt">Flag Risp Colt</label>
+            <input type="number" class="form-control" name="flagRispColt" id="field_flagRispColt"
+                    ng-model="vm.obbligoInverdimento.flagRispColt"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.obbligoInverdimento.flagRispColtRima" for="field_flagRispColtRima">Flag Risp Colt Rima</label>
+            <input type="number" class="form-control" name="flagRispColtRima" id="field_flagRispColtRima"
+                    ng-model="vm.obbligoInverdimento.flagRispColtRima"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.obbligoInverdimento.flagRisp75P" for="field_flagRisp75P">Flag Risp 75 P</label>
+            <input type="number" class="form-control" name="flagRisp75P" id="field_flagRisp75P"
+                    ng-model="vm.obbligoInverdimento.flagRisp75P"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.obbligoInverdimento.flagRisp95P" for="field_flagRisp95P">Flag Risp 95 P</label>
+            <input type="number" class="form-control" name="flagRisp95P" id="field_flagRisp95P"
+                    ng-model="vm.obbligoInverdimento.flagRisp95P"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.obbligoInverdimento.flagRispEfa" for="field_flagRispEfa">Flag Risp Efa</label>
+            <input type="number" class="form-control" name="flagRispEfa" id="field_flagRispEfa"
+                    ng-model="vm.obbligoInverdimento.flagRispEfa"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="istruttoriaApp.obbligoInverdimento.superficiInverdimento" for="field_superficiInverdimento">Superfici Inverdimento</label>
+            <select class="form-control" id="field_superficiInverdimento" name="superficiInverdimento" ng-model="vm.obbligoInverdimento.superficiInverdimento" ng-options="superficieInverdimento as superficieInverdimento.id for superficieInverdimento in vm.superficiinverdimentos | orderBy:'id' track by superficieInverdimento.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

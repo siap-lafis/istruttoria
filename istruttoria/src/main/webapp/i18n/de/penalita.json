@@ -1,0 +1,26 @@
+{
+    "istruttoriaApp": {
+        "penalita" : {
+            "home": {
+                "title": "Penalitas",
+                "createLabel": "Penalita erstellen",
+                "createOrEditLabel": "Penalita erstellen oder bearbeiten",
+                "search": "Suche nach Penalita"
+            },
+            "created": "Penalita erstellt mit ID {{ param }}",
+            "updated": "Penalita aktualisiert mit ID {{ param }}",
+            "deleted": "Penalita gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Penalita {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Penalita"
+            },
+            "decoTipoPena": "Deco Tipo Pena",
+            "qntaPena": "Qnta Pena",
+            "impoPena": "Impo Pena",
+            "unitMisu": "Unit Misu",
+            "pagamento": "Pagamento"
+        }
+    }
+}

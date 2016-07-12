@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity ObbligoInverdimento.
+    -->
+    <changeSet id="20160711130706-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="superfici_inverdimento_id"
+                                 baseTableName="obbligo_inverdimento"
+                                 constraintName="fk_obb_sup_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="superficie_inverdimento"/>
+
+    </changeSet>
+</databaseChangeLog>

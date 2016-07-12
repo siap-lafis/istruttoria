@@ -1,0 +1,26 @@
+
+<div>
+    <h2><span translate="istruttoriaApp.elencoPagamento.detail.title">Elenco Pagamento</span> {{vm.elencoPagamento.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="istruttoriaApp.elencoPagamento.idDecr">Id Decr</span></dt>
+        <dd>
+            <span>{{vm.elencoPagamento.idDecr}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.elencoPagamento.dataDecr">Data Decr</span></dt>
+        <dd>
+            <span>{{vm.elencoPagamento.dataDecr}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.elencoPagamento.domanda">Domanda</span></dt>
+        <dd>
+            <a ui-sref="domanda-detail({id:vm.elencoPagamento.domanda.id})">{{vm.elencoPagamento.domanda.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

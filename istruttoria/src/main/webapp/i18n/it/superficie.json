@@ -1,0 +1,29 @@
+{
+    "istruttoriaApp": {
+        "superficie" : {
+            "home": {
+                "title": "Superfici",
+                "createLabel": "Crea una nuova Superficie",
+                "createOrEditLabel": "Crea o modifica una Superficie",
+                "search": "Ricerca per Superficie"
+            },
+            "created": "Una nuova Superficie è stata creata con identificativo {{ param }}",
+            "updated": "Una Superficie è stata aggiornata con identificativo {{ param }}",
+            "deleted": "Una Superficie è stata cancellata con identificativo {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di voler cancellare la Superficie {{ id }}?"
+            },
+            "detail": {
+                "title": "Superficie"
+            },
+            "codNazionale": "Cod Nazionale",
+            "foglio": "Foglio",
+            "codIntervento": "Cod Intervento",
+            "codColtura": "Cod Coltura",
+            "supeDich": "Supe Dich",
+            "supeAmmi": "Supe Ammi",
+            "supeAmmiNetta": "Supe Ammi Netta",
+            "domanda": "Domanda"
+        }
+    }
+}

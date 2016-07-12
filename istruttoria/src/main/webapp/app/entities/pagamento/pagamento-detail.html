@@ -1,0 +1,90 @@
+
+<div>
+    <h2><span translate="istruttoriaApp.pagamento.detail.title">Pagamento</span> {{vm.pagamento.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="istruttoriaApp.pagamento.codIntervento">Cod Intervento</span></dt>
+        <dd>
+            <span>{{vm.pagamento.codIntervento}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.qntaDich">Qnta Dich</span></dt>
+        <dd>
+            <span>{{vm.pagamento.qntaDich}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.qntaAmme">Qnta Amme</span></dt>
+        <dd>
+            <span>{{vm.pagamento.qntaAmme}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.qntaLiqu">Qnta Liqu</span></dt>
+        <dd>
+            <span>{{vm.pagamento.qntaLiqu}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.impoDich">Impo Dich</span></dt>
+        <dd>
+            <span>{{vm.pagamento.impoDich}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.impoAmme">Impo Amme</span></dt>
+        <dd>
+            <span>{{vm.pagamento.impoAmme}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.impoLiqu">Impo Liqu</span></dt>
+        <dd>
+            <span>{{vm.pagamento.impoLiqu}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.statLiqu">Stat Liqu</span></dt>
+        <dd>
+            <span>{{vm.pagamento.statLiqu}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.unitMisu">Unit Misu</span></dt>
+        <dd>
+            <span>{{vm.pagamento.unitMisu}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.codiNumeCapiSpes">Codi Nume Capi Spes</span></dt>
+        <dd>
+            <span>{{vm.pagamento.codiNumeCapiSpes}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.dataElab">Data Elab</span></dt>
+        <dd>
+            <span>{{vm.pagamento.dataElab}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.codiEsiGcol">Codi Esi Gcol</span></dt>
+        <dd>
+            <span>{{vm.pagamento.codiEsiGcol}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.percSanzGcol">Perc Sanz Gcol</span></dt>
+        <dd>
+            <span>{{vm.pagamento.percSanzGcol}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.percSanzAzie">Perc Sanz Azie</span></dt>
+        <dd>
+            <span>{{vm.pagamento.percSanzAzie}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.valoMediTito">Valo Medi Tito</span></dt>
+        <dd>
+            <span>{{vm.pagamento.valoMediTito}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.impoTratModu">Impo Trat Modu</span></dt>
+        <dd>
+            <span>{{vm.pagamento.impoTratModu}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.fascModu">Fasc Modu</span></dt>
+        <dd>
+            <span>{{vm.pagamento.fascModu}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.impoTratFina">Impo Trat Fina</span></dt>
+        <dd>
+            <span>{{vm.pagamento.impoTratFina}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.pagamento.elencoPagamento">Elenco Pagamento</span></dt>
+        <dd>
+            <a ui-sref="elenco-pagamento-detail({id:vm.pagamento.elencoPagamento.id})">{{vm.pagamento.elencoPagamento.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

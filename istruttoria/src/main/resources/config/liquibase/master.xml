@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130704_added_entity_Soggetto.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130703_added_entity_Domanda.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130705_added_entity_Superficie.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130707_added_entity_SuperficieInverdimento.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130709_added_entity_ElencoPagamento.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130706_added_entity_ObbligoInverdimento.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130708_added_entity_Pagamento.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130710_added_entity_Penalita.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130711_added_entity_SuperficiePagata.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130712_added_entity_CapoPagato.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="classpath:config/liquibase/changelog/20160711130703_added_entity_constraints_Domanda.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130705_added_entity_constraints_Superficie.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130707_added_entity_constraints_SuperficieInverdimento.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130709_added_entity_constraints_ElencoPagamento.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130706_added_entity_constraints_ObbligoInverdimento.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130708_added_entity_constraints_Pagamento.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130710_added_entity_constraints_Penalita.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130711_added_entity_constraints_SuperficiePagata.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160711130712_added_entity_constraints_CapoPagato.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

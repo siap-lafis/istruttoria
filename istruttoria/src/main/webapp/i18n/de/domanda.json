@@ -1,0 +1,29 @@
+{
+    "istruttoriaApp": {
+        "domanda" : {
+            "home": {
+                "title": "Domandas",
+                "createLabel": "Domanda erstellen",
+                "createOrEditLabel": "Domanda erstellen oder bearbeiten",
+                "search": "Suche nach Domanda"
+            },
+            "created": "Domanda erstellt mit ID {{ param }}",
+            "updated": "Domanda aktualisiert mit ID {{ param }}",
+            "deleted": "Domanda gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Domanda {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Domanda"
+            },
+            "idDomanda": "Id Domanda",
+            "dataPres": "Data Pres",
+            "dataInse": "Data Inse",
+            "codSettore": "Cod Settore",
+            "anno": "Anno",
+            "soggetto": "Soggetto",
+            "superfici": "Land parcels",
+            "pagamenti": "Payments"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "istruttoriaApp": {
+        "domanda" : {
+            "home": {
+                "title": "Domande",
+                "createLabel": "Crea una nuova Domanda",
+                "createOrEditLabel": "Crea o modifica una Domanda",
+                "search": "Ricerca per Domanda"
+            },
+            "created": "Una nuova Domanda è stata creata con identificativo {{ param }}",
+            "updated": "Una Domanda è stata aggiornata con identificativo {{ param }}",
+            "deleted": "Una Domanda è stata cancellata con identificativo {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di voler cancellare Domanda {{ id }}?"
+            },
+            "detail": {
+                "title": "Domanda"
+            },
+            "idDomanda": "Id Domanda",
+            "dataPres": "Data Presentazione",
+            "dataInse": "Data Inserimento",
+            "codSettore": "Cod Settore",
+            "anno": "Anno",
+            "soggetto": "Soggetto",
+            "superfici": "Superfici",
+            "pagamenti": "Pagamenti"
+        }
+    }
+}

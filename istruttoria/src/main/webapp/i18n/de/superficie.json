@@ -1,0 +1,29 @@
+{
+    "istruttoriaApp": {
+        "superficie" : {
+            "home": {
+                "title": "Superficies",
+                "createLabel": "Superficie erstellen",
+                "createOrEditLabel": "Superficie erstellen oder bearbeiten",
+                "search": "Suche nach Superficie"
+            },
+            "created": "Superficie erstellt mit ID {{ param }}",
+            "updated": "Superficie aktualisiert mit ID {{ param }}",
+            "deleted": "Superficie gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Superficie {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Superficie"
+            },
+            "codNazionale": "Cod Nazionale",
+            "foglio": "Foglio",
+            "codIntervento": "Cod Intervento",
+            "codColtura": "Cod Coltura",
+            "supeDich": "Supe Dich",
+            "supeAmmi": "Supe Ammi",
+            "supeAmmiNetta": "Supe Ammi Netta",
+            "domanda": "Domanda"
+        }
+    }
+}

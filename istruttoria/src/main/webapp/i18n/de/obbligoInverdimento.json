@@ -1,0 +1,32 @@
+{
+    "istruttoriaApp": {
+        "obbligoInverdimento" : {
+            "home": {
+                "title": "Obbligo Inverdimentos",
+                "createLabel": "Obbligo Inverdimento erstellen",
+                "createOrEditLabel": "Obbligo Inverdimento erstellen oder bearbeiten",
+                "search": "Suche nach Obbligo Inverdimento"
+            },
+            "created": "Obbligo Inverdimento erstellt mit ID {{ param }}",
+            "updated": "Obbligo Inverdimento aktualisiert mit ID {{ param }}",
+            "deleted": "Obbligo Inverdimento gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Obbligo Inverdimento {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Obbligo Inverdimento"
+            },
+            "supeSemi": "Supe Semi",
+            "supePratPerm": "Supe Prat Perm",
+            "supeFora": "Supe Fora",
+            "decoEsonDive": "Deco Eson Dive",
+            "decoEsonEfa": "Deco Eson Efa",
+            "flagRispColt": "Flag Risp Colt",
+            "flagRispColtRima": "Flag Risp Colt Rima",
+            "flagRisp75P": "Flag Risp 75 P",
+            "flagRisp95P": "Flag Risp 95 P",
+            "flagRispEfa": "Flag Risp Efa",
+            "superficiInverdimento": "Superfici Inverdimento"
+        }
+    }
+}

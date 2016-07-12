@@ -1,0 +1,99 @@
+<div>
+    <h2 translate="istruttoriaApp.pagamento.home.title">Pagamentos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="pagamento.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  translate="istruttoriaApp.pagamento.home.createLabel">
+                        Create new Pagamento
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'istruttoriaApp.pagamento.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="istruttoriaApp.pagamento.codIntervento">Cod Intervento</span></th>
+                    <th><span translate="istruttoriaApp.pagamento.qntaDich">Qnta Dich</span></th>
+                    <th><span translate="istruttoriaApp.pagamento.qntaAmme">Qnta Amme</span></th>
+                    <th><span translate="istruttoriaApp.pagamento.qntaLiqu">Qnta Liqu</span></th>
+                    <th><span translate="istruttoriaApp.pagamento.impoDich">Impo Dich</span></th>
+                    <th><span translate="istruttoriaApp.pagamento.impoAmme">Impo Amme</span></th>
+                    <th><span translate="istruttoriaApp.pagamento.impoLiqu">Impo Liqu</span></th>
+                    <th><span translate="istruttoriaApp.pagamento.codiNumeCapiSpes">Codi Nume Capi Spes</span></th>
+                    <th><span translate="istruttoriaApp.pagamento.percSanzGcol">Perc Sanz Gcol</span></th>
+                    <th><span translate="istruttoriaApp.pagamento.percSanzAzie">Perc Sanz Azie</span></th>
+                    <th><span translate="istruttoriaApp.pagamento.valoMediTito">Valo Medi Tito</span></th>
+                    <th><span translate="istruttoriaApp.pagamento.impoTratFina">Impo Trat Fina</span></th>
+                    <th><span translate="istruttoriaApp.pagamento.elencoPagamento">Elenco Pagamento</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="pagamento in vm.pagamentos track by pagamento.id">
+                    <td><a ui-sref="pagamento-detail({id:pagamento.id})">{{pagamento.id}}</a></td>
+                    <td>{{pagamento.codIntervento}}</td>
+                    <td>{{pagamento.qntaDich}}</td>
+                    <td>{{pagamento.qntaAmme}}</td>
+                    <td>{{pagamento.qntaLiqu}}</td>
+                    <td>{{pagamento.impoDich}}</td>
+                    <td>{{pagamento.impoAmme}}</td>
+                    <td>{{pagamento.impoLiqu}}</td>
+                    <td>{{pagamento.codiNumeCapiSpes}}</td>
+                    <td>{{pagamento.percSanzGcol}}</td>
+                    <td>{{pagamento.percSanzAzie}}</td>
+                    <td>{{pagamento.valoMediTito}}</td>
+                    <td>{{pagamento.impoTratFina}}</td>
+                    <td>
+                        <a ui-sref="elenco-pagamento-detail({id:pagamento.elencoPagamento.id})">{{pagamento.elencoPagamento.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="pagamento-detail({id:pagamento.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="pagamento.edit({id:pagamento.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="pagamento.delete({id:pagamento.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

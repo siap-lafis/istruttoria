@@ -1,0 +1,26 @@
+{
+    "istruttoriaApp": {
+        "penalita" : {
+            "home": {
+                "title": "Penalitas",
+                "createLabel": "Create a new Penalita",
+                "createOrEditLabel": "Create or edit a Penalita",
+                "search": "Search for Penalita"
+            },
+            "created": "A new Penalita is created with identifier {{ param }}",
+            "updated": "A Penalita is updated with identifier {{ param }}",
+            "deleted": "A Penalita is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Penalita {{ id }}?"
+            },
+            "detail": {
+                "title": "Penalita"
+            },
+            "decoTipoPena": "Deco Tipo Pena",
+            "qntaPena": "Qnta Pena",
+            "impoPena": "Impo Pena",
+            "unitMisu": "Unit Misu",
+            "pagamento": "Pagamento"
+        }
+    }
+}

@@ -1,0 +1,70 @@
+
+<div>
+    <h2><span translate="istruttoriaApp.capoPagato.detail.title">Capo Pagato</span> {{vm.capoPagato.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="istruttoriaApp.capoPagato.marcaCapo">Marca Capo</span></dt>
+        <dd>
+            <span>{{vm.capoPagato.marcaCapo}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.capoPagato.ammissibile">Ammissibile</span></dt>
+        <dd>
+            <span>{{vm.capoPagato.ammissibile}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.capoPagato.numUba">Num Uba</span></dt>
+        <dd>
+            <span>{{vm.capoPagato.numUba}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.capoPagato.mancanzaAnalisiLatte">Mancanza Analisi Latte</span></dt>
+        <dd>
+            <span>{{vm.capoPagato.mancanzaAnalisiLatte}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.capoPagato.medieLatteSoma">Medie Latte Soma</span></dt>
+        <dd>
+            <span>{{vm.capoPagato.medieLatteSoma}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.capoPagato.medieLatteGerm">Medie Latte Germ</span></dt>
+        <dd>
+            <span>{{vm.capoPagato.medieLatteGerm}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.capoPagato.medieLatteProt">Medie Latte Prot</span></dt>
+        <dd>
+            <span>{{vm.capoPagato.medieLatteProt}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.capoPagato.codAsl">Cod Asl</span></dt>
+        <dd>
+            <span>{{vm.capoPagato.codAsl}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.capoPagato.flagSess">Flag Sess</span></dt>
+        <dd>
+            <span>{{vm.capoPagato.flagSess}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.capoPagato.dataNasc">Data Nasc</span></dt>
+        <dd>
+            <span>{{vm.capoPagato.dataNasc}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.capoPagato.codiRazz">Codi Razz</span></dt>
+        <dd>
+            <span>{{vm.capoPagato.codiRazz}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.capoPagato.dataInizDete">Data Iniz Dete</span></dt>
+        <dd>
+            <span>{{vm.capoPagato.dataInizDete}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.capoPagato.dataFineDete">Data Fine Dete</span></dt>
+        <dd>
+            <span>{{vm.capoPagato.dataFineDete}}</span>
+        </dd>
+        <dt><span translate="istruttoriaApp.capoPagato.pagamento">Pagamento</span></dt>
+        <dd>
+            <a ui-sref="pagamento-detail({id:vm.capoPagato.pagamento.id})">{{vm.capoPagato.pagamento.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

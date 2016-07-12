@@ -1,0 +1,95 @@
+<div>
+    <h2 translate="istruttoriaApp.obbligoInverdimento.home.title">Obbligo Inverdimentos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="obbligo-inverdimento.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  translate="istruttoriaApp.obbligoInverdimento.home.createLabel">
+                        Create new Obbligo Inverdimento
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'istruttoriaApp.obbligoInverdimento.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="istruttoriaApp.obbligoInverdimento.supeSemi">Supe Semi</span></th>
+                    <th><span translate="istruttoriaApp.obbligoInverdimento.supePratPerm">Supe Prat Perm</span></th>
+                    <th><span translate="istruttoriaApp.obbligoInverdimento.supeFora">Supe Fora</span></th>
+                    <th><span translate="istruttoriaApp.obbligoInverdimento.decoEsonDive">Deco Eson Dive</span></th>
+                    <th><span translate="istruttoriaApp.obbligoInverdimento.decoEsonEfa">Deco Eson Efa</span></th>
+                    <th><span translate="istruttoriaApp.obbligoInverdimento.flagRispColt">Flag Risp Colt</span></th>
+                    <th><span translate="istruttoriaApp.obbligoInverdimento.flagRispColtRima">Flag Risp Colt Rima</span></th>
+                    <th><span translate="istruttoriaApp.obbligoInverdimento.flagRisp75P">Flag Risp 75 P</span></th>
+                    <th><span translate="istruttoriaApp.obbligoInverdimento.flagRisp95P">Flag Risp 95 P</span></th>
+                    <th><span translate="istruttoriaApp.obbligoInverdimento.flagRispEfa">Flag Risp Efa</span></th>
+                    <th><span translate="istruttoriaApp.obbligoInverdimento.superficiInverdimento">Superfici Inverdimento</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="obbligoInverdimento in vm.obbligoInverdimentos track by obbligoInverdimento.id">
+                    <td><a ui-sref="obbligo-inverdimento-detail({id:obbligoInverdimento.id})">{{obbligoInverdimento.id}}</a></td>
+                    <td>{{obbligoInverdimento.supeSemi}}</td>
+                    <td>{{obbligoInverdimento.supePratPerm}}</td>
+                    <td>{{obbligoInverdimento.supeFora}}</td>
+                    <td>{{obbligoInverdimento.decoEsonDive}}</td>
+                    <td>{{obbligoInverdimento.decoEsonEfa}}</td>
+                    <td>{{obbligoInverdimento.flagRispColt}}</td>
+                    <td>{{obbligoInverdimento.flagRispColtRima}}</td>
+                    <td>{{obbligoInverdimento.flagRisp75P}}</td>
+                    <td>{{obbligoInverdimento.flagRisp95P}}</td>
+                    <td>{{obbligoInverdimento.flagRispEfa}}</td>
+                    <td>
+                        <a ui-sref="superficie-inverdimento-detail({id:obbligoInverdimento.superficiInverdimento.id})">{{obbligoInverdimento.superficiInverdimento.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="obbligo-inverdimento-detail({id:obbligoInverdimento.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="obbligo-inverdimento.edit({id:obbligoInverdimento.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="obbligo-inverdimento.delete({id:obbligoInverdimento.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

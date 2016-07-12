@@ -1,0 +1,110 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCapoPagatoLabel" translate="istruttoriaApp.capoPagato.home.createOrEditLabel">Create or edit a Capo Pagato</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.capoPagato.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.capoPagato.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.capoPagato.marcaCapo" for="field_marcaCapo">Marca Capo</label>
+            <input type="text" class="form-control" name="marcaCapo" id="field_marcaCapo"
+                    ng-model="vm.capoPagato.marcaCapo"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.capoPagato.ammissibile" for="field_ammissibile">Ammissibile</label>
+            <input type="text" class="form-control" name="ammissibile" id="field_ammissibile"
+                    ng-model="vm.capoPagato.ammissibile"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.capoPagato.numUba" for="field_numUba">Num Uba</label>
+            <input type="number" class="form-control" name="numUba" id="field_numUba"
+                    ng-model="vm.capoPagato.numUba"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.capoPagato.mancanzaAnalisiLatte" for="field_mancanzaAnalisiLatte">Mancanza Analisi Latte</label>
+            <input type="text" class="form-control" name="mancanzaAnalisiLatte" id="field_mancanzaAnalisiLatte"
+                    ng-model="vm.capoPagato.mancanzaAnalisiLatte"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.capoPagato.medieLatteSoma" for="field_medieLatteSoma">Medie Latte Soma</label>
+            <input type="number" class="form-control" name="medieLatteSoma" id="field_medieLatteSoma"
+                    ng-model="vm.capoPagato.medieLatteSoma"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.capoPagato.medieLatteGerm" for="field_medieLatteGerm">Medie Latte Germ</label>
+            <input type="number" class="form-control" name="medieLatteGerm" id="field_medieLatteGerm"
+                    ng-model="vm.capoPagato.medieLatteGerm"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.capoPagato.medieLatteProt" for="field_medieLatteProt">Medie Latte Prot</label>
+            <input type="number" class="form-control" name="medieLatteProt" id="field_medieLatteProt"
+                    ng-model="vm.capoPagato.medieLatteProt"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.capoPagato.codAsl" for="field_codAsl">Cod Asl</label>
+            <input type="text" class="form-control" name="codAsl" id="field_codAsl"
+                    ng-model="vm.capoPagato.codAsl"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.capoPagato.flagSess" for="field_flagSess">Flag Sess</label>
+            <input type="text" class="form-control" name="flagSess" id="field_flagSess"
+                    ng-model="vm.capoPagato.flagSess"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.capoPagato.dataNasc" for="field_dataNasc">Data Nasc</label>
+            <input type="text" class="form-control" name="dataNasc" id="field_dataNasc"
+                    ng-model="vm.capoPagato.dataNasc"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.capoPagato.codiRazz" for="field_codiRazz">Codi Razz</label>
+            <input type="text" class="form-control" name="codiRazz" id="field_codiRazz"
+                    ng-model="vm.capoPagato.codiRazz"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.capoPagato.dataInizDete" for="field_dataInizDete">Data Iniz Dete</label>
+            <input type="text" class="form-control" name="dataInizDete" id="field_dataInizDete"
+                    ng-model="vm.capoPagato.dataInizDete"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.capoPagato.dataFineDete" for="field_dataFineDete">Data Fine Dete</label>
+            <input type="text" class="form-control" name="dataFineDete" id="field_dataFineDete"
+                    ng-model="vm.capoPagato.dataFineDete"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="istruttoriaApp.capoPagato.pagamento" for="field_pagamento">Pagamento</label>
+            <select class="form-control" id="field_pagamento" name="pagamento" ng-model="vm.capoPagato.pagamento" ng-options="pagamento as pagamento.id for pagamento in vm.pagamentos | orderBy:'id' track by pagamento.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
