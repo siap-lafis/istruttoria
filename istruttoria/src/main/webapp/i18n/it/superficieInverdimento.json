@@ -2,16 +2,16 @@
     "istruttoriaApp": {
         "superficieInverdimento" : {
             "home": {
-                "title": "SuperficieInverdimentos",
-                "createLabel": "Create a new Superficie Inverdimento",
-                "createOrEditLabel": "Create or edit a Superficie Inverdimento",
-                "search": "Search for Superficie Inverdimento"
+                "title": "Superfici Inverdimento",
+                "createLabel": "Crea una nuova Superficie Inverdimento",
+                "createOrEditLabel": "Crea o aggiorna una Superficie Inverdimento",
+                "search": "Ricerca per Superficie Inverdimento"
             },
-            "created": "A new Superficie Inverdimento is created with identifier {{ param }}",
-            "updated": "A Superficie Inverdimento is updated with identifier {{ param }}",
-            "deleted": "A Superficie Inverdimento is deleted with identifier {{ param }}",
+            "created": "Una nuova Superficie Inverdimento è stata creata con identificativo {{ param }}",
+            "updated": "Una Superficie Inverdimento è stata aggiornata con identificativo {{ param }}",
+            "deleted": "Una Superficie Inverdimento è stata cancellata con identificativo {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Superficie Inverdimento {{ id }}?"
+                "question": "Sei sicuro di voler cancellare la  Superficie Inverdimento {{ id }}?"
             },
             "detail": {
                 "title": "Superficie Inverdimento"

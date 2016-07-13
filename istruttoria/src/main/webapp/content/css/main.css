@@ -101,7 +101,7 @@ Main page styles
     display: inline-block;
     width: 347px;
     height: 497px;
-    background: url("../images/hipster.png") no-repeat center top;
+    background: url("../images/mylogo.png") no-repeat center top;
     background-size: contain;
 }
 
@@ -332,3 +332,22 @@ ui bootstrap tweaks
 
 
 /* jhipster-needle-css-add-main JHipster will add new css style */
+
+/* preheader */
+.preheader { background-color:#eef4f8; border-bottom:1px solid white; border-top:1px solid white; color:#403b10; } /*dfe9f0*/
+.preheader_logo { margin-left:250px; padding:3px 20px 0px 0 ; text-align:center; }
+.preheader_logo img { float:right; }
+.preheader_link { margin:0 0px 0 190px; padding-left:10px; background-image:url(../immagini/header_sfumino.gif); background-position:left top; background-repeat:repeat-y; height:auto !important; height:66px; min-height:66px; }
+
+/* header */
+.header { position:relative; border-bottom:1px solid white; height:auto !important; min-height:89px; height:89px; background-repeat:no-repeat; background-position:top; background-color:#A4C3D7; }/* dinamicobackground-repeat:repeat-x; width:100%; */
+.header img { display:block; }
+
+/* footer */
+.footer { 
+	text-align:center;     
+	background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+	color:#403b10
+}

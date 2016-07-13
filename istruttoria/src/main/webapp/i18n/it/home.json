@@ -1,7 +1,7 @@
 {
     "home": {
-        "title": "Benvenuto, Java Hipster!",
-        "subtitle": "Questa è la tua home page",
+        "title": "Istruttoria Domanda Unica 2015",
+        "subtitle": "Consultazione procedimento amministrativo",
         "logged": {
             "message": "Autenticato come \"{{username}}\"."
         },

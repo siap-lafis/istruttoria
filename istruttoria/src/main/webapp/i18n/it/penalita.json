@@ -2,24 +2,24 @@
     "istruttoriaApp": {
         "penalita" : {
             "home": {
-                "title": "Penalitas",
-                "createLabel": "Create a new Penalita",
-                "createOrEditLabel": "Create or edit a Penalita",
-                "search": "Search for Penalita"
+                "title": "Penalità",
+                "createLabel": "Crea una nuova Penalità",
+                "createOrEditLabel": "Crea o modifica una Penalità",
+                "search": "Ricerca per Penalità"
             },
-            "created": "A new Penalita is created with identifier {{ param }}",
-            "updated": "A Penalita is updated with identifier {{ param }}",
-            "deleted": "A Penalita is deleted with identifier {{ param }}",
+            "created": "Una nuova Penalità è stata creata con identificativo {{ param }}",
+            "updated": "Una Penalità è stata aggiornata con identificativo {{ param }}",
+            "deleted": "Una Penalità è stata cancellata con identificativo {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Penalita {{ id }}?"
+                "question": "Sei sicuro di voler cancellare la Penalità {{ id }}?"
             },
             "detail": {
                 "title": "Penalita"
             },
-            "decoTipoPena": "Deco Tipo Pena",
-            "qntaPena": "Qnta Pena",
-            "impoPena": "Impo Pena",
-            "unitMisu": "Unit Misu",
+            "decoTipoPena": "Tipo Penalità",
+            "qntaPena": "Qnta Penalità",
+            "impoPena": "Importo",
+            "unitMisu": "Un. Misura",
             "pagamento": "Pagamento"
         }
     }

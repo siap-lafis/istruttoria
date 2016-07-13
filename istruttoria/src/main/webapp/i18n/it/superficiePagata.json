@@ -2,28 +2,28 @@
     "istruttoriaApp": {
         "superficiePagata" : {
             "home": {
-                "title": "SuperficiePagatas",
-                "createLabel": "Create a new Superficie Pagata",
-                "createOrEditLabel": "Create or edit a Superficie Pagata",
-                "search": "Search for Superficie Pagata"
+                "title": "Superfici Pagate",
+                "createLabel": ""Crea una nuova Superficie Pagata",
+                "createOrEditLabel": "Crea o modifica una Superficie Pagata",
+                "search": "Ricerca per Superficie Pagata"
             },
-            "created": "A new Superficie Pagata is created with identifier {{ param }}",
-            "updated": "A Superficie Pagata is updated with identifier {{ param }}",
-            "deleted": "A Superficie Pagata is deleted with identifier {{ param }}",
+            "created": "Una nuova Superficie Pagata è stata creata con identificativo {{ param }}",
+            "updated": "Una Superficie Pagata è stata aggiornata con identificativo {{ param }}",
+            "deleted": "Una Superficie Pagata è stata cancellata con identificativo {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Superficie Pagata {{ id }}?"
+                "question": "Sei sicuro di voler cancellare la Superficie Pagata {{ id }}?"
             },
             "detail": {
                 "title": "Superficie Pagata"
             },
-            "supeDich": "Supe Dich",
-            "supeAmmi": "Supe Ammi",
-            "supeRefr": "Supe Refr",
-            "supeDete": "Supe Dete",
-            "supeNsan": "Supe Nsan",
-            "supeAcce": "Supe Acce",
-            "numTitoDich": "Num Tito Dich",
-            "numTitoDete": "Num Tito Dete",
+            "supeDich": "Sup. Dichiarata",
+            "supeAmmi": "Sup. Ammissibile",
+            "supeRefr": "Sup. Refresh",
+            "supeDete": "Sup. Detenuta",
+            "supeNsan": "Sup. Nsan",
+            "supeAcce": "Sup. Accertata",
+            "numTitoDich": "N. Titoli Dichiarati",
+            "numTitoDete": "N. Titoli Detenuti",
             "pagamento": "Pagamento"
         }
     }
