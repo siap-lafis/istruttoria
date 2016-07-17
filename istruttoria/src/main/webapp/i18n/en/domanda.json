@@ -14,7 +14,8 @@
                 "question": "Are you sure you want to delete Domanda {{ id }}?"
             },
             "detail": {
-                "title": "Domanda"
+                "title": "Domanda",
+                "scheda": "Scheda controlli"
             },
             "idDomanda": "Id Domanda",
             "dataPres": "Data Pres",

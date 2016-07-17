@@ -243,6 +243,13 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- jhipster-needle-maven-add-dependency -->
+        <!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>5.0.1</version>
+        </dependency>
         <dependency>
             <groupId>oracle</groupId>
             <artifactId>ojdbc</artifactId>
@@ -369,7 +376,6 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-data</artifactId>
         </dependency>
-        <!-- jhipster-needle-maven-add-dependency -->
     </dependencies>
 
     <repositories>

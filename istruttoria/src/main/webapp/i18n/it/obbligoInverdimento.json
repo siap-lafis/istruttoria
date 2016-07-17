@@ -2,7 +2,7 @@
     "istruttoriaApp": {
         "obbligoInverdimento" : {
             "home": {
-                "title": "Obblighi Inverdimentos",
+                "title": "Obblighi Inverdimento",
                 "createLabel": "Crea un nuovo Obbligo Inverdimento",
                 "createOrEditLabel": "Crea o modifica un  Obbligo Inverdimento",
                 "search": "Ricerca per Obbligo Inverdimento"

@@ -5,13 +5,14 @@
         .module('istruttoriaApp')
         .controller('SoggettoController', SoggettoController);
 
-    SoggettoController.$inject = ['$scope', '$state', 'Soggetto', 'SoggettoSearch'];
+    SoggettoController.$inject = ['$scope', '$state', '$window', 'Soggetto', 'SoggettoSearch', 'SoggettoReport'];
 
-    function SoggettoController ($scope, $state, Soggetto, SoggettoSearch) {
+    function SoggettoController ($scope, $state, $window, Soggetto, SoggettoSearch, SoggettoReport) {
         var vm = this;
         
         vm.soggettos = [];
         vm.search = search;
+        vm.report = report;
         vm.loadAll = loadAll;
 
         loadAll();
@@ -29,5 +30,14 @@
             SoggettoSearch.query({query: vm.searchQuery}, function(result) {
                 vm.soggettos = result;
             });
-        }    }
+        }    
+        
+        function report () {
+        	SoggettoReport.generate({}, function(result) {
+        	    // la redirect non viene eseguita
+        	    $window.location.href = '/content/reports/report.pdf';
+        	});
+        }    
+        
+    }
 })();

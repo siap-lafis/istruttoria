@@ -14,7 +14,8 @@
                 "question": "Soll Domanda {{ id }} wirklich dauerhaft gelöscht werden?"
             },
             "detail": {
-                "title": "Domanda"
+                "title": "Domanda",
+                "scheda": "Scheda controlli"
             },
             "idDomanda": "Id Domanda",
             "dataPres": "Data Pres",

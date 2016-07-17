@@ -14,7 +14,8 @@
                 "question": "Sei sicuro di voler cancellare Domanda {{ id }}?"
             },
             "detail": {
-                "title": "Domanda"
+                "title": "Domanda",
+                "scheda": "Scheda controlli"
             },
             "idDomanda": "Id Domanda",
             "dataPres": "Data Presentazione",
