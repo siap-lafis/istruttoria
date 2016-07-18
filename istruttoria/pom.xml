@@ -664,7 +664,7 @@
                     Enable the line below to have remote debugging of your application on port 5005
                     <jvmArguments>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</jvmArguments>
                     -->
-                </configuration>
+                    </configuration>
             </plugin>
             <!-- jhipster-needle-maven-add-plugin -->
         </plugins>
@@ -704,7 +704,7 @@
                 <!-- log configuration -->
                 <logback.loglevel>DEBUG</logback.loglevel>
                 <!-- default Spring profiles -->
-                <spring.profiles.active>dev${profile.no-liquibase}${profile.no-swagger}</spring.profiles.active>
+                <spring.profiles.active>dev,no-liquibase,no-swagger</spring.profiles.active>
             </properties>
             <dependencies>
                 <dependency>
