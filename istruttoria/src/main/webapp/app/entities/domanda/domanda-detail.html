@@ -43,9 +43,10 @@
             class="btn btn-info">
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
     </button>
-    <button type="submit"
-            onclick="window.open('http://127.0.0.1;8080/content/images/checklist-controlli-du.pdf', '_blank', 'fullscreen=yes'); return false;"
-            class="btn btn-info">
-        <span class="glyphicon glyphicon-file"></span>&nbsp;<span translate="istruttoriaApp.domanda.detail.scheda">Scheda controlli</span>
-    </button>
+           
+	 <button type="submit" class="btn btn-info"  ng-click="vm.chkLst()">
+		 <span class="glyphicon glyphicon-file"></span>&nbsp;<span translate="istruttoriaApp.domanda.detail.scheda">Scheda controlli</span>
+	 </button>
+    
+	
 </div>
