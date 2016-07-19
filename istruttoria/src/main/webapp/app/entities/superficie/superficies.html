@@ -34,16 +34,16 @@
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
-                <tr>
-                    <th><span translate="global.field.id">ID</span></th>
-                    <th><span translate="istruttoriaApp.superficie.codNazionale">Cod Nazionale</span></th>
-                    <th><span translate="istruttoriaApp.superficie.foglio">Foglio</span></th>
-                    <th><span translate="istruttoriaApp.superficie.codIntervento">Cod Intervento</span></th>
-                    <th><span translate="istruttoriaApp.superficie.codColtura">Cod Coltura</span></th>
-                    <th><span translate="istruttoriaApp.superficie.supeDich">Supe Dich</span></th>
-                    <th><span translate="istruttoriaApp.superficie.supeAmmi">Supe Ammi</span></th>
-                    <th><span translate="istruttoriaApp.superficie.supeAmmiNetta">Supe Ammi Netta</span></th>
-                    <th><span translate="istruttoriaApp.superficie.domanda">Domanda</span></th>
+                  <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="codNazionale"><span translate="istruttoriaApp.superficie.codNazionale">Cod Nazionale</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="foglio"><span translate="istruttoriaApp.superficie.foglio">Foglio</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="codIntervento"><span translate="istruttoriaApp.superficie.codIntervento">Cod Intervento</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="codColtura"><span translate="istruttoriaApp.superficie.codColtura">Cod Coltura</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supeDich"><span translate="istruttoriaApp.superficie.supeDich">Supe Dich</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supeAmmi"><span translate="istruttoriaApp.superficie.supeAmmi">Supe Ammi</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supeAmmiNetta"><span translate="istruttoriaApp.superficie.supeAmmiNetta">Supe Ammi Netta</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="domanda.id"><span translate="istruttoriaApp.superficie.domanda">Domanda</span><span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -85,5 +85,9 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
     </div>
 </div>
