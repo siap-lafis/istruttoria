@@ -15,6 +15,7 @@
     <include file="classpath:config/liquibase/changelog/20160711130710_added_entity_Penalita.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160711130711_added_entity_SuperficiePagata.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160711130712_added_entity_CapoPagato.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160720144334_added_entity_Aduxstce.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="classpath:config/liquibase/changelog/20160711130703_added_entity_constraints_Domanda.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160711130705_added_entity_constraints_Superficie.xml" relativeToChangelogFile="false"/>
