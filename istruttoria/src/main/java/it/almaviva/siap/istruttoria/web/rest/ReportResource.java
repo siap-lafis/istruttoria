@@ -15,12 +15,14 @@ import javax.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codahale.metrics.annotation.Timed;
 
+import it.almaviva.siap.istruttoria.domain.Domanda;
 import it.almaviva.siap.istruttoria.domain.Soggetto;
 import it.almaviva.siap.istruttoria.reports.CustomJRDataSource;
 import it.almaviva.siap.istruttoria.repository.SoggettoRepository;
@@ -75,14 +77,12 @@ public class ReportResource {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
         @Timed
-        public String generateReportCheckList() throws JRException, FileNotFoundException {
+        public _FileName generateReportCheckList() throws JRException, FileNotFoundException {
             log.debug("REST request to save Report");
             /****************************************************/
             String provvisoria ="provvisoria";
             
-//            String dir = "C:/WorkspaceAGEA/Istruttoria_GIT/Istruttoria/istruttoria/src/main/webapp/content/reports/";           
-//            File file = new File("C:/WorkspaceAGEA/Istruttoria_GIT/Istruttoria/istruttoria/src/main/webapp/content/reports/checkListIstruttoria.jasper");
-//    	    FileInputStream fileJasper = new FileInputStream(file);
+
     	    
     	    String dir = "/src/main/webapp/content/reports/";
     	    File file = new File("");     
@@ -186,9 +186,12 @@ public class ReportResource {
 //    				.initBy(soggettos);
 //    		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, new HashMap(),
 //    				dataSource);
-    		JasperExportManager.exportReportToPdfFile(jasperPrint, 
-    				"src/main/webapp/content/reports/reportChkLst.pdf");
-            return "OK";
+      		String fileName = "reportChkLst_"+System.currentTimeMillis();
+    		JasperExportManager.exportReportToPdfFile(jasperPrint,dir.substring(1)+fileName+".pdf");
+    		_FileName f = new _FileName();
+    		f.setName(fileName); 
+    		//fileName;
+    		return f;
         }
     
     private void preparaSezione(List l, List lista) {
@@ -199,18 +202,20 @@ public class ReportResource {
 		}
     }
     
-    public  static void main(String [] arg) throws Exception {
-    	// String dir = "C:/WorkspaceAGEA/Istruttoria_GIT/Istruttoria/istruttoria/src/main/webapp/content/reports/";
-         
-          String dir = "/src/main/webapp/content/reports/";
-//          File file = new File("C:/WorkspaceAGEA/Istruttoria_GIT/Istruttoria/istruttoria/src/main/webapp/content/reports/checkListIstruttoria.jasper");
-//  		  FileInputStream fis = new FileInputStream(file);
-  		
-          File file = new File("");     
-  		  FileInputStream fileStream = new FileInputStream(new File(file.getAbsolutePath()+dir+"checkListIstruttoria.jasper"));    
-  		       
-            
-          System.out.println(file.getAbsolutePath());
+    
+    
+    class _FileName {
+    	
+    	private String name;
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+    	
     }
 
 }

@@ -21,8 +21,9 @@
         function chkLst() {
         	DomandaDetailReport.generate({}, function(result) {
         		// la redirect non viene eseguita
-        		//$window.location.href = '/content/reports/reportChkLst.pdf';
-        		$window.open('/content/reports/reportChkLst.pdf', '_blank', 'fullscreen=yes'); 
+        		//$window.location.href = '/content/reports/reportChkLst.pdf';   
+        		var fileName = result.name;       		       	       		      		     	       		
+        		$window.open('/content/reports/'+fileName+'.pdf', '_blank', 'fullscreen=yes'); 
     	});
     }    
 }
