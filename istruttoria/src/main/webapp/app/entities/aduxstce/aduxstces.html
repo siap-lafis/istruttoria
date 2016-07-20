@@ -1,0 +1,201 @@
+<div>
+    <h2 translate="istruttoriaApp.aduxstce.home.title">Aduxstces</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="aduxstce.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  translate="istruttoriaApp.aduxstce.home.createLabel">
+                        Create new Aduxstce
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'istruttoriaApp.aduxstce.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.idAttoAmmi">Id Atto Ammi</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.idDecr">Id Decr</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.numeDecr">Nume Decr</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.idEnte">Id Ente</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.codiInte">Codi Inte</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.dataStor">Data Stor</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.f100">F 100</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c110">C 110</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c109">C 109</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.f200">F 200</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.f201">F 201</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.f202a">F 202 A</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.f202b">F 202 B</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.f202c">F 202 C</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.f207">F 207</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.f300">F 300</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c300a">C 300 A</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.f300b">F 300 B</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c551">C 551</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c552">C 552</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c553">C 553</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c554">C 554</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c558">C 558</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c559">C 559</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c560">C 560</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c561">C 561</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c600">C 600</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c611">C 611</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c621">C 621</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c633">C 633</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c634">C 634</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c640">C 640</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.unitMisu">Unit Misu</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.dataContOgge">Data Cont Ogge</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.qntaLiqu">Qnta Liqu</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.impoLiqu">Impo Liqu</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.riduRitaDepo">Ridu Rita Depo</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.riduModu">Ridu Modu</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.discFina">Disc Fina</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.sanzCond">Sanz Cond</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.statIstr">Stat Istr</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.liveAmmi">Live Ammi</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.userName">User Name</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.dataAggi">Data Aggi</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c640Qnta">C 640 Qnta</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.decoStat">Deco Stat</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.flagEsit">Flag Esit</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.dataScar">Data Scar</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c557">C 557</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c109a">C 109 A</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c400">C 400</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c401">C 401</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c402">C 402</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c403">C 403</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c404">C 404</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c405">C 405</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c406">C 406</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c407">C 407</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c558a">C 558 A</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c558b">C 558 B</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c558c">C 558 C</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c558d">C 558 D</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c558e">C 558 E</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c558f">C 558 F</span></th>
+                    <th><span translate="istruttoriaApp.aduxstce.c620">C 620</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="aduxstce in vm.aduxstces track by aduxstce.id">
+                    <td><a ui-sref="aduxstce-detail({id:aduxstce.id})">{{aduxstce.id}}</a></td>
+                    <td>{{aduxstce.idAttoAmmi}}</td>
+                    <td>{{aduxstce.idDecr}}</td>
+                    <td>{{aduxstce.numeDecr}}</td>
+                    <td>{{aduxstce.idEnte}}</td>
+                    <td>{{aduxstce.codiInte}}</td>
+                    <td>{{aduxstce.dataStor}}</td>
+                    <td>{{aduxstce.f100}}</td>
+                    <td>{{aduxstce.c110}}</td>
+                    <td>{{aduxstce.c109}}</td>
+                    <td>{{aduxstce.f200}}</td>
+                    <td>{{aduxstce.f201}}</td>
+                    <td>{{aduxstce.f202a}}</td>
+                    <td>{{aduxstce.f202b}}</td>
+                    <td>{{aduxstce.f202c}}</td>
+                    <td>{{aduxstce.f207}}</td>
+                    <td>{{aduxstce.f300}}</td>
+                    <td>{{aduxstce.c300a}}</td>
+                    <td>{{aduxstce.f300b}}</td>
+                    <td>{{aduxstce.c551}}</td>
+                    <td>{{aduxstce.c552}}</td>
+                    <td>{{aduxstce.c553}}</td>
+                    <td>{{aduxstce.c554}}</td>
+                    <td>{{aduxstce.c558}}</td>
+                    <td>{{aduxstce.c559}}</td>
+                    <td>{{aduxstce.c560}}</td>
+                    <td>{{aduxstce.c561}}</td>
+                    <td>{{aduxstce.c600}}</td>
+                    <td>{{aduxstce.c611}}</td>
+                    <td>{{aduxstce.c621}}</td>
+                    <td>{{aduxstce.c633}}</td>
+                    <td>{{aduxstce.c634}}</td>
+                    <td>{{aduxstce.c640}}</td>
+                    <td>{{aduxstce.unitMisu}}</td>
+                    <td>{{aduxstce.dataContOgge}}</td>
+                    <td>{{aduxstce.qntaLiqu}}</td>
+                    <td>{{aduxstce.impoLiqu}}</td>
+                    <td>{{aduxstce.riduRitaDepo}}</td>
+                    <td>{{aduxstce.riduModu}}</td>
+                    <td>{{aduxstce.discFina}}</td>
+                    <td>{{aduxstce.sanzCond}}</td>
+                    <td>{{aduxstce.statIstr}}</td>
+                    <td>{{aduxstce.liveAmmi}}</td>
+                    <td>{{aduxstce.userName}}</td>
+                    <td>{{aduxstce.dataAggi}}</td>
+                    <td>{{aduxstce.c640Qnta}}</td>
+                    <td>{{aduxstce.decoStat}}</td>
+                    <td>{{aduxstce.flagEsit}}</td>
+                    <td>{{aduxstce.dataScar}}</td>
+                    <td>{{aduxstce.c557}}</td>
+                    <td>{{aduxstce.c109a}}</td>
+                    <td>{{aduxstce.c400}}</td>
+                    <td>{{aduxstce.c401}}</td>
+                    <td>{{aduxstce.c402}}</td>
+                    <td>{{aduxstce.c403}}</td>
+                    <td>{{aduxstce.c404}}</td>
+                    <td>{{aduxstce.c405}}</td>
+                    <td>{{aduxstce.c406}}</td>
+                    <td>{{aduxstce.c407}}</td>
+                    <td>{{aduxstce.c558a}}</td>
+                    <td>{{aduxstce.c558b}}</td>
+                    <td>{{aduxstce.c558c}}</td>
+                    <td>{{aduxstce.c558d}}</td>
+                    <td>{{aduxstce.c558e}}</td>
+                    <td>{{aduxstce.c558f}}</td>
+                    <td>{{aduxstce.c620}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="aduxstce-detail({id:aduxstce.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="aduxstce.edit({id:aduxstce.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="aduxstce.delete({id:aduxstce.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

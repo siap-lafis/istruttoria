@@ -1,0 +1,416 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myAduxstceLabel" translate="istruttoriaApp.aduxstce.home.createOrEditLabel">Create or edit a Aduxstce</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.aduxstce.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.aduxstce.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.idAttoAmmi" for="field_idAttoAmmi">Id Atto Ammi</label>
+            <input type="number" class="form-control" name="idAttoAmmi" id="field_idAttoAmmi"
+                    ng-model="vm.aduxstce.idAttoAmmi"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.idDecr" for="field_idDecr">Id Decr</label>
+            <input type="number" class="form-control" name="idDecr" id="field_idDecr"
+                    ng-model="vm.aduxstce.idDecr"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.numeDecr" for="field_numeDecr">Nume Decr</label>
+            <input type="number" class="form-control" name="numeDecr" id="field_numeDecr"
+                    ng-model="vm.aduxstce.numeDecr"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.idEnte" for="field_idEnte">Id Ente</label>
+            <input type="number" class="form-control" name="idEnte" id="field_idEnte"
+                    ng-model="vm.aduxstce.idEnte"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.codiInte" for="field_codiInte">Codi Inte</label>
+            <input type="text" class="form-control" name="codiInte" id="field_codiInte"
+                    ng-model="vm.aduxstce.codiInte"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.dataStor" for="field_dataStor">Data Stor</label>
+            <input type="text" class="form-control" name="dataStor" id="field_dataStor"
+                    ng-model="vm.aduxstce.dataStor"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.f100" for="field_f100">F 100</label>
+            <input type="text" class="form-control" name="f100" id="field_f100"
+                    ng-model="vm.aduxstce.f100"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c110" for="field_c110">C 110</label>
+            <input type="text" class="form-control" name="c110" id="field_c110"
+                    ng-model="vm.aduxstce.c110"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c109" for="field_c109">C 109</label>
+            <input type="text" class="form-control" name="c109" id="field_c109"
+                    ng-model="vm.aduxstce.c109"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.f200" for="field_f200">F 200</label>
+            <input type="text" class="form-control" name="f200" id="field_f200"
+                    ng-model="vm.aduxstce.f200"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.f201" for="field_f201">F 201</label>
+            <input type="text" class="form-control" name="f201" id="field_f201"
+                    ng-model="vm.aduxstce.f201"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.f202a" for="field_f202a">F 202 A</label>
+            <input type="text" class="form-control" name="f202a" id="field_f202a"
+                    ng-model="vm.aduxstce.f202a"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.f202b" for="field_f202b">F 202 B</label>
+            <input type="text" class="form-control" name="f202b" id="field_f202b"
+                    ng-model="vm.aduxstce.f202b"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.f202c" for="field_f202c">F 202 C</label>
+            <input type="text" class="form-control" name="f202c" id="field_f202c"
+                    ng-model="vm.aduxstce.f202c"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.f207" for="field_f207">F 207</label>
+            <input type="text" class="form-control" name="f207" id="field_f207"
+                    ng-model="vm.aduxstce.f207"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.f300" for="field_f300">F 300</label>
+            <input type="text" class="form-control" name="f300" id="field_f300"
+                    ng-model="vm.aduxstce.f300"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c300a" for="field_c300a">C 300 A</label>
+            <input type="text" class="form-control" name="c300a" id="field_c300a"
+                    ng-model="vm.aduxstce.c300a"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.f300b" for="field_f300b">F 300 B</label>
+            <input type="text" class="form-control" name="f300b" id="field_f300b"
+                    ng-model="vm.aduxstce.f300b"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c551" for="field_c551">C 551</label>
+            <input type="number" class="form-control" name="c551" id="field_c551"
+                    ng-model="vm.aduxstce.c551"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c552" for="field_c552">C 552</label>
+            <input type="number" class="form-control" name="c552" id="field_c552"
+                    ng-model="vm.aduxstce.c552"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c553" for="field_c553">C 553</label>
+            <input type="text" class="form-control" name="c553" id="field_c553"
+                    ng-model="vm.aduxstce.c553"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c554" for="field_c554">C 554</label>
+            <input type="number" class="form-control" name="c554" id="field_c554"
+                    ng-model="vm.aduxstce.c554"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c558" for="field_c558">C 558</label>
+            <input type="number" class="form-control" name="c558" id="field_c558"
+                    ng-model="vm.aduxstce.c558"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c559" for="field_c559">C 559</label>
+            <input type="number" class="form-control" name="c559" id="field_c559"
+                    ng-model="vm.aduxstce.c559"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c560" for="field_c560">C 560</label>
+            <input type="number" class="form-control" name="c560" id="field_c560"
+                    ng-model="vm.aduxstce.c560"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c561" for="field_c561">C 561</label>
+            <input type="number" class="form-control" name="c561" id="field_c561"
+                    ng-model="vm.aduxstce.c561"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c600" for="field_c600">C 600</label>
+            <input type="text" class="form-control" name="c600" id="field_c600"
+                    ng-model="vm.aduxstce.c600"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c611" for="field_c611">C 611</label>
+            <input type="text" class="form-control" name="c611" id="field_c611"
+                    ng-model="vm.aduxstce.c611"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c621" for="field_c621">C 621</label>
+            <input type="text" class="form-control" name="c621" id="field_c621"
+                    ng-model="vm.aduxstce.c621"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c633" for="field_c633">C 633</label>
+            <input type="text" class="form-control" name="c633" id="field_c633"
+                    ng-model="vm.aduxstce.c633"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c634" for="field_c634">C 634</label>
+            <input type="text" class="form-control" name="c634" id="field_c634"
+                    ng-model="vm.aduxstce.c634"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c640" for="field_c640">C 640</label>
+            <input type="number" class="form-control" name="c640" id="field_c640"
+                    ng-model="vm.aduxstce.c640"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.unitMisu" for="field_unitMisu">Unit Misu</label>
+            <input type="text" class="form-control" name="unitMisu" id="field_unitMisu"
+                    ng-model="vm.aduxstce.unitMisu"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.dataContOgge" for="field_dataContOgge">Data Cont Ogge</label>
+            <input type="text" class="form-control" name="dataContOgge" id="field_dataContOgge"
+                    ng-model="vm.aduxstce.dataContOgge"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.qntaLiqu" for="field_qntaLiqu">Qnta Liqu</label>
+            <input type="number" class="form-control" name="qntaLiqu" id="field_qntaLiqu"
+                    ng-model="vm.aduxstce.qntaLiqu"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.impoLiqu" for="field_impoLiqu">Impo Liqu</label>
+            <input type="number" class="form-control" name="impoLiqu" id="field_impoLiqu"
+                    ng-model="vm.aduxstce.impoLiqu"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.riduRitaDepo" for="field_riduRitaDepo">Ridu Rita Depo</label>
+            <input type="number" class="form-control" name="riduRitaDepo" id="field_riduRitaDepo"
+                    ng-model="vm.aduxstce.riduRitaDepo"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.riduModu" for="field_riduModu">Ridu Modu</label>
+            <input type="number" class="form-control" name="riduModu" id="field_riduModu"
+                    ng-model="vm.aduxstce.riduModu"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.discFina" for="field_discFina">Disc Fina</label>
+            <input type="number" class="form-control" name="discFina" id="field_discFina"
+                    ng-model="vm.aduxstce.discFina"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.sanzCond" for="field_sanzCond">Sanz Cond</label>
+            <input type="number" class="form-control" name="sanzCond" id="field_sanzCond"
+                    ng-model="vm.aduxstce.sanzCond"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.statIstr" for="field_statIstr">Stat Istr</label>
+            <input type="number" class="form-control" name="statIstr" id="field_statIstr"
+                    ng-model="vm.aduxstce.statIstr"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.liveAmmi" for="field_liveAmmi">Live Ammi</label>
+            <input type="number" class="form-control" name="liveAmmi" id="field_liveAmmi"
+                    ng-model="vm.aduxstce.liveAmmi"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.userName" for="field_userName">User Name</label>
+            <input type="text" class="form-control" name="userName" id="field_userName"
+                    ng-model="vm.aduxstce.userName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.dataAggi" for="field_dataAggi">Data Aggi</label>
+            <input type="text" class="form-control" name="dataAggi" id="field_dataAggi"
+                    ng-model="vm.aduxstce.dataAggi"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c640Qnta" for="field_c640Qnta">C 640 Qnta</label>
+            <input type="number" class="form-control" name="c640Qnta" id="field_c640Qnta"
+                    ng-model="vm.aduxstce.c640Qnta"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.decoStat" for="field_decoStat">Deco Stat</label>
+            <input type="number" class="form-control" name="decoStat" id="field_decoStat"
+                    ng-model="vm.aduxstce.decoStat"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.flagEsit" for="field_flagEsit">Flag Esit</label>
+            <input type="text" class="form-control" name="flagEsit" id="field_flagEsit"
+                    ng-model="vm.aduxstce.flagEsit"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.dataScar" for="field_dataScar">Data Scar</label>
+            <input type="text" class="form-control" name="dataScar" id="field_dataScar"
+                    ng-model="vm.aduxstce.dataScar"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c557" for="field_c557">C 557</label>
+            <input type="number" class="form-control" name="c557" id="field_c557"
+                    ng-model="vm.aduxstce.c557"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c109a" for="field_c109a">C 109 A</label>
+            <input type="text" class="form-control" name="c109a" id="field_c109a"
+                    ng-model="vm.aduxstce.c109a"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c400" for="field_c400">C 400</label>
+            <input type="number" class="form-control" name="c400" id="field_c400"
+                    ng-model="vm.aduxstce.c400"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c401" for="field_c401">C 401</label>
+            <input type="text" class="form-control" name="c401" id="field_c401"
+                    ng-model="vm.aduxstce.c401"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c402" for="field_c402">C 402</label>
+            <input type="number" class="form-control" name="c402" id="field_c402"
+                    ng-model="vm.aduxstce.c402"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c403" for="field_c403">C 403</label>
+            <input type="text" class="form-control" name="c403" id="field_c403"
+                    ng-model="vm.aduxstce.c403"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c404" for="field_c404">C 404</label>
+            <input type="text" class="form-control" name="c404" id="field_c404"
+                    ng-model="vm.aduxstce.c404"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c405" for="field_c405">C 405</label>
+            <input type="number" class="form-control" name="c405" id="field_c405"
+                    ng-model="vm.aduxstce.c405"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c406" for="field_c406">C 406</label>
+            <input type="number" class="form-control" name="c406" id="field_c406"
+                    ng-model="vm.aduxstce.c406"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c407" for="field_c407">C 407</label>
+            <input type="text" class="form-control" name="c407" id="field_c407"
+                    ng-model="vm.aduxstce.c407"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c558a" for="field_c558a">C 558 A</label>
+            <input type="number" class="form-control" name="c558a" id="field_c558a"
+                    ng-model="vm.aduxstce.c558a"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c558b" for="field_c558b">C 558 B</label>
+            <input type="number" class="form-control" name="c558b" id="field_c558b"
+                    ng-model="vm.aduxstce.c558b"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c558c" for="field_c558c">C 558 C</label>
+            <input type="number" class="form-control" name="c558c" id="field_c558c"
+                    ng-model="vm.aduxstce.c558c"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c558d" for="field_c558d">C 558 D</label>
+            <input type="number" class="form-control" name="c558d" id="field_c558d"
+                    ng-model="vm.aduxstce.c558d"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c558e" for="field_c558e">C 558 E</label>
+            <input type="number" class="form-control" name="c558e" id="field_c558e"
+                    ng-model="vm.aduxstce.c558e"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c558f" for="field_c558f">C 558 F</label>
+            <input type="number" class="form-control" name="c558f" id="field_c558f"
+                    ng-model="vm.aduxstce.c558f"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="istruttoriaApp.aduxstce.c620" for="field_c620">C 620</label>
+            <input type="text" class="form-control" name="c620" id="field_c620"
+                    ng-model="vm.aduxstce.c620"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
