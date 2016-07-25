@@ -12,7 +12,7 @@
 
         return $resource(resourceUrl, {}, {
         	generate : {
-                method: 'GET',
+                method: 'POST',
                 transformResponse: function (data) {
                     if (data) {
                         data = angular.fromJson(data);

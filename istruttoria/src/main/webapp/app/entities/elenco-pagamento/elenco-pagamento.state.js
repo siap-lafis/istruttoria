@@ -9,21 +9,67 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
+// .state('elenco-pagamento', {
+//            parent: 'entity',
+//            url: '/elenco-pagamento',
+//            data: {
+//                authorities: ['ROLE_USER'],
+//                pageTitle: 'istruttoriaApp.elencoPagamento.home.title'
+//            },
+//            views: {
+//                'content@': {
+//                    templateUrl: 'app/entities/elenco-pagamento/elenco-pagamentos.html',
+//                    controller: 'ElencoPagamentoController',
+//                    controllerAs: 'vm'
+//                }
+//            },
+//            resolve: {
+//                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+//                    $translatePartialLoader.addPart('elencoPagamento');
+//                    $translatePartialLoader.addPart('global');
+//                    return $translate.refresh();
+//                }]
+//            }
+//        })    
+        // Paginazione
         .state('elenco-pagamento', {
             parent: 'entity',
-            url: '/elenco-pagamento',
-            data: {
-                authorities: ['ROLE_USER'],
-                pageTitle: 'istruttoriaApp.elencoPagamento.home.title'
-            },
-            views: {
-                'content@': {
-                    templateUrl: 'app/entities/elenco-pagamento/elenco-pagamentos.html',
-                    controller: 'ElencoPagamentoController',
-                    controllerAs: 'vm'
-                }
+          url: '/elenco-pagamento',
+          data: {
+              authorities: ['ROLE_USER'],
+              pageTitle: 'istruttoriaApp.elencoPagamento.home.title'
+          },
+          views: {
+              'content@': {
+                  templateUrl: 'app/entities/elenco-pagamento/elenco-pagamentos.html',
+                  controller: 'ElencoPagamentoController',
+                  controllerAs: 'vm'
+              }
+          },
+            params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: {
+                    value: null,
+                    squash: true
+                },
             },
             resolve: {
+                pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                    return {
+                        page: PaginationUtil.parsePage($stateParams.page),
+                        sort: $stateParams.sort,
+                        predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                        ascending: PaginationUtil.parseAscending($stateParams.sort),
+                        search: $stateParams.search
+                    };
+                }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('elencoPagamento');
                     $translatePartialLoader.addPart('global');

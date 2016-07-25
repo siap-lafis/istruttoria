@@ -9,9 +9,33 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
+//        .state('soggetto', {
+//            parent: 'entity',
+//            url: '/soggetto',
+//            data: {
+//                authorities: ['ROLE_USER'],
+//                pageTitle: 'istruttoriaApp.soggetto.home.title'
+//            },
+//            views: {
+//                'content@': {
+//                    templateUrl: 'app/entities/soggetto/soggettos.html',
+//                    controller: 'SoggettoController',
+//                    controllerAs: 'vm'
+//                }
+//            },
+//            resolve: {
+//                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+//                    $translatePartialLoader.addPart('soggetto');
+//                    $translatePartialLoader.addPart('global');
+//                    return $translate.refresh();
+//                }]
+//            }
+//        })
+        
+        // Paginazione
         .state('soggetto', {
             parent: 'entity',
-            url: '/soggetto',
+            url: '/soggetto?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
                 pageTitle: 'istruttoriaApp.soggetto.home.title'
@@ -23,7 +47,30 @@
                     controllerAs: 'vm'
                 }
             },
-            resolve: {
+            params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: {
+                    value: null,
+                    squash: true
+                },
+            },
+            resolve: {            	 
+                pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                     return {
+                             page: PaginationUtil.parsePage($stateParams.page),
+                             sort: $stateParams.sort,
+                             predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                             ascending: PaginationUtil.parseAscending($stateParams.sort),
+                             search: $stateParams.search
+                         };
+                     }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('soggetto');
                     $translatePartialLoader.addPart('global');
@@ -31,6 +78,7 @@
                 }]
             }
         })
+        
         .state('soggetto-detail', {
             parent: 'entity',
             url: '/soggetto/{id}',

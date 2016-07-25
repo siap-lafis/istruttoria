@@ -19,7 +19,7 @@
         $scope.$on('$destroy', unsubscribe);
     
         function chkLst() {
-        	DomandaDetailReport.generate({}, function(result) {
+        	DomandaDetailReport.generate(vm.domanda, function(result) {
         		// la redirect non viene eseguita
         		//$window.location.href = '/content/reports/reportChkLst.pdf';   
         		var fileName = result.name;       		       	       		      		     	       		

@@ -33,15 +33,15 @@
     <br/>
     <div class="table-responsive">
         <table class="jh-table table table-striped">
-            <thead>
-                <tr>
-                    <th><span translate="global.field.id">ID</span></th>
-                    <th><span translate="istruttoriaApp.domanda.idDomanda">Id Domanda</span></th>
-                    <th><span translate="istruttoriaApp.domanda.dataPres">Data Pres</span></th>
-                    <th><span translate="istruttoriaApp.domanda.dataInse">Data Inse</span></th>
-                    <th><span translate="istruttoriaApp.domanda.codSettore">Cod Settore</span></th>
-                    <th><span translate="istruttoriaApp.domanda.anno">Anno</span></th>
-                    <th><span translate="istruttoriaApp.domanda.soggetto">Soggetto</span></th>
+            <thead>              
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                   	<th jh-sort-by="id"><span translate="global.field.id">ID</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="idDomanda"><span translate="istruttoriaApp.domanda.idDomanda">Id Domanda</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dataPres"><span translate="istruttoriaApp.domanda.dataPres">Data Pres</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dataInse"><span translate="istruttoriaApp.domanda.dataInse">Data Inse</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="codSettore"><span translate="istruttoriaApp.domanda.codSettore">Cod Settore</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="anno"><span translate="istruttoriaApp.domanda.anno">Anno</span></span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="soggetto.id"><span translate="istruttoriaApp.domanda.soggetto">Soggetto</span><span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -81,5 +81,9 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+     <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
     </div>
 </div>

@@ -9,28 +9,76 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
+//        .state('obbligo-inverdimento', {
+//            parent: 'entity',
+//            url: '/obbligo-inverdimento',
+//            data: {
+//                authorities: ['ROLE_USER'],
+//                pageTitle: 'istruttoriaApp.obbligoInverdimento.home.title'
+//            },
+//            views: {
+//                'content@': {
+//                    templateUrl: 'app/entities/obbligo-inverdimento/obbligo-inverdimentos.html',
+//                    controller: 'ObbligoInverdimentoController',
+//                    controllerAs: 'vm'
+//                }
+//            },
+//            resolve: {
+//                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+//                    $translatePartialLoader.addPart('obbligoInverdimento');
+//                    $translatePartialLoader.addPart('global');
+//                    return $translate.refresh();
+//                }]
+//            }
+//        })
+        
+        // Paginazione
         .state('obbligo-inverdimento', {
             parent: 'entity',
-            url: '/obbligo-inverdimento',
+            url: '/obbligo-inverdimento?page&sort&search',
             data: {
-                authorities: ['ROLE_USER'],
-                pageTitle: 'istruttoriaApp.obbligoInverdimento.home.title'
+            	authorities: ['ROLE_USER'],
+            	pageTitle: 'istruttoriaApp.obbligoInverdimento.home.title'
             },
             views: {
-                'content@': {
-                    templateUrl: 'app/entities/obbligo-inverdimento/obbligo-inverdimentos.html',
-                    controller: 'ObbligoInverdimentoController',
-                    controllerAs: 'vm'
-                }
+            	'content@': {
+            		templateUrl: 'app/entities/obbligo-inverdimento/obbligo-inverdimentos.html',
+            		controller: 'ObbligoInverdimentoController',
+            		controllerAs: 'vm'
+            	}
             },
-            resolve: {
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('obbligoInverdimento');
-                    $translatePartialLoader.addPart('global');
-                    return $translate.refresh();
-                }]
+            params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: {
+                    value: null,
+                    squash: true
+                },
+            },
+            resolve: {            	 
+                pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                     return {
+                             page: PaginationUtil.parsePage($stateParams.page),
+                             sort: $stateParams.sort,
+                             predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                             ascending: PaginationUtil.parseAscending($stateParams.sort),
+                             search: $stateParams.search
+                         };
+                     }],
+                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                       $translatePartialLoader.addPart('obbligoInverdimento');
+                       $translatePartialLoader.addPart('global');
+                       return $translate.refresh();
+                   }]
             }
         })
+        
         .state('obbligo-inverdimento-detail', {
             parent: 'entity',
             url: '/obbligo-inverdimento/{id}',

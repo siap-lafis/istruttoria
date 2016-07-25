@@ -9,21 +9,67 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
+//        .state('domanda', {
+//            parent: 'entity',
+//            url: '/domanda',
+//            data: {
+//                authorities: ['ROLE_USER'],
+//                pageTitle: 'istruttoriaApp.domanda.home.title'
+//            },
+//            views: {
+//                'content@': {
+//                    templateUrl: 'app/entities/domanda/domandas.html',
+//                    controller: 'DomandaController',
+//                    controllerAs: 'vm'
+//                }
+//            },
+//            resolve: {
+//                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+//                    $translatePartialLoader.addPart('domanda');
+//                    $translatePartialLoader.addPart('global');
+//                    return $translate.refresh();
+//                }]
+//            }
+//        })
+        // Paginazione
         .state('domanda', {
             parent: 'entity',
-            url: '/domanda',
+            url: '/domanda?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'istruttoriaApp.domanda.home.title'
+                ppageTitle: 'istruttoriaApp.domanda.home.title'
             },
             views: {
-                'content@': {
-                    templateUrl: 'app/entities/domanda/domandas.html',
-                    controller: 'DomandaController',
-                    controllerAs: 'vm'
-                }
+            	'content@': {
+            		templateUrl: 'app/entities/domanda/domandas.html',
+            		controller: 'DomandaController',
+            		controllerAs: 'vm'
+            	}
+            },            
+            params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: {
+                    value: null,
+                    squash: true
+                },
             },
             resolve: {
+                pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                    return {
+                        page: PaginationUtil.parsePage($stateParams.page),
+                        sort: $stateParams.sort,
+                        predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                        ascending: PaginationUtil.parseAscending($stateParams.sort),
+                        search: $stateParams.search
+                    };
+                }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('domanda');
                     $translatePartialLoader.addPart('global');
@@ -31,6 +77,7 @@
                 }]
             }
         })
+        
         .state('domanda-detail', {
             parent: 'entity',
             url: '/domanda/{id}',

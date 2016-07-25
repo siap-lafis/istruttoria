@@ -34,19 +34,19 @@
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
-                <tr>
-                    <th><span translate="global.field.id">ID</span></th>
-                    <th><span translate="istruttoriaApp.obbligoInverdimento.supeSemi">Supe Semi</span></th>
-                    <th><span translate="istruttoriaApp.obbligoInverdimento.supePratPerm">Supe Prat Perm</span></th>
-                    <th><span translate="istruttoriaApp.obbligoInverdimento.supeFora">Supe Fora</span></th>
-                    <th><span translate="istruttoriaApp.obbligoInverdimento.decoEsonDive">Deco Eson Dive</span></th>
-                    <th><span translate="istruttoriaApp.obbligoInverdimento.decoEsonEfa">Deco Eson Efa</span></th>
-                    <th><span translate="istruttoriaApp.obbligoInverdimento.flagRispColt">Flag Risp Colt</span></th>
-                    <th><span translate="istruttoriaApp.obbligoInverdimento.flagRispColtRima">Flag Risp Colt Rima</span></th>
-                    <th><span translate="istruttoriaApp.obbligoInverdimento.flagRisp75P">Flag Risp 75 P</span></th>
-                    <th><span translate="istruttoriaApp.obbligoInverdimento.flagRisp95P">Flag Risp 95 P</span></th>
-                    <th><span translate="istruttoriaApp.obbligoInverdimento.flagRispEfa">Flag Risp Efa</span></th>
-                    <th><span translate="istruttoriaApp.obbligoInverdimento.superficiInverdimento">Superfici Inverdimento</span></th>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                     <th jh-sort-by="id"><span translate="global.field.id">ID</span></th>
+                     <th jh-sort-by="supeSemi"><span translate="istruttoriaApp.obbligoInverdimento.supeSemi">Supe Semi</span><span class="glyphicon glyphicon-sort"></span></th>
+                     <th jh-sort-by="supePratPerm"><span translate="istruttoriaApp.obbligoInverdimento.supePratPerm">Supe Prat Perm</span><span class="glyphicon glyphicon-sort"></span></th>
+                     <th jh-sort-by="supeFora"><span translate="istruttoriaApp.obbligoInverdimento.supeFora">Supe Fora</span><span class="glyphicon glyphicon-sort"></span></th>
+                     <th jh-sort-by="decoEsonDive"><span translate="istruttoriaApp.obbligoInverdimento.decoEsonDive">Deco Eson Dive</span><span class="glyphicon glyphicon-sort"></span></th>
+                     <th jh-sort-by="decoEsonEfa"><span translate="istruttoriaApp.obbligoInverdimento.decoEsonEfa">Deco Eson Efa</span><span class="glyphicon glyphicon-sort"></span></th>
+                     <th jh-sort-by="flagRispColt"><span translate="istruttoriaApp.obbligoInverdimento.flagRispColt">Flag Risp Colt</span><span class="glyphicon glyphicon-sort"></span></th>
+                     <th jh-sort-by="flagRispColtRima"><span translate="istruttoriaApp.obbligoInverdimento.flagRispColtRima">Flag Risp Colt Rima</span><span class="glyphicon glyphicon-sort"></span></th>
+                     <th jh-sort-by="flagRisp75P"><span translate="istruttoriaApp.obbligoInverdimento.flagRisp75P">Flag Risp 75 P</span><span class="glyphicon glyphicon-sort"></span></th>
+                     <th jh-sort-by="flagRisp95P"><span translate="istruttoriaApp.obbligoInverdimento.flagRisp95P">Flag Risp 95 P</span><span class="glyphicon glyphicon-sort"></span></th>
+                     <th jh-sort-by="flagRispEfa"><span translate="istruttoriaApp.obbligoInverdimento.flagRispEfa">Flag Risp Efa</span><span class="glyphicon glyphicon-sort"></span></th>
+                     <th jh-sort-by="superficiInverdimento.id"><span translate="istruttoriaApp.obbligoInverdimento.superficiInverdimento">Superfici Inverdimento</span><span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -91,5 +91,9 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+     <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
     </div>
 </div>
