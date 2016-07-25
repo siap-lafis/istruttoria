@@ -80,6 +80,9 @@ public class Pagamento implements Serializable {
     @OneToOne
     @JoinColumn(unique = true)
     private ElencoPagamento elencoPagamento;
+    
+    @Column(name = "ID_ATTO_AMMI")
+    private Integer idAttoAmmi;
 
     public Long getId() {
         return id;
@@ -240,8 +243,18 @@ public class Pagamento implements Serializable {
     public void setElencoPagamento(ElencoPagamento elencoPagamento) {
         this.elencoPagamento = elencoPagamento;
     }
+    
+    
 
-    @Override
+    public Integer getIdAttoAmmi() {
+		return idAttoAmmi;
+	}
+
+	public void setIdAttoAmmi(Integer idAttoAmmi) {
+		this.idAttoAmmi = idAttoAmmi;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

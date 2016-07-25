@@ -14,4 +14,5 @@ import java.util.List;
 public interface PagamentoRepository extends JpaRepository<Pagamento,Long> {
 
 	List<Pagamento> findByElencoPagamentoDomandaId(Long id);
+	List<Pagamento> findByIdAttoAmmi(Integer idAttoAmmi);
 }
