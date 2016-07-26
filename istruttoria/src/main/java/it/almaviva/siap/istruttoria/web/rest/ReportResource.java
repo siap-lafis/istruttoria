@@ -3,12 +3,7 @@ package it.almaviva.siap.istruttoria.web.rest;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.math.BigDecimal;
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -27,6 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.codahale.metrics.annotation.Timed;
 
+import it.almaviva.siap.istruttoria.dao.InterventoLiquidato;
+import it.almaviva.siap.istruttoria.dao.StoredProcedureDao;
 import it.almaviva.siap.istruttoria.domain.Domanda;
 import it.almaviva.siap.istruttoria.domain.Pagamento;
 import it.almaviva.siap.istruttoria.domain.Soggetto;
@@ -34,6 +31,7 @@ import it.almaviva.siap.istruttoria.reports.CheckListReportMappingControlliIstru
 import it.almaviva.siap.istruttoria.reports.CheckListReportMappingControlliIstruttoriDetAiuto;
 import it.almaviva.siap.istruttoria.reports.CheckListReportMappingPrimaPagina;
 import it.almaviva.siap.istruttoria.reports.CustomJRDataSource;
+import it.almaviva.siap.istruttoria.repository.AduxstceRepository;
 import it.almaviva.siap.istruttoria.repository.PagamentoRepository;
 import it.almaviva.siap.istruttoria.repository.SoggettoRepository;
 import net.sf.jasperreports.engine.JRDataSource;
@@ -58,6 +56,10 @@ public class ReportResource {
     private SoggettoRepository soggettoRepository;
     @Inject
     private PagamentoRepository pagamentoRepository;
+    @Inject
+    private AduxstceRepository  aduxstceRepository;
+    @Inject
+    private StoredProcedureDao dao;
     
     /**
      * POST  /report : Create a new report.
@@ -91,7 +93,23 @@ public class ReportResource {
         @Timed
         public _FileName generateReportCheckList(@RequestBody Domanda domanda) throws JRException, FileNotFoundException {
     	
-            log.debug("REST request to save Report");
+            log.debug("REST request to save Report"); 
+            boolean stored = true;
+            /*********************************************************************************************************/
+            // REALIZZAZIONE CON CHIAMATE STORED, 
+            List controlli = dao.getControlliIstruttoriDU(domanda.getId(), 4, 2015); // decreto e annoCampagna fissi
+            List interventi = dao.getListaInterventiRichiesti(domanda.getId(),4);	// decreto fisso
+			List interventi1 = dao.getListaInterventiRichiesti1(domanda.getId(),2015);
+			//aggiungiInterventiRichiesti(interventi, interventi1); // TODO: per il momento commentato
+			List<InterventoLiquidato> importi = new ArrayList<InterventoLiquidato>();
+			for (int i=0; i<interventi.size(); i++) {
+				Map m = (Map)interventi.get(i);
+				int idInte = ((Integer)m.get("idInte")).intValue();
+				InterventoLiquidato intervento = dao.getDettaglioImportoLiquidato(domanda.getId(), 4, idInte);
+				intervento.setCodiInte((String)m.get("codiInte"));
+				intervento.setDescInte((String)m.get("descInte"));
+				importi.add(intervento);
+			}
             /****************************************************/
             List<Pagamento> pagamenti = pagamentoRepository.findByIdAttoAmmi(domanda.getIdDomanda());            
             //String provvisoria ="provvisoria";             	    
@@ -129,23 +147,51 @@ public class ReportResource {
     		JRMapCollectionDataSource cli3DS = null;
     		JRMapCollectionDataSource cli4DS = null;
    
-   		
-    		Collection<Map<String, ?>> listaPrimaPagina = new CheckListReportMappingPrimaPagina().getMapping(domanda, pagamenti);    		          
-    		cli1DS = new JRMapCollectionDataSource(listaPrimaPagina);
-    		srMap.put("cli1DS", cli1DS);
-
-    				
-    		List<String> controlli = new ArrayList<String>();
-    		controlli.add("Controllo #1");
-    		controlli.add("Controllo #2");    				
-    		Collection<Map<String, ?>> listaPaginaControlliIstruttori = new CheckListReportMappingControlliIstruttori().getMapping(domanda, controlli);    		        
-    		cli2DS = new JRMapCollectionDataSource(listaPaginaControlliIstruttori);
-    		srMap.put("cli2DS", cli2DS);
+    		Collection<Map<String, ?>> lista;
+    		if (!stored)  {
+    			Collection<Map<String, ?>> listaPrimaPagina = new CheckListReportMappingPrimaPagina().getMapping(domanda, pagamenti);    		          
+    			cli1DS = new JRMapCollectionDataSource(listaPrimaPagina);
+    			srMap.put("cli1DS", cli1DS);
+    		}
     		
+    		else {
+	    		Collection<Map<String, ?>> listaPrimaPagina = new CheckListReportMappingPrimaPagina().preparaPagina1(domanda,interventi,pagamenti.get(0));
+	    		lista = new ArrayList<Map<String, ?>>();
+	            preparaSezione(listaPrimaPagina,lista);
+	    		cli1DS = new JRMapCollectionDataSource(listaPrimaPagina);
+	    		srMap.put("cli1DS", cli1DS);
+    		}
 
-    		Collection<Map<String, ?>> listaPaginaControlliIstruttoriDetAiuto = new CheckListReportMappingControlliIstruttoriDetAiuto().getMapping(domanda, pagamenti);           
-    		cli4DS = new JRMapCollectionDataSource(listaPaginaControlliIstruttoriDetAiuto);
-    		srMap.put("cli4DS", cli4DS);
+    		
+    		if (!stored)  {
+    			List<String> _controlli = new ArrayList<String>();
+    			_controlli.add("Controllo #1");
+    			_controlli.add("Controllo #2");    				
+    			Collection<Map<String, ?>> listaPaginaControlliIstruttori = new CheckListReportMappingControlliIstruttori().getMapping(domanda, _controlli);
+    			cli2DS = new JRMapCollectionDataSource(listaPaginaControlliIstruttori);
+        		srMap.put("cli2DS", cli2DS);
+    		}
+    		else {
+    			Collection<Map<String, ?>> listaPaginaControlliIstruttori = new CheckListReportMappingControlliIstruttori().preparaPagina2(domanda, controlli);  
+    			lista = new ArrayList<Map<String, ?>>();  		
+    			preparaSezione(listaPaginaControlliIstruttori,lista);
+    			cli2DS = new JRMapCollectionDataSource(listaPaginaControlliIstruttori);
+        		srMap.put("cli2DS", cli2DS);
+    		}
+    		
+    		
+    		
+    		if (!stored) {
+    			Collection<Map<String, ?>> listaPaginaControlliIstruttoriDetAiuto = new CheckListReportMappingControlliIstruttoriDetAiuto().getMapping(domanda, pagamenti);           
+    			cli4DS = new JRMapCollectionDataSource(listaPaginaControlliIstruttoriDetAiuto);
+    			srMap.put("cli4DS", cli4DS);
+    		}
+    		
+    		else {
+    			Collection<Map<String, ?>> listaPaginaControlliIstruttoriDetAiuto = new CheckListReportMappingControlliIstruttoriDetAiuto().preparaPagina4(domanda,importi,pagamenti.get(0));
+    			cli4DS = new JRMapCollectionDataSource(listaPaginaControlliIstruttoriDetAiuto);
+    			srMap.put("cli4DS", cli4DS);
+    		}
     		
     		
     		Collection<Map<String, ?>> srList = new ArrayList<Map<String, ?>>();	
@@ -167,7 +213,35 @@ public class ReportResource {
     		f.setName(fileName); 
     		return f;
         }
+    
+    
+    private void aggiungiInterventiRichiesti(List interventi, List interventi1) {
+		for (int i=0; interventi1 != null && i<interventi1.size(); i++) {
+			Map inte1 = (Map)interventi1.get(i);
+			boolean trovato = false;
+			for (int j=0; interventi != null && j<interventi.size(); j++) {
+				Map inte = (Map)interventi.get(j);
+				if (inte.get("idInte").equals(inte1.get("idInte"))) {
+					trovato = true;
+				}
+			}
+			if (!trovato) {
+				Map map = new HashMap();
+				map.put("idInte",inte1.get("idInte"));
+				map.put("codiInte",inte1.get("codiInte"));
+				map.put("descInte",inte1.get("descInte"));
+				interventi.add(map);
+			}
+		}
+	}
+    
           
+    private void preparaSezione(Collection<Map<String, ?>> l, Collection<Map<String, ?>> lista) {
+    	for (Map<String,?>  map : l){  // si scorrono i campi restituiti dal cursore 
+			lista.add(map);
+		}
+    }
+    
     
     class _FileName {
     	
