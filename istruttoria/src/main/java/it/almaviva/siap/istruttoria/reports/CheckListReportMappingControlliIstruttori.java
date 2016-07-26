@@ -48,4 +48,30 @@ public class CheckListReportMappingControlliIstruttori {
 		}
 		return cli2;
 	}
+	
+	public Collection<Map<String, ?>> preparaPagina2(Domanda domanda,List controlli) {
+		Collection<Map<String, ?>> cli2 =  new ArrayList<Map<String, ?>>();			
+		Soggetto soggetto = domanda.getSoggetto();	   
+		for (Object controllo : controlli) {  
+			Map<String,Object> map = new HashMap<String,Object>();	
+			Timestamp data = null;	    
+			try {
+				data = new Timestamp((new SimpleDateFormat("dd/MM/yyyy").parse(domanda.getDataInse())).getTime());  
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}			
+			map.put("dataDecr", data);  // TODO: da definire
+			map.put("protocollo", "");
+			map.put("cuaa", soggetto.getCuaa());
+			map.put("codiBarr", ""+domanda.getIdDomanda());	
+			map.put("descDeno", soggetto.getDenominazione());
+			
+			Map contr = (Map)controllo;
+			contr.put("dataCont",data);  // TODO: forzato perchè null su DB
+			map.putAll((Map)controllo);
+			cli2.add(map);
+		}
+		return cli2;	
+	}
 }

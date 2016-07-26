@@ -40,11 +40,11 @@ public class CheckListReportMappingPrimaPagina  {
 			map.put("dataDecr", data);
 			map.put("protocollo", "");
 			map.put("cuaa", soggetto.getCuaa());
-			map.put("piva", "");
+			map.put("piva", soggetto.getPartitaIva());
 			map.put("codiBarr", ""+domanda.getIdDomanda());
 			if (soggetto.getCuaa().length()==16) {  // caso di persona fisica
-				map.put("descNome", soggetto.getDenominazione()); // deve essere creato il campo NOME SU SOGGETTO
-				map.put("descDeno", soggetto.getDenominazione()); // deve essere creato il campo COGNOME SU SOGGETO
+				map.put("descNome", soggetto.getNome()); // deve essere creato il campo NOME SU SOGGETTO
+				map.put("descDeno", soggetto.getCognome()); // deve essere creato il campo COGNOME SU SOGGETO
 			}
 			else 
 				map.put("descDeno", soggetto.getDenominazione());
@@ -56,6 +56,38 @@ public class CheckListReportMappingPrimaPagina  {
 			map.put("qntaDete",  new BigDecimal(pagamento.getQntaAmme())); 
 			cli1.add(map);
     	}
+		return cli1;
+	}
+	
+	public Collection<Map<String, ?>> preparaPagina1(Domanda domanda,List interventi, Pagamento decreto) {
+		
+		Collection<Map<String, ?>> cli1 =  new ArrayList<Map<String, ?>>();			
+		Soggetto soggetto = domanda.getSoggetto();	   
+		for (Object intervento : interventi) {  
+			Map<String,Object> map = new HashMap<String,Object>();	
+			Timestamp data = null;	    
+			try {
+				data = new Timestamp((new SimpleDateFormat("dd/MM/yyyy").parse(decreto.getDataElab())).getTime());  
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}			
+					
+			map.put("dataDecr", data);
+			//map.put("protocollo", decreto.getProtocollo());
+			map.put("cuaa", soggetto.getCuaa());
+			map.put("piva", soggetto.getPartitaIva());
+			map.put("codiBarr", ""+domanda.getIdDomanda());
+			map.put("cuaa", soggetto.getCuaa());
+			if (soggetto.getCuaa().length()==16) {  // caso di persona fisica
+				map.put("descNome", soggetto.getNome()); // deve essere creato il campo NOME SU SOGGETTO
+				map.put("descDeno", soggetto.getCognome()); // deve essere creato il campo COGNOME SU SOGGETO
+			}
+			else 
+				map.put("descDeno", soggetto.getDenominazione());
+			map.putAll((Map)intervento);
+			cli1.add(map);
+		}
 		return cli1;
 	}
 
