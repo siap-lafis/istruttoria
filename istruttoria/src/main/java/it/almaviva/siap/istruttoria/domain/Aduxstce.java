@@ -6,6 +6,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.SQLData;
 import java.util.Objects;
 
 /**
@@ -15,12 +16,22 @@ import java.util.Objects;
 @Table(name = "ADUXSTCE_TAB")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Document(indexName = "aduxstce")
+//@NamedStoredProcedureQueries({	   
+//	   @NamedStoredProcedureQuery(name = "getControlliIstruttoriDU", 
+//	                              procedureName = "aduaax001.getControlliIstruttoriDU",
+//	                              parameters = {
+//	                                 @StoredProcedureParameter(mode = ParameterMode.IN, name = "idAttoAmmiIn", type = Long.class),
+//	                                 @StoredProcedureParameter(mode = ParameterMode.IN, name = "idDecrIn", type = Long.class),
+//	                                 @StoredProcedureParameter(mode = ParameterMode.IN, name = "numeCampIn", type = Integer.class),
+//	                                 @StoredProcedureParameter(mode = ParameterMode.IN, name = "dataIn", type = SQLData.class)
+//	                              })
+//	})
 public class Aduxstce implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "IS_STCE")
+    @Column(name = "ID_STCE")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 

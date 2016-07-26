@@ -28,6 +28,16 @@ public class Soggetto implements Serializable {
 
     @Column(name = "denominazione")
     private String denominazione;
+    
+    @Column(name = "nome")
+    private String nome;
+    
+    @Column(name = "cognome")
+    private String cognome;
+    
+    
+    @Column(name = "PARTITAIVA")
+    private String partitaIva;
 
     public Long getId() {
         return id;
@@ -67,8 +77,36 @@ public class Soggetto implements Serializable {
         }
         return Objects.equals(id, soggetto.id);
     }
+    
+    
 
-    @Override
+    public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCognome() {
+		return cognome;
+	}
+
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
+	
+	
+
+	public String getPartitaIva() {
+		return partitaIva;
+	}
+
+	public void setPartitaIva(String partitaIva) {
+		this.partitaIva = partitaIva;
+	}
+
+	@Override
     public int hashCode() {
         return Objects.hashCode(id);
     }
