@@ -1,20 +1,7 @@
 package it.almaviva.siap.istruttoria.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
-import it.almaviva.siap.istruttoria.domain.Pagamento;
-import it.almaviva.siap.istruttoria.domain.Superficie;
-import it.almaviva.siap.istruttoria.repository.PagamentoRepository;
-import it.almaviva.siap.istruttoria.repository.search.PagamentoSearchRepository;
-import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
 
-import javax.inject.Inject;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -22,7 +9,30 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import static org.elasticsearch.index.query.QueryBuilders.*;
+import javax.inject.Inject;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.codahale.metrics.annotation.Timed;
+
+import it.almaviva.siap.istruttoria.domain.Pagamento;
+import it.almaviva.siap.istruttoria.repository.PagamentoRepository;
+import it.almaviva.siap.istruttoria.repository.search.PagamentoSearchRepository;
+import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
+import it.almaviva.siap.istruttoria.web.rest.util.PaginationUtil;
 
 /**
  * REST controller for managing Pagamento.
@@ -87,8 +97,23 @@ public class PagamentoResource {
             .body(result);
     }
 
+//    /**
+//     * GET  /pagamentos : get all the pagamentos.
+//     *
+//     * @return the ResponseEntity with status 200 (OK) and the list of pagamentos in body
+//     */
+//    @RequestMapping(value = "/pagamentos",
+//        method = RequestMethod.GET,
+//        produces = MediaType.APPLICATION_JSON_VALUE)
+//    @Timed
+//    public List<Pagamento> getAllPagamentos() {
+//        log.debug("REST request to get all Pagamentos");
+//        List<Pagamento> pagamentos = pagamentoRepository.findAll();
+//        return pagamentos;
+//    }
+    
     /**
-     * GET  /pagamentos : get all the pagamentos.
+     * GET  /pagamentos : get all the pagamentos. Versione paginata
      *
      * @return the ResponseEntity with status 200 (OK) and the list of pagamentos in body
      */
@@ -96,10 +121,11 @@ public class PagamentoResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<Pagamento> getAllPagamentos() {
-        log.debug("REST request to get all Pagamentos");
-        List<Pagamento> pagamentos = pagamentoRepository.findAll();
-        return pagamentos;
+    public ResponseEntity<List<Pagamento>> getAllPagamentos(Pageable pageable) throws URISyntaxException {
+        log.debug("REST request to get all Pagamentos");       
+        Page<Pagamento> page = pagamentoRepository.findAll(pageable);
+	    HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/pagamentos");
+	    return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
     /**
