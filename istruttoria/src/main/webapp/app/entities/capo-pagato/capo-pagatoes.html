@@ -34,22 +34,22 @@
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
-                <tr>
-                    <th><span translate="global.field.id">ID</span></th>
-                    <th><span translate="istruttoriaApp.capoPagato.marcaCapo">Marca Capo</span></th>
-                    <th><span translate="istruttoriaApp.capoPagato.ammissibile">Ammissibile</span></th>
-                    <th><span translate="istruttoriaApp.capoPagato.numUba">Num Uba</span></th>
-                    <th><span translate="istruttoriaApp.capoPagato.mancanzaAnalisiLatte">Mancanza Analisi Latte</span></th>
-                    <th><span translate="istruttoriaApp.capoPagato.medieLatteSoma">Medie Latte Soma</span></th>
-                    <th><span translate="istruttoriaApp.capoPagato.medieLatteGerm">Medie Latte Germ</span></th>
-                    <th><span translate="istruttoriaApp.capoPagato.medieLatteProt">Medie Latte Prot</span></th>
-                    <th><span translate="istruttoriaApp.capoPagato.codAsl">Cod Asl</span></th>
-                    <th><span translate="istruttoriaApp.capoPagato.flagSess">Flag Sess</span></th>
-                    <th><span translate="istruttoriaApp.capoPagato.dataNasc">Data Nasc</span></th>
-                    <th><span translate="istruttoriaApp.capoPagato.codiRazz">Codi Razz</span></th>
-                    <th><span translate="istruttoriaApp.capoPagato.dataInizDete">Data Iniz Dete</span></th>
-                    <th><span translate="istruttoriaApp.capoPagato.dataFineDete">Data Fine Dete</span></th>
-                    <th><span translate="istruttoriaApp.capoPagato.pagamento">Pagamento</span></th>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span><span class="glyphicon glyphicon-sort"></span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="marcaCapo"><span translate="istruttoriaApp.capoPagato.marcaCapo">Marca Capo</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ammissibile"><span translate="istruttoriaApp.capoPagato.ammissibile">Ammissibile</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="numUba"><span translate="istruttoriaApp.capoPagato.numUba">Num Uba</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="mancanzaAnalisiLatte"><span translate="istruttoriaApp.capoPagato.mancanzaAnalisiLatte">Mancanza Analisi Latte</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="medieLatteSoma"><span translate="istruttoriaApp.capoPagato.medieLatteSoma">Medie Latte Soma</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="medieLatteGerm"><span translate="istruttoriaApp.capoPagato.medieLatteGerm">Medie Latte Germ</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="medieLatteProt"><span translate="istruttoriaApp.capoPagato.medieLatteProt">Medie Latte Prot</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="codAsl"><span translate="istruttoriaApp.capoPagato.codAsl">Cod Asl</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="flagSess"><span translate="istruttoriaApp.capoPagato.flagSess">Flag Sess</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dataNasc"><span translate="istruttoriaApp.capoPagato.dataNasc">Data Nasc</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="codiRazz"><span translate="istruttoriaApp.capoPagato.codiRazz">Codi Razz</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dataInizDete"><span translate="istruttoriaApp.capoPagato.dataInizDete">Data Iniz Dete</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dataFineDete"><span translate="istruttoriaApp.capoPagato.dataFineDete">Data Fine Dete</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pagamento.id"><span translate="istruttoriaApp.capoPagato.pagamento">Pagamento</span><span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -97,5 +97,9 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
     </div>
 </div>

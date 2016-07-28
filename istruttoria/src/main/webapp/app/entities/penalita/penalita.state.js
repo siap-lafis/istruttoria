@@ -9,9 +9,32 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
+//        .state('penalita', {
+//            parent: 'entity',
+//            url: '/penalita',
+//            data: {
+//                authorities: ['ROLE_USER'],
+//                pageTitle: 'istruttoriaApp.penalita.home.title'
+//            },
+//            views: {
+//                'content@': {
+//                    templateUrl: 'app/entities/penalita/penalitas.html',
+//                    controller: 'PenalitaController',
+//                    controllerAs: 'vm'
+//                }
+//            },
+//            resolve: {
+//                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+//                    $translatePartialLoader.addPart('penalita');
+//                    $translatePartialLoader.addPart('global');
+//                    return $translate.refresh();
+//                }]
+//            }
+//        })
+        // Paginazione
         .state('penalita', {
             parent: 'entity',
-            url: '/penalita',
+            url: '/penalita?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
                 pageTitle: 'istruttoriaApp.penalita.home.title'
@@ -23,7 +46,30 @@
                     controllerAs: 'vm'
                 }
             },
+            params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: {
+                    value: null,
+                    squash: true
+                },
+            },
             resolve: {
+            	pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                    return {
+                        page: PaginationUtil.parsePage($stateParams.page),
+                        sort: $stateParams.sort,
+                        predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                        ascending: PaginationUtil.parseAscending($stateParams.sort),
+                        search: $stateParams.search
+                    };
+                }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('penalita');
                     $translatePartialLoader.addPart('global');
@@ -31,6 +77,7 @@
                 }]
             }
         })
+        
         .state('penalita-detail', {
             parent: 'entity',
             url: '/penalita/{id}',

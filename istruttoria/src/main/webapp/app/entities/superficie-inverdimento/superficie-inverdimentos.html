@@ -34,36 +34,36 @@
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
-                <tr>
-                    <th><span translate="global.field.id">ID</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supeSemi">Supe Semi</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supePrimColt">Supe Prim Colt</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supeSecoColt">Supe Seco Colt</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supeAltrColt">Supe Altr Colt</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supePrimMax">Supe Prim Max</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supeSecoMax">Supe Seco Max</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supePrimDiff1">Supe Prim Diff 1</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supePrimDiff2">Supe Prim Diff 2</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.tassoDiffPrim">Tasso Diff Prim</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supePrimRidu">Supe Prim Ridu</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supeSecoDiff1">Supe Seco Diff 1</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supeSecoDiff2">Supe Seco Diff 2</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.tassoDiffSeco">Tasso Diff Seco</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supeSecoRidu">Supe Seco Ridu</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.totaTassoDiff">Tota Tasso Diff</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supeRiduDive">Supe Ridu Dive</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supeEfa">Supe Efa</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supeEfaObbl">Supe Efa Obbl</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supeEfaDiff">Supe Efa Diff</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.tassoDiffEfa">Tasso Diff Efa</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supeRiduEfa">Supe Ridu Efa</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.totaRidu">Tota Ridu</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supePagaSemi">Supe Paga Semi</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supePratSens">Supe Prat Sens</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supePratNsens">Supe Prat Nsens</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supePerm">Supe Perm</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.supeInve">Supe Inve</span></th>
-                    <th><span translate="istruttoriaApp.superficieInverdimento.domanda">Domanda</span></th>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supeSemi"><span translate="istruttoriaApp.superficieInverdimento.supeSemi">Supe Semi</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supePrimColt"><span translate="istruttoriaApp.superficieInverdimento.supePrimColt">Supe Prim Colt</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supeSecoColt"><span translate="istruttoriaApp.superficieInverdimento.supeSecoColt">Supe Seco Colt</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supeAltrColt"><span translate="istruttoriaApp.superficieInverdimento.supeAltrColt">Supe Altr Colt</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supePrimMax"><span translate="istruttoriaApp.superficieInverdimento.supePrimMax">Supe Prim Max</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supeSecoMax"><span translate="istruttoriaApp.superficieInverdimento.supeSecoMax">Supe Seco Max</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supePrimDiff1"><span translate="istruttoriaApp.superficieInverdimento.supePrimDiff1">Supe Prim Diff 1</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supePrimDiff2"><span translate="istruttoriaApp.superficieInverdimento.supePrimDiff2">Supe Prim Diff 2</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tassoDiffPrim"><span translate="istruttoriaApp.superficieInverdimento.tassoDiffPrim">Tasso Diff Prim</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supePrimRidu"><span translate="istruttoriaApp.superficieInverdimento.supePrimRidu">Supe Prim Ridu</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supeSecoDiff1"><span translate="istruttoriaApp.superficieInverdimento.supeSecoDiff1">Supe Seco Diff 1</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supeSecoDiff2"><span translate="istruttoriaApp.superficieInverdimento.supeSecoDiff2">Supe Seco Diff 2</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tassoDiffSeco"><span translate="istruttoriaApp.superficieInverdimento.tassoDiffSeco">Tasso Diff Seco</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supeSecoRidu"><span translate="istruttoriaApp.superficieInverdimento.supeSecoRidu">Supe Seco Ridu</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="totaTassoDiff"><span translate="istruttoriaApp.superficieInverdimento.totaTassoDiff">Tota Tasso Diff</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supeRiduDive"><span translate="istruttoriaApp.superficieInverdimento.supeRiduDive">Supe Ridu Dive</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supeEfa"><span translate="istruttoriaApp.superficieInverdimento.supeEfa">Supe Efa</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supeEfaObbl"><span translate="istruttoriaApp.superficieInverdimento.supeEfaObbl">Supe Efa Obbl</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supeEfaDiff"><span translate="istruttoriaApp.superficieInverdimento.supeEfaDiff">Supe Efa Diff</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tassoDiffEfa"><span translate="istruttoriaApp.superficieInverdimento.tassoDiffEfa">Tasso Diff Efa</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supeRiduEfa"><span translate="istruttoriaApp.superficieInverdimento.supeRiduEfa">Supe Ridu Efa</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="totaRidu"><span translate="istruttoriaApp.superficieInverdimento.totaRidu">Tota Ridu</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supePagaSemi"><span translate="istruttoriaApp.superficieInverdimento.supePagaSemi">Supe Paga Semi</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supePratSens"><span translate="istruttoriaApp.superficieInverdimento.supePratSens">Supe Prat Sens</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supePratNsen"><span translate="istruttoriaApp.superficieInverdimento.supePratNsens">Supe Prat Nsens</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supePerm"><span translate="istruttoriaApp.superficieInverdimento.supePerm">Supe Perm</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="supeInve"><span translate="istruttoriaApp.superficieInverdimento.supeInve">Supe Inve</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="domanda.id"><span translate="istruttoriaApp.superficieInverdimento.domanda">Domanda</span><span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -125,5 +125,9 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
     </div>
 </div>

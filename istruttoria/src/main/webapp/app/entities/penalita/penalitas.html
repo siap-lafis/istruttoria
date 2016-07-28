@@ -34,13 +34,13 @@
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
-                <tr>
-                    <th><span translate="global.field.id">ID</span></th>
-                    <th><span translate="istruttoriaApp.penalita.decoTipoPena">Deco Tipo Pena</span></th>
-                    <th><span translate="istruttoriaApp.penalita.qntaPena">Qnta Pena</span></th>
-                    <th><span translate="istruttoriaApp.penalita.impoPena">Impo Pena</span></th>
-                    <th><span translate="istruttoriaApp.penalita.unitMisu">Unit Misu</span></th>
-                    <th><span translate="istruttoriaApp.penalita.pagamento">Pagamento</span></th>
+                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span></th>
+                    <th jh-sort-by="decoTipoPena"><span translate="istruttoriaApp.penalita.decoTipoPena">Deco Tipo Pena</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="qntaPena"><span translate="istruttoriaApp.penalita.qntaPena">Qnta Pena</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="impoPena"><span translate="istruttoriaApp.penalita.impoPena">Impo Pena</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="unitMisu"><span translate="istruttoriaApp.penalita.unitMisu">Unit Misu</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pagamento.id"><span translate="istruttoriaApp.penalita.pagamento">Pagamento</span><span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -79,5 +79,9 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
     </div>
 </div>

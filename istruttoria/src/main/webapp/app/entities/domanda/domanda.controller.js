@@ -22,7 +22,7 @@
 //            });
 //        }
     
-    // Paginazione
+    
  // Paginazione
     DomandaController.$inject = ['$scope', '$state', 'Domanda', 'DomandaSearch','ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
 
