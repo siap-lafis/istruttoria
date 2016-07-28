@@ -1,10 +1,12 @@
 package it.almaviva.siap.istruttoria.repository;
 
-import it.almaviva.siap.istruttoria.domain.Superficie;
-
-import org.springframework.data.jpa.repository.*;
-
 import java.util.List;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import it.almaviva.siap.istruttoria.domain.Superficie;
 
 /**
  * Spring Data JPA repository for the Superficie entity.
@@ -13,4 +15,5 @@ import java.util.List;
 public interface SuperficieRepository extends JpaRepository<Superficie,Long> {
 
 	List<Superficie> findByDomandaId(Long id);
+	Page<Superficie> findByDomandaId(Long id,Pageable pageable);
 }

@@ -187,20 +187,38 @@ public class SuperficieResource {
             .collect(Collectors.toList());
     }
 
+//    /**
+//     * GET  /superficies/:id : get superfici by "id" domanda.
+//     *
+//     * @param id the id of the domanda including the superfici to retrieve
+//     * @return the ResponseEntity with status 200 (OK) and with body the superfici, or with status 404 (Not Found)
+//     */
+//    @RequestMapping(value = "/superficies/domanda/{id}",
+//        method = RequestMethod.GET,
+//        produces = MediaType.APPLICATION_JSON_VALUE)
+//    @Timed
+//    public List<Superficie> getSuperficiDomanda(@PathVariable Long id) {
+//        log.debug("REST request to get Superfici : {}", id);
+//        List<Superficie> superficis = superficieRepository.findByDomandaId(id);
+//        return superficis;
+//    }
+    
     /**
      * GET  /superficies/:id : get superfici by "id" domanda.
      *
      * @param id the id of the domanda including the superfici to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the superfici, or with status 404 (Not Found)
+     * @throws URISyntaxException 
      */
     @RequestMapping(value = "/superficies/domanda/{id}",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<Superficie> getSuperficiDomanda(@PathVariable Long id) {
+    public ResponseEntity<List<Superficie>> getSuperficiDomanda(@PathVariable Long id,Pageable pageable) throws URISyntaxException {
         log.debug("REST request to get Superfici : {}", id);
-        List<Superficie> superficis = superficieRepository.findByDomandaId(id);
-        return superficis;
+        Page<Superficie> page = superficieRepository.findByDomandaId(id,pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/superficiesdomanda/{id}");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
 }
