@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cli2" pageWidth="595" pageHeight="800" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="0" rightMargin="10" topMargin="0" bottomMargin="0" uuid="09c1f931-0551-4a3a-b025-c6534e82a6b0">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="209"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<style name="grassetto" pdfFontName="Helvetica">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{clasCont}.intValue() < 0)]]></conditionExpression>
+			<style pdfFontName="Helvetica-Bold"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="cli0" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="cli20DS" class="net.sf.jasperreports.engine.JRDataSource" isForPrompting="false"/>
+	<field name="dataDecr" class="java.sql.Timestamp"/>
+	<field name="codiBarr" class="java.lang.String"/>
+	<field name="cuaa" class="java.lang.String"/>
+	<field name="descDeno" class="java.lang.String"/>
+	<field name="descCont" class="java.lang.String"/>
+	<field name="dataCont" class="java.util.Date"/>
+	<field name="liveCont" class="java.lang.Integer"/>
+	<field name="clasCont" class="java.lang.Integer"/>
+	<field name="protocollo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="159" splitType="Stretch">
+			<frame>
+				<reportElement key="frame-1" x="0" y="4" width="575" height="31" uuid="0372cc07-0a70-4578-bf43-2f18bb31322b"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
+			<staticText>
+				<reportElement key="staticText-21" x="6" y="7" width="360" height="25" uuid="2f22e527-5c29-4a49-9ac1-40fae745e4f1"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[CONTROLLI ISTRUTTORI]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement key="textField-3" x="71" y="68" width="117" height="20" uuid="059cab3a-0b79-43af-bd27-f3db4bbdee09"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false" isItalic="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cuaa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-22" x="5" y="94" width="165" height="30" uuid="ade2bd2b-87db-4dc5-bc02-50f9db3a5343"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[COGNOME E NOME O RAGIONE SOCIALE]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement key="textField-4" x="177" y="94" width="395" height="38" uuid="9e78383e-def2-45c2-bb4c-b908dd6989c7"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false" isItalic="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descDeno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-23" x="5" y="68" width="59" height="20" uuid="97b3e847-4f50-4fc9-9b70-3441458dd2f3"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[CUAA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-24" positionType="Float" x="5" y="137" width="118" height="13" uuid="ebcfbb50-2214-4c43-bf8e-45bed26d01d7"/>
+				<textElement textAlignment="Left">
+					<font isBold="true" isItalic="false" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[NUMERO DOMANDA]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement key="textField-5" positionType="Float" x="130" y="137" width="92" height="13" uuid="4b2f4e16-04ac-488c-a65f-3cf6cdcf782f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false" isItalic="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codiBarr}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-25" x="2" y="39" width="310" height="20" uuid="28ef7bdb-8a1b-46b6-bee4-e3f1c80ef129"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Check list dei controlli eseguiti alla data di elaborazione del]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="false">
+				<reportElement key="textField-6" x="312" y="39" width="66" height="20" uuid="ae96b3c6-799f-4236-be46-65f97a5df20c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false" isItalic="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataDecr}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement key="frame-5" x="0" y="68" width="575" height="86" uuid="ecb47e37-e439-4500-97d8-1ddadeac3448"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
+			<frame>
+				<reportElement key="frame-6" x="0" y="35" width="575" height="25" uuid="fff201f8-c0db-4779-b019-799ed9f5e34a"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
+			<staticText>
+				<reportElement key="staticText-26" x="378" y="39" width="64" height="20" uuid="242becd7-54ab-4181-939c-53bf5f328c6c">
+					<printWhenExpression><![CDATA[new Boolean($F{protocollo} != null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Protocollo]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-7" x="441" y="39" width="129" height="20" uuid="26ea0b81-4527-4dc8-a0a4-bb55e93b2380"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false" isItalic="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{protocollo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-15" positionType="Float" x="6" y="7" width="291" height="20" uuid="bc28f801-c61b-42b2-a0c7-0f3cfdd17170"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Controlli effettuati in funzione del regime di aiuto richiesto]]></text>
+			</staticText>
+			<frame>
+				<reportElement key="frame-2" x="0" y="5" width="575" height="25" uuid="19142bb9-f84b-404f-855e-06770407205d"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-1" style="grassetto" x="6" y="5" width="495" height="15" uuid="8768ef75-5830-4c65-9a04-853c34e83885"/>
+				<box leftPadding="20">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{clasCont}.intValue() >= 0 ? "    "+$F{descCont}:$F{descCont}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-2" x="502" y="5" width="73" height="15" uuid="9b5b4c06-d085-41b0-bd0d-7e06f4660605"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{dataCont}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement key="frame-3" x="0" y="0" width="575" height="25" uuid="2cbe73b6-c9d1-455a-869e-f6c00eece977"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement key="frame-4" x="0" y="0" width="575" height="20" uuid="39a00b38-2a4b-4cec-9f75-d03e0bbb3413"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
