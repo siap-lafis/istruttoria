@@ -59,7 +59,7 @@ public class CheckListReportMappingPrimaPagina  {
 		return cli1;
 	}
 	
-	public Collection<Map<String, ?>> preparaPagina1(Domanda domanda,List interventi, Pagamento decreto) {
+	public Collection<Map<String, ?>> preparaPagina1(Domanda domanda,List interventi, Pagamento decreto,String pathImage) {
 		
 		Collection<Map<String, ?>> cli1 =  new ArrayList<Map<String, ?>>();			
 		Soggetto soggetto = domanda.getSoggetto();	   
@@ -86,9 +86,20 @@ public class CheckListReportMappingPrimaPagina  {
 			else 
 				map.put("descDeno", soggetto.getDenominazione());
 			map.putAll((Map)intervento);
+			map.put("checked", Boolean.FALSE);
+			map.put("pathImage",pathImage);
 			cli1.add(map);
 		}
+		cli1.add(getLastRowControlli(pathImage));
 		return cli1;
+	}
+	
+	private Map<String,Object> getLastRowControlli(String pathImage) {
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("descInte", "Ammontare pagamento domanda interventi richiesti < 250 Euro");
+		map.put("checked", Boolean.TRUE);	
+		map.put("pathImage",pathImage);
+		return map;
 	}
 
 }

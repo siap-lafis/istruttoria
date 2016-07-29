@@ -49,10 +49,10 @@ public class CheckListReportMappingControlliIstruttori {
 		return cli2;
 	}
 	
-	public Collection<Map<String, ?>> preparaPagina2(Domanda domanda,List controlli) {
+	public Collection<Map<String, ?>> preparaPagina2(Domanda domanda,List<Map<String,Object>>  controlli) {
 		Collection<Map<String, ?>> cli2 =  new ArrayList<Map<String, ?>>();			
 		Soggetto soggetto = domanda.getSoggetto();	   
-		for (Object controllo : controlli) {  
+		for (Map<String,Object>  controllo : controlli) {  
 			Map<String,Object> map = new HashMap<String,Object>();	
 			Timestamp data = null;	    
 			try {
@@ -66,12 +66,10 @@ public class CheckListReportMappingControlliIstruttori {
 			map.put("cuaa", soggetto.getCuaa());
 			map.put("codiBarr", ""+domanda.getIdDomanda());	
 			map.put("descDeno", soggetto.getDenominazione());
-			
-			Map contr = (Map)controllo;
-			contr.put("dataCont",data);  // TODO: forzato perchè null su DB
-			map.putAll((Map)controllo);
+						
+			map.putAll(controllo);
 			cli2.add(map);
-		}
+		}		
 		return cli2;	
-	}
+	}		
 }

@@ -31,11 +31,11 @@ public class StoredProcedureDao extends JdbcDaoSupport {
 	}
 	
 	
-	public List getControlliIstruttoriDU(long idAttoAmmi, int idDecr, int numeCamp) {
+	public List<Map<String,Object>> getControlliIstruttoriDU(long idAttoAmmi, int idDecr, int numeCamp) {
 			
 		RowMapper	 mapper = new RowMapper() {
 			public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Map cli2 = new HashMap();
+				Map<String,Object> cli2 = new HashMap<String,Object>();
 				cli2.put("progIstr", Integer.valueOf(rs.getInt("prog_istr")));
 				cli2.put("clasCont", Integer.valueOf(rs.getInt("clas_cont")));
 				cli2.put("descCont", rs.getString("desc_cont"));
@@ -56,15 +56,15 @@ public class StoredProcedureDao extends JdbcDaoSupport {
 		param.addValue("idAttoAmmiIn", idAttoAmmi);
 		param.addValue("idDecrIn", idDecr);
 		param.addValue("numeCampIn", numeCamp);
-		Map result = sjc.execute(param);  // si esegue la funzione passandogli il parametro impostato 
-        List l = (List)result.get("return");  // si prende il parametro di output
-        return l;       
+		Map<String,Object> result = sjc.execute(param);  // si esegue la funzione passandogli il parametro impostato 
+		return  (List<Map<String,Object>>)result.get("return");  // si prende il parametro di output
+            
 	}
 	
-	public List getListaInterventiRichiesti(long idAttoAmmi, int idDecr) {
+	public List<Map<String,Object>> getListaInterventiRichiesti(long idAttoAmmi, int idDecr) {
 		RowMapper mapper = new RowMapper() {
 			public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Map cli1 = new HashMap();
+				Map<String,Object>cli1 = new HashMap<String,Object>();
 				cli1.put("idDecr", Integer.valueOf(rs.getInt("id_decr")));
 				cli1.put("idInte", Integer.valueOf(rs.getInt("id_inte")));
 				cli1.put("codiInte", rs.getString("codi_inte"));
@@ -86,15 +86,14 @@ public class StoredProcedureDao extends JdbcDaoSupport {
 		MapSqlParameterSource param = new MapSqlParameterSource();
 		param.addValue("idAttoAmmiIn", idAttoAmmi);
 		param.addValue("idDecrIn", idDecr);
-		Map result = sjc.execute(param);  // si esegue la funzione passandogli il parametro impostato 
-        List l = (List)result.get("return");  // si prende il parametro di output
-        return l;       
+		Map<String,Object> result = sjc.execute(param);  // si esegue la funzione passandogli il parametro impostato 
+		return  (List<Map<String,Object>>)result.get("return");  // si prende il parametro di output            
 	}
 	
-	public List getListaInterventiRichiesti1(long idAttoAmmi,long annoCampagna) {
+	public List<Map<String,Object>> getListaInterventiRichiesti1(long idAttoAmmi,long annoCampagna) {
 		RowMapper mapper = new RowMapper() {
 			public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Map cli1 = new HashMap();
+				Map<String,Object> cli1 = new HashMap<String,Object>();
 				cli1.put("idInte", Integer.valueOf(rs.getInt("id_inte")));
 				cli1.put("codiInte", rs.getString("codi_inte"));
 				cli1.put("descInte", rs.getString("desc_inte"));
@@ -112,9 +111,9 @@ public class StoredProcedureDao extends JdbcDaoSupport {
 		MapSqlParameterSource param = new MapSqlParameterSource();
 		param.addValue("idAttoAmmiIn", idAttoAmmi);
 		param.addValue("anno_camp", annoCampagna);
-		Map result = sjc.execute(param);  // si esegue la funzione passandogli il parametro impostato 
-        List l = (List)result.get("return");  // si prende il parametro di output
-        return l;       
+		Map<String,Object> result = sjc.execute(param);  // si esegue la funzione passandogli il parametro impostato 
+		return  (List<Map<String,Object>>)result.get("return");  // si prende il parametro di output
+             
 	}
 	
 	public InterventoLiquidato getDettaglioImportoLiquidato(long idAttoAmmi, int idDecr, int idInte) {

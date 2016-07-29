@@ -31,7 +31,6 @@ import it.almaviva.siap.istruttoria.reports.CheckListReportMappingControlliIstru
 import it.almaviva.siap.istruttoria.reports.CheckListReportMappingControlliIstruttoriDetAiuto;
 import it.almaviva.siap.istruttoria.reports.CheckListReportMappingPrimaPagina;
 import it.almaviva.siap.istruttoria.reports.CustomJRDataSource;
-import it.almaviva.siap.istruttoria.repository.AduxstceRepository;
 import it.almaviva.siap.istruttoria.repository.PagamentoRepository;
 import it.almaviva.siap.istruttoria.repository.SoggettoRepository;
 import net.sf.jasperreports.engine.JRDataSource;
@@ -51,13 +50,15 @@ import net.sf.jasperreports.engine.data.JRMapCollectionDataSource;
 public class ReportResource {
 
     private final Logger log = LoggerFactory.getLogger(ReportResource.class);
+    
+    // TODO: deve diventare un parametro
+    private final int annoCampagna = 2015;
+    private final int idDecreto = 1;
         
     @Inject
     private SoggettoRepository soggettoRepository;
     @Inject
-    private PagamentoRepository pagamentoRepository;
-    @Inject
-    private AduxstceRepository  aduxstceRepository;
+    private PagamentoRepository pagamentoRepository;   
     @Inject
     private StoredProcedureDao dao;
     
@@ -97,15 +98,15 @@ public class ReportResource {
             boolean stored = true;
             /*********************************************************************************************************/
             // REALIZZAZIONE CON CHIAMATE STORED, 
-            List controlli = dao.getControlliIstruttoriDU(domanda.getId(), 4, 2015); // decreto e annoCampagna fissi
-            List interventi = dao.getListaInterventiRichiesti(domanda.getId(),4);	// decreto fisso
-			List interventi1 = dao.getListaInterventiRichiesti1(domanda.getId(),2015);
+            List<Map<String,Object>> controlli = dao.getControlliIstruttoriDU(domanda.getId(), idDecreto, annoCampagna); // decreto e annoCampagna fissi
+            List<Map<String,Object>> interventi = dao.getListaInterventiRichiesti(domanda.getId(),idDecreto);	// TODO: decreto fisso
+			//List interventi1 = dao.getListaInterventiRichiesti1(domanda.getId(),annoCampagna); TODO: commentata perchè estrae dati non significativi
 			//aggiungiInterventiRichiesti(interventi, interventi1); // TODO: per il momento commentato
 			List<InterventoLiquidato> importi = new ArrayList<InterventoLiquidato>();
 			for (int i=0; i<interventi.size(); i++) {
-				Map m = (Map)interventi.get(i);
+				Map<String,Object> m = interventi.get(i);
 				int idInte = ((Integer)m.get("idInte")).intValue();
-				InterventoLiquidato intervento = dao.getDettaglioImportoLiquidato(domanda.getId(), 4, idInte);
+				InterventoLiquidato intervento = dao.getDettaglioImportoLiquidato(domanda.getId(), idDecreto, idInte);
 				intervento.setCodiInte((String)m.get("codiInte"));
 				intervento.setDescInte((String)m.get("descInte"));
 				importi.add(intervento);
@@ -114,6 +115,7 @@ public class ReportResource {
             List<Pagamento> pagamenti = pagamentoRepository.findByIdAttoAmmi(domanda.getIdDomanda());            
             //String provvisoria ="provvisoria";             	    
     	    String dir = "/src/main/webapp/content/reports/";
+    	    String dirImages = "/src/main/webapp/content/images/";
     	    File file = new File("");     
     		FileInputStream fileJasper = new FileInputStream(new File(file.getAbsolutePath()+dir+"checkListIstruttoria.jasper"));    
              		   		
@@ -128,6 +130,8 @@ public class ReportResource {
     		String cli42 = file.getAbsolutePath()+dir+"cli42.jasper"; 
     		String cli43 = file.getAbsolutePath()+dir+"cli43.jasper"; 
     		String cli44 = file.getAbsolutePath()+dir+"cli44.jasper"; 
+    		
+    		String pathImage = file.getAbsolutePath()+dirImages;
     		
     		subreport.put("cli1", cli1);
     		subreport.put("cli2", cli2);
@@ -155,7 +159,7 @@ public class ReportResource {
     		}
     		
     		else {
-	    		Collection<Map<String, ?>> listaPrimaPagina = new CheckListReportMappingPrimaPagina().preparaPagina1(domanda,interventi,pagamenti.get(0));
+	    		Collection<Map<String, ?>> listaPrimaPagina = new CheckListReportMappingPrimaPagina().preparaPagina1(domanda,interventi,pagamenti.get(0),pathImage);
 	    		lista = new ArrayList<Map<String, ?>>();
 	            preparaSezione(listaPrimaPagina,lista);
 	    		cli1DS = new JRMapCollectionDataSource(listaPrimaPagina);
@@ -215,18 +219,18 @@ public class ReportResource {
         }
     
     
-    private void aggiungiInterventiRichiesti(List interventi, List interventi1) {
+    private void aggiungiInterventiRichiesti(List<Map<String,Object>> interventi, List<Map<String,Object>> interventi1) {
 		for (int i=0; interventi1 != null && i<interventi1.size(); i++) {
-			Map inte1 = (Map)interventi1.get(i);
+			Map<String,Object> inte1 = interventi1.get(i);
 			boolean trovato = false;
 			for (int j=0; interventi != null && j<interventi.size(); j++) {
-				Map inte = (Map)interventi.get(j);
+				Map<String,Object> inte = interventi.get(j);
 				if (inte.get("idInte").equals(inte1.get("idInte"))) {
 					trovato = true;
 				}
 			}
 			if (!trovato) {
-				Map map = new HashMap();
+				Map<String,Object> map = new HashMap<String,Object>();
 				map.put("idInte",inte1.get("idInte"));
 				map.put("codiInte",inte1.get("codiInte"));
 				map.put("descInte",inte1.get("descInte"));
@@ -240,6 +244,23 @@ public class ReportResource {
     	for (Map<String,?>  map : l){  // si scorrono i campi restituiti dal cursore 
 			lista.add(map);
 		}
+    }
+    
+    static private Pagamento getMaxDate(List<Pagamento> pagamenti) {
+    	Pagamento pagDatMax = pagamenti.get(0);
+    	for (Pagamento pagamento : pagamenti) {
+    		if (Integer.parseInt(pagamento.getDataElab().substring(6))>=
+    		Integer.parseInt(pagDatMax.getDataElab().substring(6))) {   			
+    	    		if (Integer.parseInt(pagamento.getDataElab().substring(3,5))>=
+    	    				Integer.parseInt(pagDatMax.getDataElab().substring(3,5))) {
+    	    			if (Integer.parseInt(pagamento.getDataElab().substring(0,2))>
+        	    				Integer.parseInt(pagDatMax.getDataElab().substring(0,2))) {
+    	    				pagDatMax = pagamento;
+    	    			}
+    	    		}
+    		}
+    	}
+    	return pagDatMax;
     }
     
     
@@ -257,6 +278,5 @@ public class ReportResource {
     	
     }
     
-
-
+ 
 }
