@@ -121,22 +121,6 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 			</frame>
-			<staticText>
-				<reportElement key="staticText-26" x="378" y="39" width="64" height="20" uuid="242becd7-54ab-4181-939c-53bf5f328c6c">
-					<printWhenExpression><![CDATA[new Boolean($F{protocollo} != null)]]></printWhenExpression>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
-				</textElement>
-				<text><![CDATA[Protocollo]]></text>
-			</staticText>
-			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
-				<reportElement key="textField-7" x="441" y="39" width="129" height="20" uuid="26ea0b81-4527-4dc8-a0a4-bb55e93b2380"/>
-				<textElement verticalAlignment="Middle">
-					<font size="10" isBold="false" isItalic="false" pdfFontName="Helvetica"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{protocollo}]]></textFieldExpression>
-			</textField>
 		</band>
 	</title>
 	<pageHeader>
