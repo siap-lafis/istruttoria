@@ -12,4 +12,5 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface ElencoPagamentoRepository extends JpaRepository<ElencoPagamento,Long> {
 
+	public List<ElencoPagamento> findByDomandaId(Long id);
 }

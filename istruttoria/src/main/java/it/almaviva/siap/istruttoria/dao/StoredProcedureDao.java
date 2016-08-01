@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.SqlOutParameter;
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Component;
@@ -72,6 +73,7 @@ public class StoredProcedureDao extends JdbcDaoSupport {
 				cli1.put("unitMisu", rs.getString("unit_misu"));
 				cli1.put("qntaRich", rs.getBigDecimal("qnta_rich"));
 				cli1.put("qntaDete", rs.getBigDecimal("qnta_dete"));
+				cli1.put("FLAG_PAGATO", rs.getInt("FLAG_PAGATO"));
 				return cli1;
 			}
 		};
@@ -183,6 +185,27 @@ public class StoredProcedureDao extends JdbcDaoSupport {
         il.setRiduzioni(ridu);
         il.setSanzioni(sanz);
         return il;
+	}
+	
+	public Boolean  getEsclusa250Euro (long idAttoAmmi, int idDecr) {
+		
+		
+		SimpleJdbcCall sjc = new SimpleJdbcCall(getJdbcTemplate());
+		sjc.withCatalogName("aduaax001");  // nome del package
+		sjc.withFunctionName("GetEsclusa250Euro");  // nome della funzione
+		sjc.withoutProcedureColumnMetaDataAccess();  // importante
+		// I parametri vanno dichiarati nell'ordine in cui vengono richiesti dalla funzione
+		sjc.declareParameters(new SqlOutParameter("return", Types.INTEGER), 
+							  new SqlParameter("idAttoAmmiIn", Types.NUMERIC),
+							  new SqlParameter("idDecrIn", Types.NUMERIC));
+		MapSqlParameterSource param = new MapSqlParameterSource();
+		param.addValue("idAttoAmmiIn", idAttoAmmi);
+		param.addValue("idDecrIn", idDecr);
+		Map result = sjc.execute(param);  // si esegue la funzione passandogli il parametro impostato 
+        int r = ((Integer)result.get("return")).intValue();  // si prende il parametro di output
+        return (r==1);       
+		
+            
 	}
 
 	
