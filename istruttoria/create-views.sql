@@ -74,7 +74,26 @@ Create Or Replace View Elenco_Pagamento As
 Select Distinct To_Number(Id_Decr||Id_Atto_Ammi) As Id, Id_Decr, To_Char(Data_Elab, 'dd/MM/yyyy') As Data_Decr, 
 Id_Atto_Ammi As Domanda_Id From Aduximut_Tab Order By 1;
 
-Create Or Replace View Soggetto As 
-Select distinct A.Cod_Soggetto As Id, A.Cod_Fiscale As Cuaa, Trim(A.Denominazione) As Denominazione 
-From Anag_Soggetti A, Tdom_Domanda D, Aduximut_Tab X 
-Where A.Cod_Soggetto = D.Id_Soggetto And D.Id_Domanda = X.Id_Atto_Ammi and a.data_fine_val > sysdate;
+
+
+
+CREATE OR REPLACE FORCE VIEW FASCICOLO.SOGGETTO
+(
+   ID,
+   CUAA,
+   DENOMINAZIONE,
+   NOME,
+   COGNOME,
+   PARTITAIVA
+)
+AS
+   SELECT DISTINCT A.Cod_Soggetto AS Id,
+                   A.Cod_Fiscale AS Cuaa,
+                   TRIM (A.Denominazione) AS Denominazione,
+                   nome AS Nome,
+                   cognome AS Cognome,
+                   part_iva AS PartitaIVA
+     FROM Anag_Soggetti A, Tdom_Domanda D, Aduximut_Tab X
+    WHERE     A.Cod_Soggetto = D.Id_Soggetto
+          AND D.Id_Domanda = X.Id_Atto_Ammi        
+          AND a.data_fine_val > SYSDATE;
