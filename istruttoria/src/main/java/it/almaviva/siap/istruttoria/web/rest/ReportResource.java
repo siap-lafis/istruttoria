@@ -25,12 +25,13 @@ import com.codahale.metrics.annotation.Timed;
 import it.almaviva.siap.istruttoria.dao.InterventoLiquidato;
 import it.almaviva.siap.istruttoria.dao.StoredProcedureDao;
 import it.almaviva.siap.istruttoria.domain.Domanda;
-import it.almaviva.siap.istruttoria.domain.Pagamento;
+import it.almaviva.siap.istruttoria.domain.ElencoPagamento;
 import it.almaviva.siap.istruttoria.domain.Soggetto;
 import it.almaviva.siap.istruttoria.reports.CheckListReportMappingControlliIstruttori;
 import it.almaviva.siap.istruttoria.reports.CheckListReportMappingControlliIstruttoriDetAiuto;
 import it.almaviva.siap.istruttoria.reports.CheckListReportMappingPrimaPagina;
 import it.almaviva.siap.istruttoria.reports.CustomJRDataSource;
+import it.almaviva.siap.istruttoria.repository.ElencoPagamentoRepository;
 import it.almaviva.siap.istruttoria.repository.PagamentoRepository;
 import it.almaviva.siap.istruttoria.repository.SoggettoRepository;
 import net.sf.jasperreports.engine.JRDataSource;
@@ -53,12 +54,14 @@ public class ReportResource {
     
     // TODO: deve diventare un parametro
     private final int annoCampagna = 2015;
-    private final int idDecreto = 1;
+    //private final int idDecreto = 1;
         
     @Inject
     private SoggettoRepository soggettoRepository;
     @Inject
-    private PagamentoRepository pagamentoRepository;   
+    private PagamentoRepository pagamentoRepository;  
+    @Inject
+    private ElencoPagamentoRepository elencoPagamentoRepository;
     @Inject
     private StoredProcedureDao dao;
     
@@ -95,13 +98,18 @@ public class ReportResource {
         public _FileName generateReportCheckList(@RequestBody Domanda domanda) throws JRException, FileNotFoundException {
     	
             log.debug("REST request to save Report"); 
-            boolean stored = true;
-            /*********************************************************************************************************/
-            // REALIZZAZIONE CON CHIAMATE STORED, 
+            // recupero il decreto massimo a partire dalla domanda         
+            List<ElencoPagamento> elencoPagamenti = elencoPagamentoRepository.findByDomandaId(domanda.getId());
+            ElencoPagamento elencoPagamentoMaxDecr =  getElencoPagamentoMaxDecr(elencoPagamenti);
+            int idDecreto = elencoPagamentoMaxDecr.getIdDecr();
+            
+            
             List<Map<String,Object>> controlli = dao.getControlliIstruttoriDU(domanda.getId(), idDecreto, annoCampagna); // decreto e annoCampagna fissi
             List<Map<String,Object>> interventi = dao.getListaInterventiRichiesti(domanda.getId(),idDecreto);	// TODO: decreto fisso
+            Boolean flagEsclusa250 = dao.getEsclusa250Euro(domanda.getId(),idDecreto);
 			//List interventi1 = dao.getListaInterventiRichiesti1(domanda.getId(),annoCampagna); TODO: commentata perchè estrae dati non significativi
 			//aggiungiInterventiRichiesti(interventi, interventi1); // TODO: per il momento commentato
+            
 			List<InterventoLiquidato> importi = new ArrayList<InterventoLiquidato>();
 			for (int i=0; i<interventi.size(); i++) {
 				Map<String,Object> m = interventi.get(i);
@@ -110,9 +118,9 @@ public class ReportResource {
 				intervento.setCodiInte((String)m.get("codiInte"));
 				intervento.setDescInte((String)m.get("descInte"));
 				importi.add(intervento);
-			}
-            /****************************************************/
-            List<Pagamento> pagamenti = pagamentoRepository.findByIdAttoAmmi(domanda.getIdDomanda());            
+			}                  			
+		//	List<Pagamento> pagamenti = pagamentoRepository.findByIdAttoAmmi(domanda.getIdDomanda());    
+			
             //String provvisoria ="provvisoria";             	    
     	    String dir = "/src/main/webapp/content/reports/";
     	    String dirImages = "/src/main/webapp/content/images/";
@@ -151,51 +159,29 @@ public class ReportResource {
     		JRMapCollectionDataSource cli3DS = null;
     		JRMapCollectionDataSource cli4DS = null;
    
-    		Collection<Map<String, ?>> lista;
-    		if (!stored)  {
-    			Collection<Map<String, ?>> listaPrimaPagina = new CheckListReportMappingPrimaPagina().getMapping(domanda, pagamenti);    		          
-    			cli1DS = new JRMapCollectionDataSource(listaPrimaPagina);
-    			srMap.put("cli1DS", cli1DS);
-    		}
-    		
-    		else {
-	    		Collection<Map<String, ?>> listaPrimaPagina = new CheckListReportMappingPrimaPagina().preparaPagina1(domanda,interventi,pagamenti.get(0),pathImage);
-	    		lista = new ArrayList<Map<String, ?>>();
-	            preparaSezione(listaPrimaPagina,lista);
-	    		cli1DS = new JRMapCollectionDataSource(listaPrimaPagina);
-	    		srMap.put("cli1DS", cli1DS);
-    		}
-
-    		
-    		if (!stored)  {
-    			List<String> _controlli = new ArrayList<String>();
-    			_controlli.add("Controllo #1");
-    			_controlli.add("Controllo #2");    				
-    			Collection<Map<String, ?>> listaPaginaControlliIstruttori = new CheckListReportMappingControlliIstruttori().getMapping(domanda, _controlli);
-    			cli2DS = new JRMapCollectionDataSource(listaPaginaControlliIstruttori);
-        		srMap.put("cli2DS", cli2DS);
-    		}
-    		else {
-    			Collection<Map<String, ?>> listaPaginaControlliIstruttori = new CheckListReportMappingControlliIstruttori().preparaPagina2(domanda, controlli);  
-    			lista = new ArrayList<Map<String, ?>>();  		
-    			preparaSezione(listaPaginaControlliIstruttori,lista);
-    			cli2DS = new JRMapCollectionDataSource(listaPaginaControlliIstruttori);
-        		srMap.put("cli2DS", cli2DS);
-    		}
+    		// preparazione prima pagina
+    		Collection<Map<String, ?>> lista = new ArrayList<Map<String, ?>>();;    		
+	    	Collection<Map<String, ?>> listaPrimaPagina = new CheckListReportMappingPrimaPagina().preparaPagina1(domanda,interventi,elencoPagamentoMaxDecr,pathImage,flagEsclusa250);	    		
+	        preparaSezione(listaPrimaPagina,lista);
+	    	cli1DS = new JRMapCollectionDataSource(listaPrimaPagina);
+	    	srMap.put("cli1DS", cli1DS);
+    	
+    	   		
+    		// preparazione seconda pagina
+    		Collection<Map<String, ?>> listaPaginaControlliIstruttori = new CheckListReportMappingControlliIstruttori().preparaPagina2(domanda,elencoPagamentoMaxDecr,controlli);  
+    		lista = new ArrayList<Map<String, ?>>();  		
+    		preparaSezione(listaPaginaControlliIstruttori,lista);
+    		cli2DS = new JRMapCollectionDataSource(listaPaginaControlliIstruttori);
+        	srMap.put("cli2DS", cli2DS);
+    	
     		
     		
     		
-    		if (!stored) {
-    			Collection<Map<String, ?>> listaPaginaControlliIstruttoriDetAiuto = new CheckListReportMappingControlliIstruttoriDetAiuto().getMapping(domanda, pagamenti);           
-    			cli4DS = new JRMapCollectionDataSource(listaPaginaControlliIstruttoriDetAiuto);
-    			srMap.put("cli4DS", cli4DS);
-    		}
+    		// preparazione ultima pagina
+    		Collection<Map<String, ?>> listaPaginaControlliIstruttoriDetAiuto = new CheckListReportMappingControlliIstruttoriDetAiuto().preparaPagina4(domanda,importi,elencoPagamentoMaxDecr);
+    		cli4DS = new JRMapCollectionDataSource(listaPaginaControlliIstruttoriDetAiuto);
+    		srMap.put("cli4DS", cli4DS);
     		
-    		else {
-    			Collection<Map<String, ?>> listaPaginaControlliIstruttoriDetAiuto = new CheckListReportMappingControlliIstruttoriDetAiuto().preparaPagina4(domanda,importi,pagamenti.get(0));
-    			cli4DS = new JRMapCollectionDataSource(listaPaginaControlliIstruttoriDetAiuto);
-    			srMap.put("cli4DS", cli4DS);
-    		}
     		
     		
     		Collection<Map<String, ?>> srList = new ArrayList<Map<String, ?>>();	
@@ -246,21 +232,31 @@ public class ReportResource {
 		}
     }
     
-    static private Pagamento getMaxDate(List<Pagamento> pagamenti) {
-    	Pagamento pagDatMax = pagamenti.get(0);
-    	for (Pagamento pagamento : pagamenti) {
-    		if (Integer.parseInt(pagamento.getDataElab().substring(6))>=
-    		Integer.parseInt(pagDatMax.getDataElab().substring(6))) {   			
-    	    		if (Integer.parseInt(pagamento.getDataElab().substring(3,5))>=
-    	    				Integer.parseInt(pagDatMax.getDataElab().substring(3,5))) {
-    	    			if (Integer.parseInt(pagamento.getDataElab().substring(0,2))>
-        	    				Integer.parseInt(pagDatMax.getDataElab().substring(0,2))) {
-    	    				pagDatMax = pagamento;
-    	    			}
-    	    		}
-    		}
+//    static private Pagamento getMaxDate(List<Pagamento> pagamenti) {
+//    	Pagamento pagDatMax = pagamenti.get(0);
+//    	for (Pagamento pagamento : pagamenti) {
+//    		if (Integer.parseInt(pagamento.getDataElab().substring(6))>=
+//    		Integer.parseInt(pagDatMax.getDataElab().substring(6))) {   			
+//    	    		if (Integer.parseInt(pagamento.getDataElab().substring(3,5))>=
+//    	    				Integer.parseInt(pagDatMax.getDataElab().substring(3,5))) {
+//    	    			if (Integer.parseInt(pagamento.getDataElab().substring(0,2))>
+//        	    				Integer.parseInt(pagDatMax.getDataElab().substring(0,2))) {
+//    	    				pagDatMax = pagamento;
+//    	    			}
+//    	    		}
+//    		}
+//    	}
+//    	return pagDatMax;
+//    }
+    
+    private ElencoPagamento getElencoPagamentoMaxDecr(List<ElencoPagamento> elencoPagamenti) {
+    	ElencoPagamento elencoPagamentoMax = new ElencoPagamento();
+    	elencoPagamentoMax.setIdDecr(0);
+    	for (ElencoPagamento elencoPagamento : elencoPagamenti) {
+    		if (elencoPagamento.getIdDecr()>elencoPagamentoMax.getIdDecr())
+    			elencoPagamentoMax = elencoPagamento;
     	}
-    	return pagDatMax;
+    	return elencoPagamentoMax;
     }
     
     
