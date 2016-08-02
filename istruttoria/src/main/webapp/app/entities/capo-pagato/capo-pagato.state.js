@@ -190,7 +190,53 @@
                     $state.go('^');
                 });
             }]
-        });
+        })
+        .state('capo-pagato.pagamento', {
+            parent: 'entity',
+            url: '/capo-pagato/pagamento/{id}?page&sort&search',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'istruttoriaApp.capoPagato.home.title'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/capo-pagato/capo-pagatoes.html',
+                    controller: 'CapiPagatiPagamentoController',
+                    controllerAs: 'vm'
+                }
+            },
+            params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: {
+                    value: null,
+                    squash: true
+                },
+            },
+            resolve: {
+            	pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                    return {
+                        page: PaginationUtil.parsePage($stateParams.page),
+                        sort: $stateParams.sort,
+                        predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                        ascending: PaginationUtil.parseAscending($stateParams.sort),
+                        search: $stateParams.search
+                    };
+                }],
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('capoPagato');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }]
+            }
+        })
+        ;
     }
 
 })();
