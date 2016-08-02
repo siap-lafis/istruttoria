@@ -26,9 +26,10 @@ Z.Medie_Latte_Prot, C.Codi_Asll As Cod_Asl, C.Flag_Sess, C.Data_Nasc, C.Codi_Raz
 C.Data_Iniz_Dete, C.Data_Fine_Dete, Null As Pagamento_Id
 From Vpaga_Cont_Zoot Z, Aduxcapi_Tab C Where Z.Marca_Capo = C.Codi_Marc);
 
-Create Or Replace View Penalita As (Select Rownum As Id, Deco_Tipo_Pena, Qnta_Pena, Impo_Pena, 
-Unit_Misu, To_Number(Id_Decr||Id_Atto_Ammi||Id_Inte) As Pagamento_Id From Aduxpena_Tab
-where To_Number(Id_Decr||Id_Atto_Ammi||Id_Inte) in (select id from pagamento));
+-- Drop Table Penalita; 
+Create Or Replace View Penalita As (Select Rownum As Id, p.Deco_Tipo_Pena, p.Qnta_Pena, p.Impo_Pena, 
+P.Unit_Misu, To_Number(P.Id_Decr||P.Id_Atto_Ammi||P.Id_Inte||M.Fasc_Modu) As Pagamento_Id From Aduxpena_Tab P, Aduximut_Tab M
+Where p.id_decr = m.id_decr and p.id_atto_ammi = m.id_atto_ammi and p.id_inte = m.id_inte);
 
 Create or replace View Superficie_Pagata As 
 (Select Rownum As Id, Supe_Dich, Supe_Ammi, Supe_Refr, Supe_Dete, Supe_Nsan, 
@@ -44,14 +45,16 @@ Codi_Esit_Gcol As Codi_Esi_Gcol, Perc_Sanz_Gcol, Perc_Sanz_Azie, Valo_Medi_Tito,
 Impo_Trat_Modu, Fasc_Modu, Impo_Trat_Fina, To_Number(Id_Decr||Id_Atto_Ammi) As Elenco_Pagamento_Id 
 From Aduximut_Tab Order By 1;
 
-Create View Obbligo_Inverdimento As (Select Rownum As Id,
+-- Drop Table Obbligo_Inverdimento;
+Create or replace View Obbligo_Inverdimento As (Select Rownum As Id,
 Qnta_Supe_Semi As Supe_Semi, Qnta_Supe_Prat_Perm As Supe_Prat_Perm, 
 Qnta_Supe_Fora As Supe_Fora, Deco_Eson_Dive, Deco_Eson_Efa, 
 Flag_Risp_Colt, Flag_Risp_Colt_Rima, Flag_Risp_Li75 As Flag_Risp_75_P, 
 Flag_Risp_Li95 As Flag_Risp_95_P,
-Flag_Risp_Efa, null as superfici_inverdimento_id From Aduxinve1_Tab);
+Flag_Risp_Efa, To_Number(Id_Decr||Id_Atto_Ammi) as superfici_inverdimento_id From Aduxinve1_Tab);
 
-Create or replace View Superficie_Inverdimento As (Select Rownum As Id, Supe_Semi, 
+-- Drop Table Superficie_Inverdimento;
+Create or replace View Superficie_Inverdimento As (Select To_Number(Id_Decr||Id_Atto_Ammi) As Id, Supe_Semi, 
 Supe_Prim As Supe_Prim_Colt, Supe_Seco As Supe_Seco_Colt, Supe_Altr As Supe_Altr_Colt, 
 Supe_Prim_Max, Supe_Seco_Max, Supe_Prim_Diff1 As Supe_Prim_Diff_1, 
 Supe_Prim_Diff2 As Supe_Prim_Diff_2, Tasso_Diff_Prim, Supe_Prim_Ridu, 
@@ -73,8 +76,6 @@ Select Id_Atto_Ammi From Aduximut_Tab);
 Create Or Replace View Elenco_Pagamento As
 Select Distinct To_Number(Id_Decr||Id_Atto_Ammi) As Id, Id_Decr, To_Char(Data_Elab, 'dd/MM/yyyy') As Data_Decr, 
 Id_Atto_Ammi As Domanda_Id From Aduximut_Tab Order By 1;
-
-
 
 
 CREATE OR REPLACE FORCE VIEW FASCICOLO.SOGGETTO
