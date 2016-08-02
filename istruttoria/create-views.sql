@@ -20,11 +20,12 @@ Id_Domanda As Domanda_Id From T_Du_Utilizzo_Gis
 Where Id_Domanda In (Select Id_Domanda From Domanda)
 Group By rownum, Cod_Nazionale, Foglio, Codice_Intervento, Cod_Utilizzo, Codice_Prodotto, Codice_Varieta, Id_Domanda);
 
-Create View Capo_Pagato As (Select rownum As Id, Z.Marca_Capo, Z.Ammissibile, 
+Create or replace View Capo_Pagato As (Select rownum As Id, Z.Marca_Capo, Z.Ammissibile, 
 Z.N_Uba As Num_Uba, Z.Mancanza_Analisi_Latte, Z.Medie_Latte_Soma, Z.Medie_Latte_Germ, 
 Z.Medie_Latte_Prot, C.Codi_Asll As Cod_Asl, C.Flag_Sess, C.Data_Nasc, C.Codi_Razz, 
-C.Data_Iniz_Dete, C.Data_Fine_Dete, Null As Pagamento_Id
-From Vpaga_Cont_Zoot Z, Aduxcapi_Tab C Where Z.Marca_Capo = C.Codi_Marc);
+C.Data_Iniz_Dete, C.Data_Fine_Dete, to_number(m.id_decr||m.Id_Atto_Ammi||m.id_inte||m.fasc_modu) As Pagamento_Id
+From Vpaga_Cont_Zoot Z, Aduxcapi_Tab C, Aduximut_Tab M Where Z.Marca_Capo = C.Codi_Marc
+And Z.Id_Domanda = M.Id_Atto_Ammi And Z.Id_Intervento = M.Id_Inte);
 
 -- Drop Table Penalita; 
 Create Or Replace View Penalita As (Select Rownum As Id, p.Deco_Tipo_Pena, p.Qnta_Pena, p.Impo_Pena, 
