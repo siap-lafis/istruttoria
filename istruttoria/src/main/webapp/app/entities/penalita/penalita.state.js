@@ -181,7 +181,53 @@
                     $state.go('^');
                 });
             }]
-        });
+        })
+        .state('penalita.pagamento', {
+            parent: 'entity',
+            url: '/penalita/pagamento/{id}?page&sort&search',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'istruttoriaApp.penalita.home.title'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/penalita/penalitas.html',
+                    controller: 'PenalitaPagamentoController',
+                    controllerAs: 'vm'
+                }
+            },
+            params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: {
+                    value: null,
+                    squash: true
+                },
+            },
+            resolve: {
+            	pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                    return {
+                        page: PaginationUtil.parsePage($stateParams.page),
+                        sort: $stateParams.sort,
+                        predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                        ascending: PaginationUtil.parseAscending($stateParams.sort),
+                        search: $stateParams.search
+                    };
+                }],
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('penalita');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }]
+            }
+        })
+        ;
     }
 
 })();

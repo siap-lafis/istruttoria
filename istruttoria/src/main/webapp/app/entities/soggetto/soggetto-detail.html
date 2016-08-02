@@ -12,6 +12,10 @@
         <dd>
             <span>{{vm.soggetto.denominazione}}</span>
         </dd>
+        <dt><span translate="istruttoriaApp.soggetto.domande">Domande</span></dt>
+        <dd>
+            <a ui-sref="domanda.soggetto({id:vm.soggetto.id})">{{vm.soggetto.id}}</a>
+        </dd>
     </dl>
 
     <button type="submit"

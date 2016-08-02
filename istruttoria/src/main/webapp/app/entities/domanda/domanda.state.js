@@ -182,7 +182,52 @@
                     $state.go('^');
                 });
             }]
-        });
+        })
+        .state('domanda.soggetto', {
+        	parent: 'entity',
+            url: '/domanda/soggetto/{id}?page&sort&search',
+            data: {
+                authorities: ['ROLE_USER'],
+                ppageTitle: 'istruttoriaApp.domanda.home.title'
+            },
+            views: {
+            	'content@': {
+            		templateUrl: 'app/entities/domanda/domandas.html',
+            		controller: 'DomandeSoggettoController',
+            		controllerAs: 'vm'
+            	}
+            },            
+            params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: {
+                    value: null,
+                    squash: true
+                },
+            },
+            resolve: {
+                pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                    return {
+                        page: PaginationUtil.parsePage($stateParams.page),
+                        sort: $stateParams.sort,
+                        predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                        ascending: PaginationUtil.parseAscending($stateParams.sort),
+                        search: $stateParams.search
+                    };
+                }],
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('domanda');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }]
+            }       
+        });      
     }
 
 })();
