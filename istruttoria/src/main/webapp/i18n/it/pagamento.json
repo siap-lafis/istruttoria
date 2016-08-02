@@ -35,7 +35,8 @@
             "fascModu": "Fasc Modu",
             "impoTratFina": "Impo Trat Fina",
             "elencoPagamento": "Elenco Pagamento",
-            "penalita": "Penalità"
+            "penalita": "Penalità",
+            "capiPagati": "Capi Pagati"
         }
     }
 }
