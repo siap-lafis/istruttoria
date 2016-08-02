@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.codahale.metrics.annotation.Timed;
 
 import it.almaviva.siap.istruttoria.domain.CapoPagato;
+import it.almaviva.siap.istruttoria.domain.Superficie;
 import it.almaviva.siap.istruttoria.repository.CapoPagatoRepository;
 import it.almaviva.siap.istruttoria.repository.search.CapoPagatoSearchRepository;
 import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
@@ -181,6 +182,24 @@ public class CapoPagatoResource {
         return StreamSupport
             .stream(capoPagatoSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
+    }
+    
+    /**
+     * GET  /capo-pagatoes/pagamento/:id : get capo-pagato by "id" pagamento.
+     *
+     * @param id the id of the domanda including the superfici to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the superfici, or with status 404 (Not Found)
+     * @throws URISyntaxException 
+     */
+    @RequestMapping(value = "/capo-pagatoes/pagamento/{id}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<CapoPagato>> getCapiPagatiPagamento(@PathVariable Long id,Pageable pageable) throws URISyntaxException {
+        log.debug("REST request to get getCapiPagatiPagamento : {}", id);
+        Page<CapoPagato> page = capoPagatoRepository.findByPagamentoId(id, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/capo-pagatoes/pagamento/{id}");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
 
