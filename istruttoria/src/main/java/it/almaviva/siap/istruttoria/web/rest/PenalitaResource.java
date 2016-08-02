@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.codahale.metrics.annotation.Timed;
 
 import it.almaviva.siap.istruttoria.domain.Penalita;
+import it.almaviva.siap.istruttoria.domain.Superficie;
 import it.almaviva.siap.istruttoria.repository.PenalitaRepository;
 import it.almaviva.siap.istruttoria.repository.search.PenalitaSearchRepository;
 import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
@@ -182,6 +183,24 @@ public class PenalitaResource {
         return StreamSupport
             .stream(penalitaSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
+    }
+    
+    /**
+     * GET  /penalitas/pagamento:id : get penalità by "id" pagamento.
+     *
+     * @param id the id of the domanda including the superfici to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the superfici, or with status 404 (Not Found)
+     * @throws URISyntaxException 
+     */
+    @RequestMapping(value = "/penalitas/pagamento/{id}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Penalita>> getPenalitaPagamento(@PathVariable Long id,Pageable pageable) throws URISyntaxException {
+        log.debug("REST request to get getPenalitaPagamento : {}", id);
+        Page<Penalita> page = penalitaRepository.findByPagamentoId(id, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/penalitas/pagamento/{id}");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
 

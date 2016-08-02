@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.codahale.metrics.annotation.Timed;
 
 import it.almaviva.siap.istruttoria.domain.Domanda;
+import it.almaviva.siap.istruttoria.domain.Superficie;
 import it.almaviva.siap.istruttoria.repository.DomandaRepository;
 import it.almaviva.siap.istruttoria.repository.search.DomandaSearchRepository;
 import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
@@ -181,6 +182,24 @@ public class DomandaResource {
         return StreamSupport
             .stream(domandaSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
+    }
+    
+    /**
+     * GET  /domandas/soggetto/:id : get superfici by "id" domanda.
+     *
+     * @param id the id of the domanda including the superfici to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the superfici, or with status 404 (Not Found)
+     * @throws URISyntaxException 
+     */
+    @RequestMapping(value = "/domandas/soggetto/{id}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Domanda>> getDomandeSoggetto(@PathVariable Long id,Pageable pageable) throws URISyntaxException {
+        log.debug("REST request to get DomandeSoggetto : {}", id);
+        Page<Domanda> page = domandaRepository.findBySoggettoId(id,pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/domandas/soggetto/{id}");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
 

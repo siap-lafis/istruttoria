@@ -217,7 +217,7 @@ public class SuperficieResource {
     public ResponseEntity<List<Superficie>> getSuperficiDomanda(@PathVariable Long id,Pageable pageable) throws URISyntaxException {
         log.debug("REST request to get Superfici : {}", id);
         Page<Superficie> page = superficieRepository.findByDomandaId(id,pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/superficiesdomanda/{id}");
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/superficies/domanda/{id}");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
