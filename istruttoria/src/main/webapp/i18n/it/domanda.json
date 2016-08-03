@@ -24,7 +24,8 @@
             "anno": "Anno",
             "soggetto": "Soggetto",
             "superfici": "Superfici",
-            "pagamenti": "Pagamenti"
+            "pagamenti": "Pagamenti",
+            "superficiInverdimento" : "Superfici Inverdimento"
         }
     }
 }

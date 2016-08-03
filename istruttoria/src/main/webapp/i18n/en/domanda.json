@@ -24,7 +24,8 @@
             "anno": "Year",
             "soggetto": "Farm",
             "superfici": "Land parcels",
-            "pagamenti": "Payments"
+            "pagamenti": "Payments",
+            "superficiInverdimento" : "Superfici Inverdimento"
         }
     }
 }
