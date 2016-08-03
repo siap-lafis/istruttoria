@@ -235,7 +235,7 @@
                     };
                 }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('superficie');
+                    $translatePartialLoader.addPart('pagamento');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

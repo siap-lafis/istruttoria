@@ -9,9 +9,32 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
+//        .state('superficie-pagata', {
+//            parent: 'entity',
+//            url: '/superficie-pagata',
+//            data: {
+//                authorities: ['ROLE_USER'],
+//                pageTitle: 'istruttoriaApp.superficiePagata.home.title'
+//            },
+//            views: {
+//                'content@': {
+//                    templateUrl: 'app/entities/superficie-pagata/superficie-pagatas.html',
+//                    controller: 'SuperficiePagataController',
+//                    controllerAs: 'vm'
+//                }
+//            },
+//            resolve: {
+//                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+//                    $translatePartialLoader.addPart('superficiePagata');
+//                    $translatePartialLoader.addPart('global');
+//                    return $translate.refresh();
+//                }]
+//            }
+//        })
+        // Paginazione
         .state('superficie-pagata', {
             parent: 'entity',
-            url: '/superficie-pagata',
+            url: '/superficie-pagata?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
                 pageTitle: 'istruttoriaApp.superficiePagata.home.title'
@@ -23,7 +46,30 @@
                     controllerAs: 'vm'
                 }
             },
+            params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: {
+                    value: null,
+                    squash: true
+                },
+            },
             resolve: {
+                pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                    return {
+                        page: PaginationUtil.parsePage($stateParams.page),
+                        sort: $stateParams.sort,
+                        predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                        ascending: PaginationUtil.parseAscending($stateParams.sort),
+                        search: $stateParams.search
+                    };
+                }],         
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('superficiePagata');
                     $translatePartialLoader.addPart('global');
@@ -31,6 +77,7 @@
                 }]
             }
         })
+        
         .state('superficie-pagata-detail', {
             parent: 'entity',
             url: '/superficie-pagata/{id}',
@@ -138,7 +185,53 @@
                     $state.go('^');
                 });
             }]
-        });
+        })
+        .state('superficie-pagata.pagamento', {
+            parent: 'entity',
+            url: '/superficie-pagata/pagamento/{id}?page&sort&search',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'istruttoriaApp.superficiePagata.home.title'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/superficie-pagata/superficie-pagatas.html',
+                    controller: 'SuperficiPagatePagamentoController',
+                    controllerAs: 'vm'
+                }
+            },
+            params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: {
+                    value: null,
+                    squash: true
+                },
+            },
+            resolve: {
+                pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                    return {
+                        page: PaginationUtil.parsePage($stateParams.page),
+                        sort: $stateParams.sort,
+                        predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                        ascending: PaginationUtil.parseAscending($stateParams.sort),
+                        search: $stateParams.search
+                    };
+                }],         
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('superficiePagata');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }]
+            }
+        })
+        ;
     }
 
 })();
