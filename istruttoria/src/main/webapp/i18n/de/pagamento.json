@@ -36,7 +36,8 @@
             "impoTratFina": "Impo Trat Fina",
             "elencoPagamento": "Elenco Pagamento",
             "penalita": "Penalità",
-            "capiPagati": "Capi Pagati"
+            "capiPagati": "Capi Pagati",
+            "superficiPagate": "Superfici Pagate"
         }
     }
 }

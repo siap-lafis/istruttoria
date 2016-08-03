@@ -3,7 +3,7 @@
         "superficiePagata" : {
             "home": {
                 "title": "Superfici Pagate",
-                "createLabel": ""Crea una nuova Superficie Pagata",
+                "createLabel": "Crea una nuova Superficie Pagata",
                 "createOrEditLabel": "Crea o modifica una Superficie Pagata",
                 "search": "Ricerca per Superficie Pagata"
             },
