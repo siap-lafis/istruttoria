@@ -33,10 +33,11 @@ P.Unit_Misu, To_Number(P.Id_Decr||P.Id_Atto_Ammi||P.Id_Inte||M.Fasc_Modu) As Pag
 Where p.id_decr = m.id_decr and p.id_atto_ammi = m.id_atto_ammi and p.id_inte = m.id_inte);
 
 Create or replace View Superficie_Pagata As 
-(Select Rownum As Id, Supe_Dich, Supe_Ammi, Supe_Refr, Supe_Dete, Supe_Nsan, 
-Supe_Acce, Notito_Dich As Num_Tito_Dich, Notito_Dete As Num_Tito_Dete, 
-to_number(id_decr||Id_Atto_Ammi||id_inte) As Pagamento_Id
-From Aduxespa_Tab);
+(Select Rownum As Id, Sp.Supe_Dich, Sp.Supe_Ammi, Sp.Supe_Refr, Sp.Supe_Dete, Sp.Supe_Nsan, m.id_inte,
+Sp.Supe_Acce, Sp.Notito_Dich As Num_Tito_Dich, Sp.Notito_Dete As Num_Tito_Dete, 
+To_Number(sp.Id_Decr||sp.Id_Atto_Ammi||sp.Id_Inte||m.fasc_modu) As Pagamento_Id
+From Aduxespa_Tab Sp, Aduximut_Tab M
+Where Sp.Id_Atto_Ammi = M.Id_Atto_Ammi And Sp.Id_Decr = M.Id_Decr );
 
 Create Or Replace View Pagamento As 
 Select to_number(id_decr||Id_Atto_Ammi||id_inte||fasc_modu) As Id, Id_Atto_Ammi, Decode(Id_Inte, 407, 'BPS1', 'GREENING') As Cod_Intervento, 
@@ -52,7 +53,8 @@ Qnta_Supe_Semi As Supe_Semi, Qnta_Supe_Prat_Perm As Supe_Prat_Perm,
 Qnta_Supe_Fora As Supe_Fora, Deco_Eson_Dive, Deco_Eson_Efa, 
 Flag_Risp_Colt, Flag_Risp_Colt_Rima, Flag_Risp_Li75 As Flag_Risp_75_P, 
 Flag_Risp_Li95 As Flag_Risp_95_P,
-Flag_Risp_Efa, To_Number(Id_Decr||Id_Atto_Ammi) as superfici_inverdimento_id From Aduxinve1_Tab);
+Flag_Risp_Efa, To_Number(Id_Decr||Id_Atto_Ammi) as superfici_inverdimento_id From Aduxinve1_Tab
+WHERE id_atto_ammi IN (SELECT id FROM domanda));
 
 -- Drop Table Superficie_Inverdimento;
 Create or replace View Superficie_Inverdimento As (Select To_Number(Id_Decr||Id_Atto_Ammi) As Id, Supe_Semi, 
