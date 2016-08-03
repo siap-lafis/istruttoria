@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.codahale.metrics.annotation.Timed;
 
 import it.almaviva.siap.istruttoria.domain.Pagamento;
+import it.almaviva.siap.istruttoria.domain.SuperficieInverdimento;
 import it.almaviva.siap.istruttoria.repository.PagamentoRepository;
 import it.almaviva.siap.istruttoria.repository.search.PagamentoSearchRepository;
 import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
@@ -193,11 +194,12 @@ public class PagamentoResource {
     @RequestMapping(value = "/pagamentos/domanda/{id}",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public List<Pagamento> getPagamentiDomanda(@PathVariable Long id) {
+    @Timed    
+    public ResponseEntity<List<Pagamento>> getPagamentiDomanda(@PathVariable Long id,Pageable pageable) throws URISyntaxException {
         log.debug("REST request to get Pagamenti : {}", id);
-        List<Pagamento> pagamenti = pagamentoRepository.findByElencoPagamentoDomandaId(id);
-        return pagamenti;
+        Page<Pagamento> page = pagamentoRepository.findByElencoPagamentoDomandaId(id,pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/pagamentos/domanda/{id}");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
 

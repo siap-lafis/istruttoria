@@ -204,7 +204,7 @@ public class SuperficieResource {
 //    }
     
     /**
-     * GET  /superficies/:id : get superfici by "id" domanda.
+     * GET  /superficies/domanda/:id : get superfici by "id" domanda.
      *
      * @param id the id of the domanda including the superfici to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the superfici, or with status 404 (Not Found)

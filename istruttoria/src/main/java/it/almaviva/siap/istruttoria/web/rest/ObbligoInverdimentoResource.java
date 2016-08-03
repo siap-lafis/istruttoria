@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.codahale.metrics.annotation.Timed;
 
 import it.almaviva.siap.istruttoria.domain.ObbligoInverdimento;
+import it.almaviva.siap.istruttoria.domain.SuperficieInverdimento;
 import it.almaviva.siap.istruttoria.repository.ObbligoInverdimentoRepository;
 import it.almaviva.siap.istruttoria.repository.search.ObbligoInverdimentoSearchRepository;
 import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
@@ -181,6 +182,24 @@ public class ObbligoInverdimentoResource {
         return StreamSupport
             .stream(obbligoInverdimentoSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
+    }
+    
+    /**
+     * GET  /obbligo-inverdimentos/superficie-inverdimento/:id : get superfici by "id" domanda.
+     *
+     * @param id the id of the SuperficiInverdimento including the superfici to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the superfici, or with status 404 (Not Found)
+     * @throws URISyntaxException 
+     */
+    @RequestMapping(value = "/obbligo-inverdimentos/superficie-inverdimento/{id}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<ObbligoInverdimento>> getObblighiInverdimentoSuperficiInverdimento(@PathVariable Long id,Pageable pageable) throws URISyntaxException {
+        log.debug("REST request to get Superfici : {}", id);
+        Page<ObbligoInverdimento> page = obbligoInverdimentoRepository.findBySuperficiInverdimentoId(id, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/obbligo-inverdimentos/superficie-inverdimento/{id}");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
 
