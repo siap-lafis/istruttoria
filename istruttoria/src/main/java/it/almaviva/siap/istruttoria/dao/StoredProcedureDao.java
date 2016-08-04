@@ -41,6 +41,7 @@ public class StoredProcedureDao extends JdbcDaoSupport {
 				cli2.put("clasCont", Integer.valueOf(rs.getInt("clas_cont")));
 				cli2.put("descCont", rs.getString("desc_cont"));
 				cli2.put("dataCont", rs.getTimestamp("data_cont"));
+				cli2.put("pres_anom", rs.getInt("pres_anom"));
 				return cli2;
 			}
 		};

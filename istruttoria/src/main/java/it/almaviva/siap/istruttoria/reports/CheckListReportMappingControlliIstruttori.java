@@ -24,7 +24,7 @@ public class CheckListReportMappingControlliIstruttori {
 
 	
 	
-	public Collection<Map<String, ?>> preparaPagina2(Domanda domanda,ElencoPagamento decreto,List<Map<String,Object>>  controlli) {
+	public Collection<Map<String, ?>> preparaPagina2(Domanda domanda,ElencoPagamento decreto,List<Map<String,Object>>  controlli,String pathImage) {
 		Collection<Map<String, ?>> cli2 =  new ArrayList<Map<String, ?>>();			
 		Soggetto soggetto = domanda.getSoggetto();	   
 		for (Map<String,Object>  controllo : controlli) {  
@@ -40,7 +40,14 @@ public class CheckListReportMappingControlliIstruttori {
 			map.put("protocollo", "");
 			map.put("cuaa", soggetto.getCuaa());
 			map.put("codiBarr", ""+domanda.getIdDomanda());	
-			map.put("descDeno", soggetto.getDenominazione());						
+			map.put("descDeno", soggetto.getDenominazione());	
+			
+			// aggiunto flag 
+			Integer flag =  (Integer)controllo.get("pres_anom");
+			map.put("checked", flag>0);
+			map.put("pathImage",pathImage);
+			
+			
 			map.putAll(controllo);
 			cli2.add(map);
 		}		
