@@ -90,7 +90,7 @@ public class ReportResource {
     
     
     
-    // TODO: codice da rivedere per caricare i dati reali
+   
     @RequestMapping(value = "/domanda/detail/report",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
@@ -168,7 +168,7 @@ public class ReportResource {
     	
     	   		
     		// preparazione seconda pagina
-    		Collection<Map<String, ?>> listaPaginaControlliIstruttori = new CheckListReportMappingControlliIstruttori().preparaPagina2(domanda,elencoPagamentoMaxDecr,controlli);  
+    		Collection<Map<String, ?>> listaPaginaControlliIstruttori = new CheckListReportMappingControlliIstruttori().preparaPagina2(domanda,elencoPagamentoMaxDecr,controlli,pathImage);  
     		lista = new ArrayList<Map<String, ?>>();  		
     		preparaSezione(listaPaginaControlliIstruttori,lista);
     		cli2DS = new JRMapCollectionDataSource(listaPaginaControlliIstruttori);
@@ -178,7 +178,7 @@ public class ReportResource {
     		
     		
     		// preparazione ultima pagina
-    		Collection<Map<String, ?>> listaPaginaControlliIstruttoriDetAiuto = new CheckListReportMappingControlliIstruttoriDetAiuto().preparaPagina4(domanda,importi,elencoPagamentoMaxDecr);
+    		Collection<Map<String, ?>> listaPaginaControlliIstruttoriDetAiuto = new CheckListReportMappingControlliIstruttoriDetAiuto().preparaPagina4(domanda,importi,elencoPagamentoMaxDecr,pathImage);
     		cli4DS = new JRMapCollectionDataSource(listaPaginaControlliIstruttoriDetAiuto);
     		srMap.put("cli4DS", cli4DS);
     		

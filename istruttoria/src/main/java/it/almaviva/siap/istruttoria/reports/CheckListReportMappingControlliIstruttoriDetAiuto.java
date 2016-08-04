@@ -27,7 +27,7 @@ public class CheckListReportMappingControlliIstruttoriDetAiuto {
 
 	
 	
-	public Collection<Map<String, ?>> preparaPagina4(Domanda domanda,List<InterventoLiquidato> importi, ElencoPagamento decreto) {
+	public Collection<Map<String, ?>> preparaPagina4(Domanda domanda,List<InterventoLiquidato> importi, ElencoPagamento decreto,String pathImage) {
 		
 		Collection<Map<String, ?>> cli4 = new ArrayList<Map<String, ?>>();			
 		for (InterventoLiquidato inte  : importi ) {
@@ -52,6 +52,12 @@ public class CheckListReportMappingControlliIstruttoriDetAiuto {
 				map.put("qntaDich", inte.getQntaDich());
 				map.put("qntaRich", inte.getQntaRich());
 				map.put("impoRich", inte.getImpoRich());
+				
+				// TODO: PROVA
+				map.put("pathImage",pathImage);
+				map.put("flagDiversificazione",true);
+				map.put("flag2Colture", false);
+				
 				
 				
 				// RIDUZIONI
