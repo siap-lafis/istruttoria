@@ -39,6 +39,8 @@
 	<parameter name="cli42" isForPrompting="false" class="java.lang.String"/>
 	<parameter name="cli43" isForPrompting="false" class="java.lang.String"/>
 	<parameter name="cli44" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="cli45" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="cli46" isForPrompting="false" class="java.lang.String"/>
 	<parameter name="cli0" isForPrompting="false" class="java.lang.String"/>
 	<parameter name="cli30DS" isForPrompting="false" class="net.sf.jasperreports.engine.JRDataSource"/>
 	<parameter name="cli40DS" isForPrompting="false" class="net.sf.jasperreports.engine.JRDataSource"/>
@@ -161,6 +163,12 @@
 					</subreportParameter>
 					<subreportParameter  name="cli44">
 						<subreportParameterExpression><![CDATA[$P{cli44}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter  name="cli45">
+						<subreportParameterExpression><![CDATA[$P{cli45}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter  name="cli46">
+						<subreportParameterExpression><![CDATA[$P{cli46}]]></subreportParameterExpression>
 					</subreportParameter>
 					<subreportParameter  name="cli0">
 						<subreportParameterExpression><![CDATA[$P{cli0}]]></subreportParameterExpression>

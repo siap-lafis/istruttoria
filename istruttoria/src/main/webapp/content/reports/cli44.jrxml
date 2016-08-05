@@ -47,7 +47,7 @@
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="330" splitType="Stretch">
+		<band height="238" splitType="Stretch">
 			<staticText>
 				<reportElement key="staticText-61" x="6" y="0" width="385" height="22" uuid="e53d7d63-732c-4cf2-9163-fea9fd16e557"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">

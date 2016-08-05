@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cli4" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3f819ee1-ef1c-4953-8d14-6d7150f0df7f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="cli41" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="cli42" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="cli43" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="cli44" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="cli0" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="cli45" class="java.lang.String"/>
+	<parameter name="cli46" class="java.lang.String"/>
+	<field name="dataDecr" class="java.sql.Timestamp"/>
+	<field name="codiBarr" class="java.lang.String"/>
+	<field name="cuaa" class="java.lang.String"/>
+	<field name="descDeno" class="java.lang.String"/>
+	<field name="numeDecr" class="java.lang.Integer"/>
+	<field name="liquSi" class="java.lang.String"/>
+	<field name="descInte" class="java.lang.String"/>
+	<field name="codiInte" class="java.lang.String"/>
+	<field name="qntaRich" class="java.math.BigDecimal"/>
+	<field name="unita" class="java.lang.String"/>
+	<field name="qntaDich" class="java.math.BigDecimal"/>
+	<field name="impoRich" class="java.math.BigDecimal"/>
+	<field name="cli41DS" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="cli42DS" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="cli43DS" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="cli44DS" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="protocollo" class="java.lang.String"/>
+	<field name="cli45DS" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="cli46DS" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="160" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-8" x="6" y="3" width="360" height="25" uuid="2a0cbb6d-b1ad-453e-a308-c52b0af9a7f7"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[CONTROLLI ISTRUTTORI - determinazione aiuto]]></text>
+			</staticText>
+			<frame>
+				<reportElement key="frame-1" x="0" y="0" width="575" height="31" uuid="e04d3910-849a-4a99-8895-3bb2b85b7c4e"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement key="textField-25" x="177" y="94" width="395" height="38" uuid="11b5b06e-a718-4fdf-93f1-fbf696937145"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false" isItalic="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descDeno}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement key="textField-26" positionType="Float" x="130" y="137" width="92" height="13" uuid="39d95676-5e99-4a84-aeca-f19a6a0f58cb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false" isItalic="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codiBarr}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-104" positionType="Float" x="5" y="137" width="118" height="13" uuid="96d8ca07-ab62-4364-af92-7d473eacf2aa"/>
+				<textElement textAlignment="Left">
+					<font isBold="true" isItalic="false" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[NUMERO DOMANDA]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement key="textField-27" x="71" y="68" width="117" height="20" uuid="a48120f6-bd12-4553-9e87-ab26381cec92"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false" isItalic="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cuaa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-105" x="5" y="94" width="165" height="30" uuid="1a524323-1794-4284-a2c5-43512ac822ac"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[COGNOME E NOME O RAGIONE SOCIALE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-106" x="5" y="68" width="59" height="20" uuid="93998d1f-a6c1-43fa-afe2-789d419a21d4"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[CUAA]]></text>
+			</staticText>
+			<frame>
+				<reportElement key="frame-4" x="0" y="68" width="575" height="86" uuid="e06b750b-0c2e-4b2a-9c2e-88274622a107"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
+			<staticText>
+				<reportElement key="staticText-107" x="2" y="35" width="310" height="20" uuid="d26ad01c-a57d-405a-9b64-85ba7494ffe3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Check list dei controlli eseguiti alla data di elaborazione del]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="false">
+				<reportElement key="textField-28" x="312" y="35" width="66" height="20" uuid="fa76f88e-a550-4f44-a132-2d7c6faeecb9"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false" isItalic="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataDecr}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement key="frame-5" x="0" y="31" width="575" height="25" uuid="9c7f245b-e920-43f5-92e2-7002ace91f83"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-43" x="6" y="4" width="102" height="20" uuid="4f691936-d874-425b-a49f-14aa3100174f"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[AIUTO RICHIESTO :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement key="textField-19" x="115" y="4" width="456" height="20" uuid="7e50ac8a-743f-43d1-ae23-5734dd611b54"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false" isItalic="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codiInte}+"-"+$F{descInte}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement key="frame-2" x="0" y="3" width="575" height="23" uuid="a1911313-efe0-4667-9212-5b817ca3c548"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="319" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-21" x="6" y="4" width="409" height="20" uuid="12320423-4920-415e-ba2c-448ce6cfcae8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Calcolo  e applicazioni delle riduzioni ai sensi artt. Capo IV sez. III Reg (UE) 640/2014]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-22" x="415" y="130" width="156" height="20" uuid="47048159-0710-4abc-9f03-1cf37a288c0b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[TOTALE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-24" x="390" y="150" width="48" height="26" uuid="d49505ff-8b30-42da-a695-b09711e4942d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Unita' di misura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-27" x="437" y="150" width="58" height="26" uuid="28ec7bb3-a4a1-4e8e-a034-93a28b2973ba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Quantita']]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-28" x="494" y="150" width="77" height="26" uuid="7784db14-e16f-4a00-9395-293d09414d86"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Importo (Euro)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-29" x="6" y="175" width="385" height="26" uuid="c2a0c864-e668-4ebc-9dd2-ebd433ab5166"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Superficie potenzialmente ammissibile (solo per il Regime Unico di Pagamento)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-35" x="6" y="200" width="385" height="26" uuid="51507727-5022-4db4-b3d6-1b9b84945c15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[RICHIESTO]]></text>
+			</staticText>
+			<subreport isUsingCache="true">
+				<reportElement key="subreport-1" positionType="Float" x="0" y="224" width="122" height="20" uuid="085f3088-8dd6-4d69-8bf3-d6c4ff6a2ed8"/>
+				<dataSourceExpression><![CDATA[$F{cli41DS}]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{cli41}]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement key="staticText-42" x="494" y="175" width="77" height="26" uuid="bf444195-387a-4f5e-9a1e-66070400d239"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-93" x="6" y="150" width="152" height="26" uuid="4b0e5812-8ea0-4eb7-a5d6-44757d197c6f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-20" x="390" y="175" width="48" height="26" uuid="9bcd8b03-9869-404a-a3cf-e42d009d0d59"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{codiInte}.equals("026")?$F{unita}:null]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement key="textField-21" x="437" y="175" width="58" height="26" uuid="4c932429-d936-47e1-a7c8-13b20ac2e6ef"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{codiInte}.equals("026")?$F{qntaDich}:null]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-22" x="390" y="200" width="48" height="26" uuid="cfac89f7-361c-44ba-a594-b35f69735a8d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{unita}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
+				<reportElement key="textField-23" x="437" y="200" width="58" height="26" uuid="be4d4560-4d52-4779-a398-a3b962aa854d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{qntaRich}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
+				<reportElement key="textField-24" x="494" y="200" width="77" height="26" uuid="a53aab47-2e5e-4d28-8c53-7b361082ed03"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{impoRich}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-102" x="157" y="150" width="106" height="26" uuid="31a0d064-9039-4c26-9033-2f92692de3ec"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Classe di esito]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-103" x="262" y="150" width="129" height="26" uuid="a8f940a0-a586-4fcd-8034-7eb1c43bab84"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Effetto]]></text>
+			</staticText>
+			<subreport isUsingCache="true">
+				<reportElement key="subreport-2" positionType="Float" x="0" y="244" width="122" height="20" uuid="0dc4086a-2f61-45a4-9e45-fc6967fc7a51"/>
+				<dataSourceExpression><![CDATA[$F{cli43DS}]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{cli43}]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="true">
+				<reportElement key="subreport-3" positionType="Float" x="0" y="264" width="122" height="20" uuid="5bbd578f-1e04-427a-a310-86d85a0a5718"/>
+				<dataSourceExpression><![CDATA[$F{cli42DS}]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{cli42}]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="true">
+				<reportElement key="subreport-4" positionType="Float" x="0" y="284" width="122" height="20" uuid="473e33d5-2a42-411f-8bab-cb5ceaf81959"/>
+				<dataSourceExpression><![CDATA[$F{cli44DS}]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{cli44}]]></subreportExpression>
+			</subreport>
+			<frame>
+				<reportElement key="frame-3" x="0" y="22" width="575" height="108" uuid="09c95cd3-f36f-4e94-9a26-60252997fbd5"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
+			<subreport isUsingCache="true">
+				<reportElement key="subreport-5" positionType="Float" isPrintRepeatedValues="false" x="0" y="24" width="122" height="20" isRemoveLineWhenBlank="true" uuid="a4bb35e3-1076-44d3-ba03-c4959b80887b"/>
+				<dataSourceExpression><![CDATA[$F{cli45DS}]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{cli45}]]></subreportExpression>
+			</subreport>
+			<frame>
+				<reportElement key="frame-2" x="0" y="0" width="575" height="23" uuid="79680d5d-1ee2-4111-b32f-4acdea9f0463"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
+			<subreport isUsingCache="true">
+				<reportElement key="subreport-6" positionType="Float" isPrintRepeatedValues="false" x="0" y="25" width="126" height="105" isRemoveLineWhenBlank="true" uuid="38f37fd0-7d6c-4b92-8b4d-625edc4ffacb"/>
+				<dataSourceExpression><![CDATA[$F{cli46DS}]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{cli46}]]></subreportExpression>
+			</subreport>
+			<frame>
+				<reportElement key="frame-5" isPrintRepeatedValues="false" x="0" y="130" width="575" height="93" uuid="c16552b9-fc60-4ca8-9c9d-94dfa51ed5f4"/>
+				<box rightPadding="0">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
