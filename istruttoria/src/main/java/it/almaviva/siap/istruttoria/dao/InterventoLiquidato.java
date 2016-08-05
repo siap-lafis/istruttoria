@@ -3,6 +3,7 @@ package it.almaviva.siap.istruttoria.dao;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 public class InterventoLiquidato implements Serializable {
 	
@@ -34,6 +35,8 @@ public class InterventoLiquidato implements Serializable {
 	private String descInte;
 	private List<Riduzione> riduzioni;
 	private List<Riduzione> sanzioni;;
+	private Map<String,Object> flagGreening;
+	private Map<String,Object> titoli;
 	
 	
 	public BigDecimal getQntaDich() {
@@ -173,6 +176,18 @@ public class InterventoLiquidato implements Serializable {
 	}
 	public void setDescInte(String descInte) {
 		this.descInte = descInte;
+	}
+	public Map<String, Object> getFlagGreening() {
+		return flagGreening;
+	}
+	public void setFlagGreening(Map<String, Object> flagGreening) {
+		this.flagGreening = flagGreening;
+	}
+	public Map<String, Object> getTitoli() {
+		return titoli;
+	}
+	public void setTitoli(Map<String, Object> titoli) {
+		this.titoli = titoli;
 	}
 	
 	

@@ -53,11 +53,22 @@ public class CheckListReportMappingControlliIstruttoriDetAiuto {
 				map.put("qntaRich", inte.getQntaRich());
 				map.put("impoRich", inte.getImpoRich());
 				
-				// TODO: PROVA
-				map.put("pathImage",pathImage);
-				map.put("flagDiversificazione",true);
-				map.put("flag2Colture", false);
+
 				
+				if (inte.getTitoli() != null) {
+					Collection<Map<String, ?>> cli45 = new ArrayList<Map<String, ?>>();	
+					cli45.add(inte.getTitoli());
+					JRMapCollectionDataSource cli45DS = new JRMapCollectionDataSource(cli45);
+					map.put("cli45DS", cli45DS);				
+				}
+				if (inte.getFlagGreening() != null) {
+					Collection<Map<String, ?>> cli46 = new ArrayList<Map<String, ?>>();	
+					Map flags = inte.getFlagGreening();
+					flags.put("pathImage",pathImage);
+					cli46.add(inte.getFlagGreening());
+					JRMapCollectionDataSource cli46DS = new JRMapCollectionDataSource(cli46);
+					map.put("cli46DS", cli46DS);
+				}
 				
 				
 				// RIDUZIONI

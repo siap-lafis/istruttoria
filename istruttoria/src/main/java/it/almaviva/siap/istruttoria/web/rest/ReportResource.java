@@ -96,7 +96,8 @@ public class ReportResource {
             produces = MediaType.APPLICATION_JSON_VALUE)
         @Timed
         public _FileName generateReportCheckList(@RequestBody Domanda domanda) throws JRException, FileNotFoundException {
-    	
+    	  		
+    		
             log.debug("REST request to save Report"); 
             // recupero il decreto massimo a partire dalla domanda         
             List<ElencoPagamento> elencoPagamenti = elencoPagamentoRepository.findByDomandaId(domanda.getId());
@@ -110,6 +111,8 @@ public class ReportResource {
 			//List interventi1 = dao.getListaInterventiRichiesti1(domanda.getId(),annoCampagna); TODO: commentata perchè estrae dati non significativi
 			//aggiungiInterventiRichiesti(interventi, interventi1); // TODO: per il momento commentato
             
+           
+            
 			List<InterventoLiquidato> importi = new ArrayList<InterventoLiquidato>();
 			for (int i=0; i<interventi.size(); i++) {
 				Map<String,Object> m = interventi.get(i);
@@ -117,7 +120,24 @@ public class ReportResource {
 				InterventoLiquidato intervento = dao.getDettaglioImportoLiquidato(domanda.getId(), idDecreto, idInte);
 				intervento.setCodiInte((String)m.get("codiInte"));
 				intervento.setDescInte((String)m.get("descInte"));
+				
+				// se è un intervento di greening 
+				if ("008".equals(intervento.getCodiInte())) {
+					Map<String,Object> checkGreening = dao.getFlagGreening(domanda.getId(), idDecreto, annoCampagna);
+					intervento.setFlagGreening(checkGreening);
+				}
+				
+				
+				// se è un intervento di bsp o giovane agricoltore
+				if ("026".equals(intervento.getCodiInte()) ||
+					"300".equals(intervento.getCodiInte())	) {
+					Map<String,Object> titoliBSP = dao.getTitoli(domanda.getId(), idDecreto, annoCampagna);
+					intervento.setTitoli(titoliBSP);
+				}
+				
+				
 				importi.add(intervento);
+											
 			}                  			
 		//	List<Pagamento> pagamenti = pagamentoRepository.findByIdAttoAmmi(domanda.getIdDomanda());    
 			
@@ -132,12 +152,20 @@ public class ReportResource {
     		
     		String cli1 = file.getAbsolutePath()+dir+"cli1.jasper"; 		
     		String cli2 = file.getAbsolutePath()+dir+"cli2.jasper"; 
-    		//String cli3 = file.getAbsolutePath()+dir+"cli2.jasper"; 
-    		String cli4 = file.getAbsolutePath()+dir+"cli4.jasper"; 
+    		
+    		
+    		// TODO: il file cli4.jasper contiene il dettaglio degli aiuti senza le aggiunte che sono state richieste in un secondo momento,
+    		//       mentre il file cli4Prova.jasper è la versione modificata. Per generare il template 'prima maniera' è sufficente caricare
+    		//		 il file cli4.jasper
+    		//String cli4 = file.getAbsolutePath()+dir+"cli4.jasper";    		
+    		String cli4 = file.getAbsolutePath()+dir+"cli4Prova.jasper"; 
+    		
     		String cli41 =file.getAbsolutePath()+ dir+"cli41.jasper"; 
     		String cli42 = file.getAbsolutePath()+dir+"cli42.jasper"; 
     		String cli43 = file.getAbsolutePath()+dir+"cli43.jasper"; 
     		String cli44 = file.getAbsolutePath()+dir+"cli44.jasper"; 
+    		String cli45 = file.getAbsolutePath()+dir+"cli4BSP_Giovane.jasper";
+    		String cli46 = file.getAbsolutePath()+dir+"cli4Greening.jasper";
     		
     		String pathImage = file.getAbsolutePath()+dirImages;
     		
@@ -149,7 +177,9 @@ public class ReportResource {
     		subreport.put("cli42", cli42);
     		subreport.put("cli43", cli43);
     		subreport.put("cli44", cli44);
-            
+    		
+    		subreport.put("cli45", cli45);
+    		subreport.put("cli46", cli46);
                               
             Map<String,Object> srMap = new HashMap<String,Object>();
     		
@@ -232,22 +262,7 @@ public class ReportResource {
 		}
     }
     
-//    static private Pagamento getMaxDate(List<Pagamento> pagamenti) {
-//    	Pagamento pagDatMax = pagamenti.get(0);
-//    	for (Pagamento pagamento : pagamenti) {
-//    		if (Integer.parseInt(pagamento.getDataElab().substring(6))>=
-//    		Integer.parseInt(pagDatMax.getDataElab().substring(6))) {   			
-//    	    		if (Integer.parseInt(pagamento.getDataElab().substring(3,5))>=
-//    	    				Integer.parseInt(pagDatMax.getDataElab().substring(3,5))) {
-//    	    			if (Integer.parseInt(pagamento.getDataElab().substring(0,2))>
-//        	    				Integer.parseInt(pagDatMax.getDataElab().substring(0,2))) {
-//    	    				pagDatMax = pagamento;
-//    	    			}
-//    	    		}
-//    		}
-//    	}
-//    	return pagDatMax;
-//    }
+
     
     private ElencoPagamento getElencoPagamentoMaxDecr(List<ElencoPagamento> elencoPagamenti) {
     	ElencoPagamento elencoPagamentoMax = new ElencoPagamento();

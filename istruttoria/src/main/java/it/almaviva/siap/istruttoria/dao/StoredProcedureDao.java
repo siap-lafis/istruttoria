@@ -205,9 +205,72 @@ public class StoredProcedureDao extends JdbcDaoSupport {
 		Map result = sjc.execute(param);  // si esegue la funzione passandogli il parametro impostato 
         int r = ((Integer)result.get("return")).intValue();  // si prende il parametro di output
         return (r==1);       
-		
-            
+		          
 	}
+	
+	public Map<String,Object> getFlagGreening(long idAttoAmmi, int idDecr,int annoCampagna) {
+		SimpleJdbcCall sjc = new SimpleJdbcCall(getJdbcTemplate());
+		sjc.withCatalogName("aduaax001");  // nome del package
+		sjc.withProcedureName("getFlagGreening");  // nome della funzione
+		sjc.withoutProcedureColumnMetaDataAccess();  // importante
+		// I parametri vanno dichiarati nell'ordine in cui vengono richiesti dalla funzione
+		sjc.declareParameters(				
+							  new SqlParameter("idAttoAmmiIn", Types.NUMERIC),
+							  new SqlParameter("idDecrIn", Types.NUMERIC),
+							  new SqlOutParameter("flagDiversificazione", Types.INTEGER),
+							  new SqlOutParameter("flag2Colture", Types.INTEGER),
+							  new SqlOutParameter("flag3Colture", Types.INTEGER),
+							  new SqlOutParameter("flagEFA", Types.INTEGER),
+							  new SqlOutParameter("flagPratiPerm", Types.INTEGER),
+							  new SqlOutParameter("flagPiccolo", Types.INTEGER),
+							  new SqlOutParameter("flagBio", Types.INTEGER),
+							  new SqlOutParameter("flagColtPerm", Types.INTEGER),
+							  new SqlParameter("anno_camp", Types.NUMERIC));
+		MapSqlParameterSource param = new MapSqlParameterSource();
+		param.addValue("idAttoAmmiIn", idAttoAmmi);
+		param.addValue("idDecrIn", idDecr);
+		param.addValue("anno_camp", annoCampagna);
+		// trasformo da numerico a boolean....		
+		Map<String,Object> result =  sjc.execute(param);  // si esegue la funzione passandogli il parametro impostato
+		Map<String,Object> returnMap = new HashMap<String,Object>() ;
+		returnMap.put("flagDiversificazione", (Integer)result.get("flagDiversificazione")>0);
+		returnMap.put("flag2Colture", (Integer)result.get("flag2Colture")>0);
+		returnMap.put("flag3Colture",(Integer)result.get("flag3Colture")>0);
+		returnMap.put("flagEFA", (Integer)result.get("flagEFA")>0);    
+		returnMap.put("flagPratiPerm",(Integer)result.get("flagPratiPerm")>0);
+		returnMap.put("flagPiccolo",(Integer)result.get("flagPiccolo")>0);
+		returnMap.put("flagBio", (Integer)result.get("flagBio")>0);
+		returnMap.put("flagColtPerm", (Integer)result.get("flagColtPerm")>0);   
+		return returnMap;
+	}
+	
+	public Map<String,Object> getTitoli(long idAttoAmmi, int idDecr,int annoCampagna) {
+		SimpleJdbcCall sjc = new SimpleJdbcCall(getJdbcTemplate());
+		sjc.withCatalogName("aduaax001");  // nome del package
+		sjc.withProcedureName("getTitoli");  // nome della funzione
+		sjc.withoutProcedureColumnMetaDataAccess();  // importante
+		// I parametri vanno dichiarati nell'ordine in cui vengono richiesti dalla funzione
+		sjc.declareParameters(				
+							  new SqlParameter("idAttoAmmiIn", Types.NUMERIC),
+							  new SqlParameter("idDecrIn", Types.NUMERIC),
+							  new SqlOutParameter("numTitoli", Types.INTEGER),
+							  new SqlOutParameter("valUnitarioMedio", Types.NUMERIC),
+							  new SqlOutParameter("valTotale", Types.NUMERIC),
+							  new SqlParameter("anno_camp", Types.NUMERIC));
+							
+		MapSqlParameterSource param = new MapSqlParameterSource();
+		param.addValue("idAttoAmmiIn", idAttoAmmi);
+		param.addValue("idDecrIn", idDecr);
+		param.addValue("anno_camp", annoCampagna);
+		// trasformo da numerico a boolean....		
+		Map<String,Object> result =  sjc.execute(param);  // si esegue la funzione passandogli il parametro impostato
+		Map<String,Object> returnMap = new HashMap<String,Object>() ;
+		
+		return result;
+	}
+	
+	
+
 
 	
 }
