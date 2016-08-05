@@ -5,9 +5,9 @@
         .module('istruttoriaApp')
         .controller('DomandaDetailController', DomandaDetailController);
 
-    DomandaDetailController.$inject = ['$scope','$window', '$rootScope', '$stateParams', 'entity', 'Domanda', 'Soggetto','DomandaDetailReport'];
+    DomandaDetailController.$inject = ['$scope','$window', '$rootScope', '$stateParams', 'entity', 'Domanda', 'Soggetto','DomandaDetailReport','AlertService'];
 
-    function DomandaDetailController($scope,$window, $rootScope, $stateParams, entity, Domanda, Soggetto,DomandaDetailReport) {
+    function DomandaDetailController($scope,$window, $rootScope, $stateParams, entity, Domanda, Soggetto,DomandaDetailReport,AlertService) {
         var vm = this;
 
         vm.domanda = entity;
@@ -18,13 +18,22 @@
         });
         $scope.$on('$destroy', unsubscribe);
     
-        function chkLst() {
+        function chkLst(onError) {
         	DomandaDetailReport.generate(vm.domanda, function(result) {
         		// la redirect non viene eseguita
         		//$window.location.href = '/content/reports/reportChkLst.pdf';   
-        		var fileName = result.name;       		       	       		      		     	       		
+        		var fileName = result.name; 
+        		var message = result.message;
+        		if (fileName == null) {
+        			onError('istruttoriaApp.domanda'+'.'+message);
+        			return;
+        		}
         		$window.open('/content/reports/'+fileName+'.pdf', '_blank', 'fullscreen=yes'); 
     	});
+        function onError(error) {
+              AlertService.error(error);
+            }
+        	
     }    
 }
 })();

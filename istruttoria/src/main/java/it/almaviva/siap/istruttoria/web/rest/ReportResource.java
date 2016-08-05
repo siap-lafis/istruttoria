@@ -98,6 +98,7 @@ public class ReportResource {
         public _FileName generateReportCheckList(@RequestBody Domanda domanda) throws JRException, FileNotFoundException {
     	  		
     		
+    			
             log.debug("REST request to save Report"); 
             // recupero il decreto massimo a partire dalla domanda         
             List<ElencoPagamento> elencoPagamenti = elencoPagamentoRepository.findByDomandaId(domanda.getId());
@@ -140,6 +141,13 @@ public class ReportResource {
 											
 			}                  			
 		//	List<Pagamento> pagamenti = pagamentoRepository.findByIdAttoAmmi(domanda.getIdDomanda());    
+			
+			// Controllo sui dati 
+			_FileName fileReturned = new _FileName();
+			if (controlli.size()==0 || interventi.size()==0 || importi.size()==0) {
+				fileReturned.setMessage("stampa.non.disponiblie");
+				return fileReturned;
+			}
 			
             //String provvisoria ="provvisoria";             	    
     	    String dir = "/src/main/webapp/content/reports/";
@@ -228,10 +236,9 @@ public class ReportResource {
     		Locale.setDefault(Locale.ITALY);
       		JasperPrint jasperPrint = JasperFillManager.fillReport(fileJasper, parametri, srDS);       		
       		String fileName = "reportChkLst_"+System.currentTimeMillis();
-    		JasperExportManager.exportReportToPdfFile(jasperPrint,dir.substring(1)+fileName+".pdf");
-    		_FileName f = new _FileName();
-    		f.setName(fileName); 
-    		return f;
+    		JasperExportManager.exportReportToPdfFile(jasperPrint,dir.substring(1)+fileName+".pdf"); 
+    		fileReturned.setName(fileName); 
+    		return fileReturned;
         }
     
     
@@ -278,6 +285,7 @@ public class ReportResource {
     class _FileName {
     	
     	private String name;
+    	private String message;
 
 		public String getName() {
 			return name;
@@ -286,6 +294,15 @@ public class ReportResource {
 		public void setName(String name) {
 			this.name = name;
 		}
+
+		public String getMessage() {
+			return message;
+		}
+
+		public void setMessage(String message) {
+			this.message = message;
+		}
+		
     	
     }
     

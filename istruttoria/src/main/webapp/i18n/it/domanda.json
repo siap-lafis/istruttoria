@@ -25,7 +25,8 @@
             "soggetto": "Soggetto",
             "superfici": "Superfici",
             "pagamenti": "Pagamenti",
-            "superficiInverdimento" : "Superfici Inverdimento"
+            "superficiInverdimento" : "Superfici Inverdimento",
+            "stampa.non.disponiblie": "Stampa non disponiblie"
         }
     }
 }

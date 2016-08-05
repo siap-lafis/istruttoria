@@ -25,7 +25,8 @@
             "soggetto": "Soggetto",
             "superfici": "Land parcels",
             "pagamenti": "Payments",
-            "superficiInverdimento" : "Superfici Inverdimento"
+            "superficiInverdimento" : "Superfici Inverdimento",
+            "stampa.non.disponiblie": "Stampa non disponiblie"
         }
     }
 }
