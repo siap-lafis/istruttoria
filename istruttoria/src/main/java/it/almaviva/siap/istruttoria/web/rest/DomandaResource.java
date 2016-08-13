@@ -35,6 +35,9 @@ import it.almaviva.siap.istruttoria.repository.search.DomandaSearchRepository;
 import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
 import it.almaviva.siap.istruttoria.web.rest.util.PaginationUtil;
 
+import com.querydsl.core.types.Predicate;
+import it.almaviva.siap.istruttoria.domain.QDomanda;
+
 /**
  * REST controller for managing Domanda.
  */
@@ -177,11 +180,29 @@ public class DomandaResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<Domanda> searchDomandas(@RequestParam String query) {
+    public ResponseEntity<List<Domanda>> searchDomandas(@RequestParam String query, Pageable pageable) throws URISyntaxException {
         log.debug("REST request to search Domandas for query {}", query);
+        /*
+         * Using QueryDsl as explained in 
+         * https://jhipster.github.io/tips/003_tip_add_querydsl_support.html
+         */
+        QDomanda domanda = new QDomanda("domanda");
+        Predicate predicate;
+        try {
+        	predicate = domanda.idDomanda.eq(Integer.parseInt(query.trim()))
+        			.or(domanda.soggetto.cuaa.eq(query.trim()));
+        }
+        catch (NumberFormatException  nfe) {
+        	predicate = domanda.soggetto.cuaa.eq(query.trim());
+        }
+		Page<Domanda> page = domandaRepository.findAll(predicate, pageable);
+		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/_search/domandas?query=" + query);
+		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        /*
         return StreamSupport
             .stream(domandaSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
+         */
     }
     
     /**

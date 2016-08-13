@@ -18,14 +18,14 @@ spring:
         livereload:
             enabled: false
     datasource:
-        url: jdbc:oracle:thin:@localhost:1521:istruttoria
-        name:
-        username: 
-        password:
+        url: jdbc:oracle:thin:@172.20.15.6:1521:itsp3
+        name: appag-prod
+        username: fascicolo
+        password: fascicolo
     jpa:
         database-platform: org.hibernate.dialect.Oracle10gDialect
         database: ORACLE
-        show_sql: false
+        show_sql: true
         properties:
             hibernate.cache.use_second_level_cache: true
             hibernate.cache.use_query_cache: false
@@ -33,8 +33,13 @@ spring:
             hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
     data:
         elasticsearch:
-            cluster-name:
-            cluster-nodes: localhost:9300
+#            cluster-name:
+#            cluster-nodes: localhost:9300
+            cluster-nodes:
+            properties:
+                path:
+                  logs: target/elasticsearch/log
+                  data: target/elasticsearch/data
     mail:
         host: localhost
         port: 25

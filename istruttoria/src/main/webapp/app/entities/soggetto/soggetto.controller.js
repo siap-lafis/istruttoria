@@ -5,27 +5,10 @@
         .module('istruttoriaApp')
         .controller('SoggettoController', SoggettoController);
 
-//    SoggettoController.$inject = ['$scope', '$state', '$window', 'Soggetto', 'SoggettoSearch', 'SoggettoReport'];
-//
-//    function SoggettoController ($scope, $state, $window, Soggetto, SoggettoSearch, SoggettoReport) {
-//        var vm = this;
-//        
-//        vm.soggettos = [];
-//        vm.search = search;
-//        vm.report = report;
-//        vm.loadAll = loadAll;
-//
-//        loadAll();
-//
-//        function loadAll() {
-//            Soggetto.query(function(result) {
-//                vm.soggettos = result;
-//            });
-//        }
     // Paginazione
-    SoggettoController.$inject = ['$scope', '$state', '$window', 'Soggetto', 'SoggettoSearch', 'SoggettoReport','ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
+    SoggettoController.$inject = ['$scope', '$state', '$window', 'Soggetto', 'SoggettoSearch','ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
 
-    function SoggettoController ($scope, $state,$window,Soggetto,SoggettoSearch,SoggettoReport,ParseLinks, AlertService, pagingParams, paginationConstants) {    
+    function SoggettoController ($scope, $state, $window, Soggetto, SoggettoSearch, ParseLinks, AlertService, pagingParams, paginationConstants) {    
 	    var vm = this;
 	    
 	    vm.loadPage = loadPage;
@@ -33,10 +16,8 @@
 	    vm.reverse = pagingParams.ascending;
 	    vm.transition = transition;
 	    vm.itemsPerPage = paginationConstants.itemsPerPage;
+	    vm.report = report;
 	    
-	
-	 
-	   
 	    loadAll();
 	                              
 	    function loadAll () {
@@ -87,10 +68,7 @@
         }    
         
         function report () {
-        	SoggettoReport.generate({}, function(result) {
-        	    // la redirect non viene eseguita
-        	    $window.location.href = '/content/reports/report.pdf';
-        	});
+            $window.open("api/report");
         }    
         
     }

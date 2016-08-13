@@ -41,6 +41,7 @@ public class AsyncSpringLiquibase extends SpringLiquibase {
 
     @Override
     public void afterPropertiesSet() throws LiquibaseException {
+    	/*
         if (!env.acceptsProfiles(Constants.SPRING_PROFILE_NO_LIQUIBASE)) {
             if (env.acceptsProfiles(Constants.SPRING_PROFILE_DEVELOPMENT, Constants.SPRING_PROFILE_HEROKU)) {
                 taskExecutor.execute(() -> {
@@ -56,8 +57,9 @@ public class AsyncSpringLiquibase extends SpringLiquibase {
                 initDb();
             }
         } else {
+        */
             log.debug("Liquibase is disabled");
-        }
+        //}
     }
 
     protected void initDb() throws LiquibaseException {

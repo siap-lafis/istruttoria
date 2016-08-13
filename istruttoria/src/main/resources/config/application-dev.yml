@@ -22,8 +22,8 @@ spring:
 #        name: oppab-fascicolo-preprod
 #        username: fascicolo_adm
 #        password: Man9ia_fu0k0z
-        url: jdbc:oracle:thin:@172.20.15.14:1526:spit3
-        name: appag-collaudo
+        url: jdbc:oracle:thin:@172.20.15.6:1521:itsp3
+        name: appag-prod
         username: fascicolo
         password: fascicolo
     jpa:
@@ -38,12 +38,12 @@ spring:
     data:
         elasticsearch:
             cluster-name:
-#            cluster-nodes: localhost:9300
-            cluster-nodes:
-            properties:
-                path:
-                  logs: target/elasticsearch/log
-                  data: target/elasticsearch/data
+            cluster-nodes: localhost:9300
+#            cluster-nodes:
+#            properties:
+#                path:
+#                  logs: target/elasticsearch/log
+#                  data: target/elasticsearch/data
     mail:
         host: localhost
         port: 25
