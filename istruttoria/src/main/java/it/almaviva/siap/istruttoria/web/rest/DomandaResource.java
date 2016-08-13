@@ -35,7 +35,7 @@ import it.almaviva.siap.istruttoria.repository.search.DomandaSearchRepository;
 import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
 import it.almaviva.siap.istruttoria.web.rest.util.PaginationUtil;
 
-import com.querydsl.core.types.Predicate;
+import com.mysema.query.types.Predicate;
 import it.almaviva.siap.istruttoria.domain.QDomanda;
 
 /**
