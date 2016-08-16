@@ -6,6 +6,7 @@ import it.almaviva.siap.istruttoria.domain.Superficie;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.*;
+import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  * Spring Data JPA repository for the CapoPagato entity.
  */
 @SuppressWarnings("unused")
-public interface CapoPagatoRepository extends JpaRepository<CapoPagato,Long> {
+public interface CapoPagatoRepository extends JpaRepository<CapoPagato,Long>, QueryDslPredicateExecutor<CapoPagato> {
 	
 	Page<CapoPagato> findByPagamentoId(Long id,Pageable pageable);
 

@@ -12,6 +12,7 @@
 	    var vm = this;
 	    
 	    vm.loadPage = loadPage;
+	    vm.search = search;
 	    vm.predicate = pagingParams.predicate;
 	    vm.reverse = pagingParams.ascending;
 	    vm.transition = transition;
@@ -58,14 +59,18 @@
 	    	});
 	    }
 
-        function search () {
-            if (!vm.searchQuery) {
-                return vm.loadAll();
-            }
+	    function search () {
+	    	
+	        if (!vm.searchQuery) {
+	            return vm.loadAll();
+	        }
             SoggettoSearch.query({query: vm.searchQuery}, function(result) {
                 vm.soggettos = result;
-            });
-        }    
+	            vm.totalItems = vm.soggettos.length;
+	            vm.queryCount = vm.soggettos.length;
+	            vm.page = 0;
+	        });
+	    }    
         
         function report () {
             $window.open("api/report");

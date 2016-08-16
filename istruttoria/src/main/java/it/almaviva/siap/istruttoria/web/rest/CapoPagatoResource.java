@@ -35,6 +35,9 @@ import it.almaviva.siap.istruttoria.repository.search.CapoPagatoSearchRepository
 import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
 import it.almaviva.siap.istruttoria.web.rest.util.PaginationUtil;
 
+import com.mysema.query.types.Predicate;
+import it.almaviva.siap.istruttoria.domain.QCapoPagato;
+
 /**
  * REST controller for managing CapoPagato.
  */
@@ -177,11 +180,28 @@ public class CapoPagatoResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<CapoPagato> searchCapoPagatoes(@RequestParam String query) {
+    public ResponseEntity<List<CapoPagato>> searchCapoPagatoes(@RequestParam String query, Pageable pageable) throws URISyntaxException {
         log.debug("REST request to search CapoPagatoes for query {}", query);
+        QCapoPagato capoPagato = new QCapoPagato("capoPagato");
+        Predicate predicate;
+        try {
+        	predicate = capoPagato.pagamento.idAttoAmmi.eq(Integer.parseInt(query.trim()))
+        			.or(capoPagato.marcaCapo.eq(query.trim()))
+        				.or(capoPagato.codAsl.eq(query.trim()));
+        }
+        catch (NumberFormatException  nfe) {
+        	predicate = capoPagato.marcaCapo.eq(query.trim())
+        					.or(capoPagato.codAsl.eq(query.trim()));
+        }
+    	
+		Page<CapoPagato> page = capoPagatoRepository.findAll(predicate, pageable);
+		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/_search/soggettos?query=" + query);
+		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        /*
         return StreamSupport
             .stream(capoPagatoSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
+         */
     }
     
     /**

@@ -35,6 +35,9 @@ import it.almaviva.siap.istruttoria.repository.search.SuperficiePagataSearchRepo
 import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
 import it.almaviva.siap.istruttoria.web.rest.util.PaginationUtil;
 
+import com.mysema.query.types.Predicate;
+import it.almaviva.siap.istruttoria.domain.QSuperficiePagata;
+
 /**
  * REST controller for managing SuperficiePagata.
  */
@@ -178,11 +181,26 @@ public class SuperficiePagataResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<SuperficiePagata> searchSuperficiePagatas(@RequestParam String query) {
+    public ResponseEntity<List<SuperficiePagata>> searchSuperficiePagatas(@RequestParam String query, Pageable pageable) throws URISyntaxException {
         log.debug("REST request to search SuperficiePagatas for query {}", query);
+        QSuperficiePagata superficiePagata = new QSuperficiePagata("superficiePagata");
+        Predicate predicate;
+        try {
+        	predicate = superficiePagata.pagamento.idAttoAmmi.eq(Integer.parseInt(query.trim()));
+        }
+        catch (NumberFormatException  nfe) {
+        	//Non torna nulla
+        	predicate = superficiePagata.id.eq(new Long(0));
+        }
+    	
+		Page<SuperficiePagata> page = superficiePagataRepository.findAll(predicate, pageable);
+		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/_search/soggettos?query=" + query);
+		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        /*
         return StreamSupport
             .stream(superficiePagataSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
+         */
     }
     
     /**

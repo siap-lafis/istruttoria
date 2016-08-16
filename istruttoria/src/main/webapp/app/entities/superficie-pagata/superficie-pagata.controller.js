@@ -28,6 +28,7 @@
         	var vm = this;
             
             vm.loadPage = loadPage;
+    	    vm.search = search;
             vm.predicate = pagingParams.predicate;
             vm.reverse = pagingParams.ascending;
             vm.transition = transition;
@@ -83,6 +84,10 @@
             }
             SuperficiePagataSearch.query({query: vm.searchQuery}, function(result) {
                 vm.superficiePagatas = result;
+	            vm.totalItems = vm.superficiePagatas.length;
+	            vm.queryCount = vm.superficiePagatas.length;
+	            vm.page = 0;
             });
-        }    }
+        }    
+    }
 })();

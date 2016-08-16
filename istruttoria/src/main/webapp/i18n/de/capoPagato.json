@@ -5,7 +5,7 @@
                 "title": "Capo Pagatoes",
                 "createLabel": "Capo Pagato erstellen",
                 "createOrEditLabel": "Capo Pagato erstellen oder bearbeiten",
-                "search": "Suche nach Capo Pagato"
+                "search": "Suche nach Id Domanda, Marca Capo oder Cod.ASL"
             },
             "created": "Capo Pagato erstellt mit ID {{ param }}",
             "updated": "Capo Pagato aktualisiert mit ID {{ param }}",
@@ -29,7 +29,8 @@
             "codiRazz": "Codi Razz",
             "dataInizDete": "Data Iniz Dete",
             "dataFineDete": "Data Fine Dete",
-            "pagamento": "Pagamento"
+            "pagamento": "Pagamento",
+            "domanda": "Domanda"
         }
     }
 }

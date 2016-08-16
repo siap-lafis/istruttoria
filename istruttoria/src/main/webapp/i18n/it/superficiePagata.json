@@ -5,7 +5,7 @@
                 "title": "Superfici Pagate",
                 "createLabel": "Crea una nuova Superficie Pagata",
                 "createOrEditLabel": "Crea o modifica una Superficie Pagata",
-                "search": "Ricerca per Superficie Pagata"
+                "search": "Ricerca per Id Domanda"
             },
             "created": "Una nuova Superficie Pagata è stata creata con identificativo {{ param }}",
             "updated": "Una Superficie Pagata è stata aggiornata con identificativo {{ param }}",
@@ -24,7 +24,8 @@
             "supeAcce": "Sup. Accertata",
             "numTitoDich": "N. Titoli Dichiarati",
             "numTitoDete": "N. Titoli Detenuti",
-            "pagamento": "Pagamento"
+            "pagamento": "Pagamento",
+            "domanda": "Domanda"
         }
     }
 }

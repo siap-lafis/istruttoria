@@ -34,6 +34,9 @@ import it.almaviva.siap.istruttoria.repository.search.SoggettoSearchRepository;
 import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
 import it.almaviva.siap.istruttoria.web.rest.util.PaginationUtil;
 
+import com.mysema.query.types.Predicate;
+import it.almaviva.siap.istruttoria.domain.QSoggetto;
+
 /**
  * REST controller for managing Soggetto.
  */
@@ -178,11 +181,22 @@ public class SoggettoResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<Soggetto> searchSoggettos(@RequestParam String query) {
+    public ResponseEntity<List<Soggetto>> searchSoggettos(@RequestParam String query, Pageable pageable) throws URISyntaxException {
         log.debug("REST request to search Soggettos for query {}", query);
+        QSoggetto soggetto = new QSoggetto("soggetto");
+
+        Predicate predicate = soggetto.cuaa.eq(query.trim())
+    			.or(soggetto.partitaIva.eq(query.trim()))
+    			.or(soggetto.denominazione.containsIgnoreCase(query.trim()));
+    	
+		Page<Soggetto> page = soggettoRepository.findAll(predicate, pageable);
+		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/_search/soggettos?query=" + query);
+		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        /*
         return StreamSupport
             .stream(soggettoSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
+         */
     }
 
 

@@ -29,6 +29,7 @@
         	var vm = this;
     	    
     	    vm.loadPage = loadPage;
+    	    vm.search = search;
     	    vm.predicate = pagingParams.predicate;
     	    vm.reverse = pagingParams.ascending;
     	    vm.transition = transition;
@@ -83,6 +84,10 @@
             }
             CapoPagatoSearch.query({query: vm.searchQuery}, function(result) {
                 vm.capoPagatoes = result;
-            });
-        }    }
+	            vm.totalItems = vm.capoPagatoes.length;
+	            vm.queryCount = vm.capoPagatoes.length;
+	            vm.page = 0;
+	        });
+        }    
+    }
 })();

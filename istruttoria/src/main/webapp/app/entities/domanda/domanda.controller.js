@@ -83,8 +83,8 @@
 	        }
 	        DomandaSearch.query({query: vm.searchQuery}, function(result) {
 	            vm.domandas = result;
-	            vm.totalItems = 1;
-	            vm.queryCount = 1;
+	            vm.totalItems = vm.domandas.length;
+	            vm.queryCount = vm.domandas.length;
 	            vm.page = 0;
 	        });
 	    }    

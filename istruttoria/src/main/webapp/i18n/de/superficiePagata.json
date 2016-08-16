@@ -5,7 +5,7 @@
                 "title": "Superficie Pagatas",
                 "createLabel": "Superficie Pagata erstellen",
                 "createOrEditLabel": "Superficie Pagata erstellen oder bearbeiten",
-                "search": "Suche nach Superficie Pagata"
+                "search": "Suche nach Id Domanda"
             },
             "created": "Superficie Pagata erstellt mit ID {{ param }}",
             "updated": "Superficie Pagata aktualisiert mit ID {{ param }}",
@@ -24,7 +24,8 @@
             "supeAcce": "Supe Acce",
             "numTitoDich": "Num Tito Dich",
             "numTitoDete": "Num Tito Dete",
-            "pagamento": "Pagamento"
+            "pagamento": "Pagamento",
+            "domanda": "Domanda"
         }
     }
 }

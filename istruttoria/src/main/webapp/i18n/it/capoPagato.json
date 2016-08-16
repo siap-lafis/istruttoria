@@ -5,7 +5,7 @@
                 "title": "Capi Pagati",
                 "createLabel": "Crea un nuovo Capo Pagato",
                 "createOrEditLabel": "Crea o modifica un Capo Pagato",
-                "search": "Ricerca per Capo Pagato"
+                "search": "Ricerca per Id Domanda, Marca Capo o Cod.ASL"
             },
             "created": "Un nuovo Capo Pagato è stato creato con identificativo{{ param }}",
             "updated": "Un Capo Pagato è stato aggiornato con identificativo {{ param }}",
@@ -29,7 +29,8 @@
             "codiRazz": "Razza",
             "dataInizDete": "Data Iniz Detenzione",
             "dataFineDete": "Data Fine Detenzione",
-            "pagamento": "Pagamento"
+            "pagamento": "Pagamento",
+            "domanda": "Domanda"
         }
     }
 }
