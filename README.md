@@ -1,8 +1,8 @@
-Consultazione dell'istruttoria della Domanda Unica 2015
+<h1>Consultazione dell'istruttoria della Domanda Unica 2015</h1>
 
 Template realizzato con JHipster versione 3.4.2
 
-Per il deploy su JBoss EAP 6.4.5 bisogna compilare con opzione "-Pprod,no-liquibase,no-swagger", file di installazione application server e patch su SharePoint Almaviva.
+L'ambiente target prevede Java 8 e JBoss EAP 6.4.5, i file di installazione application server e patch sono su SharePoint Almaviva. Per il deploy su JBoss compilare con opzione "-Pprod,no-liquibase,no-swagger" e seguire indicazioni su <a href='https://jhipster.github.io/production/'>Using JHipster in production</a>.
 
 Il driver Oracle non è incluso nel repository: seguire le istruzioni di JHipster per il setup. Attualmente l'accesso al DBMS deve essere configurato in pom.xml ed in application-dev(prod).yml, ma questa soluzione deve essere rivista per usare un datasource JNDI.
 
