@@ -4,7 +4,7 @@ Template realizzato con JHipster versione 3.4.2
 
 Per il deploy su JBoss EAP 6.4.5 bisogna compilare con opzione "-Pprod,no-liquibase,no-swagger", file di installazione application server e patch su SharePoint Almaviva.
 
-Il driver Oracle non è incluso nel repository: seguire le istruzioni di JHipster per il setup. Attualmente l'accesso al DBMS deve essere configurato in pom.xml ed in application-dev.yml, ma questa soluzione deve essere rivista per usare un datasource JNDI.
+Il driver Oracle non è incluso nel repository: seguire le istruzioni di JHipster per il setup. Attualmente l'accesso al DBMS deve essere configurato in pom.xml ed in application-dev(prod).yml, ma questa soluzione deve essere rivista per usare un datasource JNDI.
 
 <p>TO DO</p>
 <ul>
@@ -15,5 +15,5 @@ Il driver Oracle non è incluso nel repository: seguire le istruzioni di JHipste
 <li> Domanda -> Pagamento -> Capo pagato</li>
 <li> Domanda -> Pagamento -> Penalità</li></ul></li>
 <li>Verificare gestione autenticazione ed autorizzazoni.</li>
-<li>Verificare gestione autenticazione ed autorizzazoni.</li>
+<li>Le stampe non funzionano da Android, non ho fatto test da iOS.</li>
 </ul>
