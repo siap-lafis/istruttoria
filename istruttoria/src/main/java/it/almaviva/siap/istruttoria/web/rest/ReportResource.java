@@ -240,6 +240,8 @@ public class ReportResource {
   	    response.setHeader("Pragma", "no-cache");
   	    response.setHeader("Cache-Control", "no-cache");
 
+        log.debug("Exporting PDF to output stream");
+        
   	    JRPdfExporter exporter = new JRPdfExporter();
   		exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
   		exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, response.getOutputStream());

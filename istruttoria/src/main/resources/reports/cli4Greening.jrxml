@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2016-08-22T10:34:29 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cli4Greening" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="6aaeb4de-64d5-4766-b5b0-3e8bc49be1dd">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -99,35 +101,35 @@
 			</frame>
 			<image>
 				<reportElement x="259" y="13" width="17" height="13" uuid="01af9f53-f522-4cd1-8343-7eeff4bc74f6"/>
-				<imageExpression><![CDATA[($F{flagDiversificazione} ? $F{pathImage}+"\\\\checkbox_yes.png" :$F{pathImage}+"\\\\checkbox_no.png")]]></imageExpression>
+				<imageExpression><![CDATA[($F{flagDiversificazione} ? $F{pathImage}+"/checkbox_yes.png" :$F{pathImage}+"/checkbox_no.png")]]></imageExpression>
 			</image>
 			<image>
 				<reportElement x="215" y="25" width="17" height="13" uuid="b6e03540-6791-45b5-bc65-2c308b4933e0"/>
-				<imageExpression><![CDATA[($F{flag2Colture} ? $F{pathImage}+"\\\\checkbox_yes.png" :$F{pathImage}+"\\\\checkbox_no.png")]]></imageExpression>
+				<imageExpression><![CDATA[($F{flag2Colture} ? $F{pathImage}+"/checkbox_yes.png" :$F{pathImage}+"/checkbox_no.png")]]></imageExpression>
 			</image>
 			<image>
 				<reportElement x="468" y="25" width="17" height="13" uuid="0ad983d8-1d4d-4e52-bca5-96b6db8c41c5"/>
-				<imageExpression><![CDATA[($F{flag3Colture} ? $F{pathImage}+"\\\\checkbox_yes.png" :$F{pathImage}+"\\\\checkbox_no.png")]]></imageExpression>
+				<imageExpression><![CDATA[($F{flag3Colture} ? $F{pathImage}+"/checkbox_yes.png" :$F{pathImage}+"/checkbox_no.png")]]></imageExpression>
 			</image>
 			<image>
 				<reportElement x="259" y="36" width="17" height="13" uuid="99aba050-76eb-4735-9478-7ba2ae2a19de"/>
-				<imageExpression><![CDATA[($F{flagEFA} ? $F{pathImage}+"\\\\checkbox_yes.png" :$F{pathImage}+"\\\\checkbox_no.png")]]></imageExpression>
+				<imageExpression><![CDATA[($F{flagEFA} ? $F{pathImage}+"/checkbox_yes.png" :$F{pathImage}+"/checkbox_no.png")]]></imageExpression>
 			</image>
 			<image>
 				<reportElement x="259" y="76" width="17" height="13" uuid="9677f2b7-a7d0-4bf5-b2f7-65f14ce9449c"/>
-				<imageExpression><![CDATA[($F{flagPiccolo} ? $F{pathImage}+"\\\\checkbox_yes.png" :$F{pathImage}+"\\\\checkbox_no.png")]]></imageExpression>
+				<imageExpression><![CDATA[($F{flagPiccolo} ? $F{pathImage}+"/checkbox_yes.png" :$F{pathImage}+"/checkbox_no.png")]]></imageExpression>
 			</image>
 			<image>
 				<reportElement x="259" y="50" width="17" height="13" uuid="ded2eb3e-3041-4350-860e-c14e05e981a2"/>
-				<imageExpression><![CDATA[($F{flagPratiPerm} ? $F{pathImage}+"\\\\checkbox_yes.png" :$F{pathImage}+"\\\\checkbox_no.png")]]></imageExpression>
+				<imageExpression><![CDATA[($F{flagPratiPerm} ? $F{pathImage}+"/checkbox_yes.png" :$F{pathImage}+"/checkbox_no.png")]]></imageExpression>
 			</image>
 			<image>
 				<reportElement x="259" y="90" width="17" height="13" uuid="8baaf69e-f1a1-4bfd-b244-2ef722e06bb0"/>
-				<imageExpression><![CDATA[($F{flagColtPerm} ? $F{pathImage}+"\\\\checkbox_yes.png" :$F{pathImage}+"\\\\checkbox_no.png")]]></imageExpression>
+				<imageExpression><![CDATA[($F{flagColtPerm} ? $F{pathImage}+"/checkbox_yes.png" :$F{pathImage}+"/checkbox_no.png")]]></imageExpression>
 			</image>
 			<image>
 				<reportElement x="468" y="76" width="17" height="13" uuid="714b9468-87ab-4503-b810-44b8f325464d"/>
-				<imageExpression><![CDATA[($F{flagBio} ? $F{pathImage}+"\\\\checkbox_yes.png" :$F{pathImage}+"\\\\checkbox_no.png")]]></imageExpression>
+				<imageExpression><![CDATA[($F{flagBio} ? $F{pathImage}+"/checkbox_yes.png" :$F{pathImage}+"/checkbox_no.png")]]></imageExpression>
 			</image>
 		</band>
 	</detail>

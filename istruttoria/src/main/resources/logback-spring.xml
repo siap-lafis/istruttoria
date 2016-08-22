@@ -4,7 +4,7 @@
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
 	<!-- cfr. http://stackoverflow.com/questions/30193054/jhipster-log-files -->
-	<property name="LOG_PATH" value="${JBOSS_HOME}/standalone/log"/>
+	<property name="LOG_PATH" value="/usr/local/app_loc/mwjbpr104/log"/>
 	
 	<!-- The FILE and ASYNC appenders are here as examples for a production configuration -->
 

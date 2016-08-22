@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2016-08-22T10:42:25 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cli1" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="5" rightMargin="5" topMargin="20" bottomMargin="20" uuid="6d24ba7c-d4c8-46c6-9843-502c59543206">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -228,7 +230,7 @@ EMESSO]]></text>
 		<band height="65" splitType="Stretch">
 			<image>
 				<reportElement x="528" y="3" width="17" height="20" uuid="24638782-68a7-489f-af7f-e5b7aaab94a9"/>
-				<imageExpression><![CDATA[($F{checked} ? $F{pathImage}+"\\\\checkbox_yes.png" :$F{pathImage}+"\\\\checkbox_no.png")]]></imageExpression>
+				<imageExpression><![CDATA[($F{checked} ? $F{pathImage}+"/checkbox_yes.png" :$F{pathImage}+"/checkbox_no.png")]]></imageExpression>
 			</image>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
 				<reportElement key="textField-12" x="7" y="1" width="199" height="64" uuid="272c3cab-df5e-4e8d-ae63-a995acef00f8"/>

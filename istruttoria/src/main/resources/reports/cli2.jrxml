@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2016-08-22T10:34:29 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cli2" pageWidth="595" pageHeight="800" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="0" rightMargin="10" topMargin="0" bottomMargin="0" uuid="09c1f931-0551-4a3a-b025-c6534e82a6b0">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
@@ -172,7 +174,7 @@
 			</frame>
 			<image>
 				<reportElement x="543" y="5" width="17" height="15" uuid="da710277-2587-421f-9828-9cef276dc4ec"/>
-				<imageExpression><![CDATA[($F{checked} ? $F{pathImage}+"\\\\checkbox_yes.png" :$F{pathImage}+"\\\\checkbox_no.png")]]></imageExpression>
+				<imageExpression><![CDATA[($F{checked} ? $F{pathImage}+"/checkbox_yes.png" :$F{pathImage}+"/checkbox_no.png")]]></imageExpression>
 			</image>
 		</band>
 	</detail>
