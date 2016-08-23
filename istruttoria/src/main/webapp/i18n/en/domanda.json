@@ -5,7 +5,7 @@
                 "title": "Domandas",
                 "createLabel": "Create a new Domanda",
                 "createOrEditLabel": "Create or edit a Domanda",
-                "search": "Search for Domanda"
+                "search": "Search for Id Domanda or CUAA"
             },
             "created": "A new Domanda is created with identifier {{ param }}",
             "updated": "A Domanda is updated with identifier {{ param }}",

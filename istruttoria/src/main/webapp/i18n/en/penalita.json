@@ -5,7 +5,7 @@
                 "title": "Penalitas",
                 "createLabel": "Create a new Penalita",
                 "createOrEditLabel": "Create or edit a Penalita",
-                "search": "Search for Penalita"
+                "search": "Search for Id Domanda"
             },
             "created": "A new Penalita is created with identifier {{ param }}",
             "updated": "A Penalita is updated with identifier {{ param }}",

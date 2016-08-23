@@ -23,7 +23,7 @@ public class Penalita implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "deco_tipo_pena")
+    @Column(name = "desc_decu")
     private String decoTipoPena;
 
     @Column(name = "qnta_pena")

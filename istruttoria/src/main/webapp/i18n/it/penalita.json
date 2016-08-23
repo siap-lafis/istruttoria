@@ -5,7 +5,7 @@
                 "title": "Penalità",
                 "createLabel": "Crea una nuova Penalità",
                 "createOrEditLabel": "Crea o modifica una Penalità",
-                "search": "Ricerca per Penalità"
+                "search": "Ricerca per Id Domanda"
             },
             "created": "Una nuova Penalità è stata creata con identificativo {{ param }}",
             "updated": "Una Penalità è stata aggiornata con identificativo {{ param }}",

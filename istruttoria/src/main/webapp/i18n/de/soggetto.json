@@ -5,7 +5,7 @@
                 "title": "Soggettos",
                 "createLabel": "Soggetto erstellen",
                 "createOrEditLabel": "Soggetto erstellen oder bearbeiten",
-                "search": "Suche nach Soggetto"
+                "search": "Suche nach CUAA, Name oder Mehrwertsteuernummer"
             },
             "created": "Soggetto erstellt mit ID {{ param }}",
             "updated": "Soggetto aktualisiert mit ID {{ param }}",

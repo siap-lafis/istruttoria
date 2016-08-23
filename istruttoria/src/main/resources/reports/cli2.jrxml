@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
-<!-- 2016-08-22T10:34:29 -->
+<!-- 2016-08-23T09:46:15 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cli2" pageWidth="595" pageHeight="800" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="0" rightMargin="10" topMargin="0" bottomMargin="0" uuid="09c1f931-0551-4a3a-b025-c6534e82a6b0">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
@@ -34,6 +34,16 @@
 	</background>
 	<title>
 		<band height="159" splitType="Stretch">
+			<frame>
+				<reportElement key="frame-6" x="0" y="35" width="575" height="25" uuid="fff201f8-c0db-4779-b019-799ed9f5e34a"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
 			<frame>
 				<reportElement key="frame-1" x="0" y="4" width="575" height="31" uuid="0372cc07-0a70-4578-bf43-2f18bb31322b"/>
 				<box>
@@ -92,14 +102,14 @@
 				<textFieldExpression><![CDATA[$F{codiBarr}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement key="staticText-25" x="2" y="39" width="310" height="20" uuid="28ef7bdb-8a1b-46b6-bee4-e3f1c80ef129"/>
+				<reportElement key="staticText-25" x="6" y="39" width="310" height="20" uuid="28ef7bdb-8a1b-46b6-bee4-e3f1c80ef129"/>
 				<textElement verticalAlignment="Middle">
 					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<text><![CDATA[Check list dei controlli eseguiti alla data di elaborazione del]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="false">
-				<reportElement key="textField-6" x="312" y="39" width="66" height="20" uuid="ae96b3c6-799f-4236-be46-65f97a5df20c"/>
+				<reportElement key="textField-6" x="316" y="39" width="66" height="20" uuid="ae96b3c6-799f-4236-be46-65f97a5df20c"/>
 				<textElement verticalAlignment="Middle">
 					<font size="10" isBold="false" isItalic="false" pdfFontName="Helvetica"/>
 				</textElement>
@@ -110,16 +120,6 @@
 				<box>
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-			</frame>
-			<frame>
-				<reportElement key="frame-6" x="0" y="35" width="575" height="25" uuid="fff201f8-c0db-4779-b019-799ed9f5e34a"/>
-				<box>
-					<pen lineWidth="0.5"/>
-					<topPen lineWidth="0.0"/>
 					<leftPen lineWidth="0.5"/>
 					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
@@ -151,9 +151,18 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="25" splitType="Stretch">
+		<band height="43" splitType="Stretch">
+			<frame>
+				<reportElement key="frame-3" x="0" y="0" width="575" height="43" uuid="2cbe73b6-c9d1-455a-869e-f6c00eece977"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
 			<textField isBlankWhenNull="false">
-				<reportElement key="textField-1" style="grassetto" x="6" y="5" width="495" height="15" uuid="8768ef75-5830-4c65-9a04-853c34e83885"/>
+				<reportElement key="textField-1" style="grassetto" x="6" y="5" width="495" height="35" uuid="8768ef75-5830-4c65-9a04-853c34e83885"/>
 				<box leftPadding="20">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -163,15 +172,6 @@
 				</box>
 				<textFieldExpression><![CDATA[$F{clasCont}.intValue() >= 0 ? "    "+$F{descCont}:$F{descCont}]]></textFieldExpression>
 			</textField>
-			<frame>
-				<reportElement key="frame-3" x="0" y="0" width="575" height="25" uuid="2cbe73b6-c9d1-455a-869e-f6c00eece977"/>
-				<box>
-					<topPen lineWidth="0.0"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.0"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-			</frame>
 			<image>
 				<reportElement x="543" y="5" width="17" height="15" uuid="da710277-2587-421f-9828-9cef276dc4ec"/>
 				<imageExpression><![CDATA[($F{checked} ? $F{pathImage}+"/checkbox_yes.png" :$F{pathImage}+"/checkbox_no.png")]]></imageExpression>

@@ -35,6 +35,9 @@ import it.almaviva.siap.istruttoria.repository.search.PenalitaSearchRepository;
 import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
 import it.almaviva.siap.istruttoria.web.rest.util.PaginationUtil;
 
+import com.mysema.query.types.Predicate;
+import it.almaviva.siap.istruttoria.domain.QPenalita;
+
 /**
  * REST controller for managing Penalita.
  */
@@ -178,11 +181,26 @@ public class PenalitaResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<Penalita> searchPenalitas(@RequestParam String query) {
+    public ResponseEntity<List<Penalita>> searchPenalitas(@RequestParam String query, Pageable pageable) throws URISyntaxException {
         log.debug("REST request to search Penalitas for query {}", query);
+        QPenalita penalita = new QPenalita("penalita");
+        Predicate predicate;
+        try {
+        	predicate = penalita.pagamento.idAttoAmmi.eq(Integer.parseInt(query.trim()));
+        }
+        catch (NumberFormatException  nfe) {
+        	//Non torna nulla
+        	predicate = penalita.id.eq(new Long(0));
+        }
+    	
+		Page<Penalita> page = penalitaRepository.findAll(predicate, pageable);
+		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/_search/penalitas?query=" + query);
+		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        /*
         return StreamSupport
             .stream(penalitaSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
+        */
     }
     
     /**

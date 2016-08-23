@@ -5,7 +5,7 @@
                 "title": "Domande",
                 "createLabel": "Crea una nuova Domanda",
                 "createOrEditLabel": "Crea o modifica una Domanda",
-                "search": "Ricerca per Domanda"
+                "search": "Ricerca per Id Domanda o CUAA"
             },
             "created": "Una nuova Domanda è stata creata con identificativo {{ param }}",
             "updated": "Una Domanda è stata aggiornata con identificativo {{ param }}",

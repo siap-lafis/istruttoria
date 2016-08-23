@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2016-08-23T10:25:07 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cli4" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3f819ee1-ef1c-4953-8d14-6d7150f0df7f">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -167,6 +169,16 @@
 	</columnHeader>
 	<detail>
 		<band height="319" splitType="Stretch">
+			<frame>
+				<reportElement key="frame-5" isPrintRepeatedValues="false" x="0" y="130" width="575" height="93" uuid="c16552b9-fc60-4ca8-9c9d-94dfa51ed5f4"/>
+				<box rightPadding="0">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
 			<staticText>
 				<reportElement key="staticText-21" x="6" y="4" width="409" height="20" uuid="12320423-4920-415e-ba2c-448ce6cfcae8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -175,7 +187,9 @@
 				<text><![CDATA[Calcolo  e applicazioni delle riduzioni ai sensi artt. Capo IV sez. III Reg (UE) 640/2014]]></text>
 			</staticText>
 			<staticText>
-				<reportElement key="staticText-22" x="415" y="130" width="156" height="20" uuid="47048159-0710-4abc-9f03-1cf37a288c0b"/>
+				<reportElement key="staticText-22" x="415" y="131" width="156" height="20" uuid="47048159-0710-4abc-9f03-1cf37a288c0b">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
@@ -207,7 +221,7 @@
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
-				<text><![CDATA[Superficie potenzialmente ammissibile (solo per il Regime Unico di Pagamento)]]></text>
+				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
 				<reportElement key="staticText-35" x="6" y="200" width="385" height="26" uuid="51507727-5022-4db4-b3d6-1b9b84945c15"/>
@@ -223,7 +237,7 @@
 			</subreport>
 			<staticText>
 				<reportElement key="staticText-42" x="494" y="175" width="77" height="26" uuid="bf444195-387a-4f5e-9a1e-66070400d239"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<text><![CDATA[]]></text>
@@ -237,27 +251,27 @@
 			</staticText>
 			<textField isBlankWhenNull="true">
 				<reportElement key="textField-20" x="390" y="175" width="48" height="26" uuid="9bcd8b03-9869-404a-a3cf-e42d009d0d59"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{codiInte}.equals("026")?$F{unita}:null]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
 				<reportElement key="textField-21" x="437" y="175" width="58" height="26" uuid="4c932429-d936-47e1-a7c8-13b20ac2e6ef"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{codiInte}.equals("026")?$F{qntaDich}:null]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="false">
 				<reportElement key="textField-22" x="390" y="200" width="48" height="26" uuid="cfac89f7-361c-44ba-a594-b35f69735a8d"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{unita}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
 				<reportElement key="textField-23" x="437" y="200" width="58" height="26" uuid="be4d4560-4d52-4779-a398-a3b962aa854d"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{qntaRich}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
 				<reportElement key="textField-24" x="494" y="200" width="77" height="26" uuid="a53aab47-2e5e-4d28-8c53-7b361082ed03"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{impoRich}]]></textFieldExpression>
@@ -318,16 +332,6 @@
 				<dataSourceExpression><![CDATA[$F{cli46DS}]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{cli46}]]></subreportExpression>
 			</subreport>
-			<frame>
-				<reportElement key="frame-5" isPrintRepeatedValues="false" x="0" y="130" width="575" height="93" uuid="c16552b9-fc60-4ca8-9c9d-94dfa51ed5f4"/>
-				<box rightPadding="0">
-					<pen lineWidth="0.5"/>
-					<topPen lineWidth="0.0"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.0"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-			</frame>
 		</band>
 	</detail>
 	<columnFooter>

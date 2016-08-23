@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2016-08-23T09:55:15 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cli44" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d5ec1ed6-cf88-45f7-b490-0453d106e356">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -48,6 +50,14 @@
 	</columnHeader>
 	<detail>
 		<band height="238" splitType="Stretch">
+			<frame>
+				<reportElement key="frame-1" x="0" y="0" width="575" height="238" uuid="55159129-1dc4-4cb0-802d-305b6f809ce2"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
 			<staticText>
 				<reportElement key="staticText-61" x="6" y="0" width="385" height="22" uuid="e53d7d63-732c-4cf2-9163-fea9fd16e557"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -102,12 +112,12 @@
 			</staticText>
 			<textField pattern="###0" isBlankWhenNull="false">
 				<reportElement key="textField-50" x="437" y="21" width="58" height="50" uuid="851b01ff-4b3a-4fc1-9538-bc4b363307da"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{giorRita}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
 				<reportElement key="textField-51" x="494" y="21" width="77" height="50" uuid="fa4766db-fc2d-480b-af56-5b6ebfb21d4e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{riduRitaDepo}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -147,7 +157,7 @@
 			</staticText>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
 				<reportElement key="textField-56" x="494" y="72" width="77" height="43" uuid="ae1cdf7a-b6c5-4cda-9aef-f42c59087c1e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{discFina}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -164,12 +174,12 @@
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
 				<reportElement key="textField-58" x="437" y="115" width="58" height="26" uuid="65cc1a06-8a83-4f4d-95d2-d913b2268163"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{qntaAmme}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
 				<reportElement key="textField-59" x="494" y="115" width="77" height="26" uuid="6a9c4263-43d2-41c5-8c44-9b6603ded0a6"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{impoRidoAggi}]]></textFieldExpression>
@@ -209,12 +219,12 @@
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
 				<reportElement key="textField-61" x="437" y="161" width="58" height="22" uuid="8daa661a-5159-4641-83e6-a4774b6dbf8e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{qntaErogPrec}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
 				<reportElement key="textField-62" x="494" y="161" width="77" height="22" uuid="9d97c2f7-df55-4b67-9cfc-a94b63435487"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{impoErogPrec}]]></textFieldExpression>
@@ -233,12 +243,12 @@
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
 				<reportElement key="textField-64" x="437" y="182" width="58" height="22" uuid="3f35aa45-4744-495f-94c4-bb5ff079ba3c"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{qntaDecr}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
 				<reportElement key="textField-65" x="494" y="182" width="77" height="22" uuid="cafe9b02-d3de-4af2-98bd-4bc1961e957b"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{impoDecr}]]></textFieldExpression>
@@ -280,17 +290,9 @@
 			</staticText>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
 				<reportElement key="textField-66" x="494" y="203" width="77" height="33" uuid="043fc885-35e9-4057-afa5-cba10ddbd273"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{sanzCond}]]></textFieldExpression>
 			</textField>
-			<frame>
-				<reportElement key="frame-1" x="0" y="0" width="575" height="238" uuid="55159129-1dc4-4cb0-802d-305b6f809ce2"/>
-				<box>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-			</frame>
 		</band>
 	</detail>
 	<columnFooter>

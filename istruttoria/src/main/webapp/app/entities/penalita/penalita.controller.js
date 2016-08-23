@@ -29,14 +29,12 @@
         	 var vm = this;
      	    
      	    vm.loadPage = loadPage;
+     	    vm.search = search;
      	    vm.predicate = pagingParams.predicate;
      	    vm.reverse = pagingParams.ascending;
      	    vm.transition = transition;
      	    vm.itemsPerPage = paginationConstants.itemsPerPage;
      	    
-
-     	 
-     	   
      	    loadAll();
      	                              
      	    function loadAll () {
@@ -83,6 +81,10 @@
             }
             PenalitaSearch.query({query: vm.searchQuery}, function(result) {
                 vm.penalitas = result;
+	            vm.totalItems = vm.capoPagatoes.length;
+	            vm.queryCount = vm.capoPagatoes.length;
+	            vm.page = 0;
             });
-        }    }
+        }    
+    }
 })();
