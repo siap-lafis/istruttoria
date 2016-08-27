@@ -1,32 +1,25 @@
 package it.almaviva.siap.istruttoria.web.rest;
 
-import java.io.File;
-import java.io.InputStream;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
-import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PathVariable;
-
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 
 import com.codahale.metrics.annotation.Timed;
 
@@ -39,25 +32,20 @@ import it.almaviva.siap.istruttoria.reports.CheckListReportMappingControlliIstru
 import it.almaviva.siap.istruttoria.reports.CheckListReportMappingControlliIstruttoriDetAiuto;
 import it.almaviva.siap.istruttoria.reports.CheckListReportMappingPrimaPagina;
 import it.almaviva.siap.istruttoria.reports.CustomJRDataSource;
+import it.almaviva.siap.istruttoria.repository.DomandaRepository;
 import it.almaviva.siap.istruttoria.repository.ElencoPagamentoRepository;
 import it.almaviva.siap.istruttoria.repository.PagamentoRepository;
 import it.almaviva.siap.istruttoria.repository.SoggettoRepository;
-import it.almaviva.siap.istruttoria.repository.DomandaRepository;
-
-import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRMapCollectionDataSource;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.engine.JRExporterParameter;
-
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import net.sf.jasperreports.engine.util.JRLoader;
 
 /**
  * REST controller for managing Report.
@@ -282,6 +270,7 @@ public class ReportResource {
     		if (elencoPagamento.getIdDecr()>elencoPagamentoMax.getIdDecr())
     			elencoPagamentoMax = elencoPagamento;
     	}
+        elencoPagamentoMax.setDataDecr(new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
     	return elencoPagamentoMax;
     }
 }
