@@ -1,13 +1,9 @@
 package it.almaviva.siap.istruttoria.web.rest;
 
-import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 import javax.inject.Inject;
 
@@ -27,7 +23,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codahale.metrics.annotation.Timed;
+import com.mysema.query.types.Predicate;
 
+import it.almaviva.siap.istruttoria.domain.QSuperficie;
 import it.almaviva.siap.istruttoria.domain.Superficie;
 import it.almaviva.siap.istruttoria.repository.SuperficieRepository;
 import it.almaviva.siap.istruttoria.repository.search.SuperficieSearchRepository;
@@ -180,12 +178,27 @@ public class SuperficieResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<Superficie> searchSuperficies(@RequestParam String query) {
+    public ResponseEntity<List<Superficie>> searchSuperficies(@RequestParam String query, Pageable pageable) throws URISyntaxException {
         log.debug("REST request to search Superficies for query {}", query);
-        return StreamSupport
-            .stream(superficieSearchRepository.search(queryStringQuery(query)).spliterator(), false)
-            .collect(Collectors.toList());
+        /*
+         * Using QueryDsl as explained in 
+         * https://jhipster.github.io/tips/003_tip_add_querydsl_support.html
+         */
+        QSuperficie superficie = new QSuperficie("superficie");
+        Predicate predicate;
+        try {
+        	predicate = superficie.domanda.idDomanda.eq(Integer.parseInt(query.trim()))
+						.or(superficie.domanda.soggetto.cuaa.eq(query.trim()));
+       }
+        catch (NumberFormatException  nfe) {
+        	predicate = superficie.domanda.soggetto.cuaa.eq(query.trim());
+        }
+		Page<Superficie> page = superficieRepository.findAll(predicate, pageable);
+		HttpHeaders headers = PaginationUtil.generateSearchPaginationHttpHeaders(query, page, "/api/_search/superficies");
+		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
+		
+    
 
 //    /**
 //     * GET  /superficies/:id : get superfici by "id" domanda.

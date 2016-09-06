@@ -1,13 +1,9 @@
 package it.almaviva.siap.istruttoria.web.rest;
 
-import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 import javax.inject.Inject;
 
@@ -27,8 +23,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codahale.metrics.annotation.Timed;
+import com.mysema.query.types.Predicate;
 
-import it.almaviva.siap.istruttoria.domain.Superficie;
+import it.almaviva.siap.istruttoria.domain.QSuperficieInverdimento;
 import it.almaviva.siap.istruttoria.domain.SuperficieInverdimento;
 import it.almaviva.siap.istruttoria.repository.SuperficieInverdimentoRepository;
 import it.almaviva.siap.istruttoria.repository.search.SuperficieInverdimentoSearchRepository;
@@ -177,11 +174,27 @@ public class SuperficieInverdimentoResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<SuperficieInverdimento> searchSuperficieInverdimentos(@RequestParam String query) {
+    public ResponseEntity<List<SuperficieInverdimento>> searchSuperficieInverdimentos(@RequestParam String query, Pageable pageable) throws URISyntaxException {
         log.debug("REST request to search SuperficieInverdimentos for query {}", query);
-        return StreamSupport
-            .stream(superficieInverdimentoSearchRepository.search(queryStringQuery(query)).spliterator(), false)
-            .collect(Collectors.toList());
+        /*
+         * Using QueryDsl as explained in 
+         * https://jhipster.github.io/tips/003_tip_add_querydsl_support.html
+         */
+        QSuperficieInverdimento superficieInverdimento = new QSuperficieInverdimento("superficieInverdimento");
+        Predicate predicate;
+        try {
+        	predicate = superficieInverdimento.domanda.idDomanda.eq(Integer.parseInt(query.trim()))
+						.or(superficieInverdimento.domanda.soggetto.cuaa.eq(query.trim()));
+       }
+        catch (NumberFormatException  nfe) {
+        	predicate = superficieInverdimento.domanda.soggetto.cuaa.eq(query.trim());
+        }
+		Page<SuperficieInverdimento> page = superficieInverdimentoRepository.findAll(predicate, pageable);
+		HttpHeaders headers = PaginationUtil.generateSearchPaginationHttpHeaders(query, page, "/api/_search/superficie-inverdimentos");
+		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+//        return StreamSupport
+//            .stream(superficieInverdimentoSearchRepository.search(queryStringQuery(query)).spliterator(), false)
+//            .collect(Collectors.toList());
     }
     
     

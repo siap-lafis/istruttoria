@@ -1,13 +1,9 @@
 package it.almaviva.siap.istruttoria.web.rest;
 
-import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 import javax.inject.Inject;
 
@@ -27,9 +23,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codahale.metrics.annotation.Timed;
+import com.mysema.query.types.Predicate;
 
 import it.almaviva.siap.istruttoria.domain.Pagamento;
-import it.almaviva.siap.istruttoria.domain.SuperficieInverdimento;
+import it.almaviva.siap.istruttoria.domain.QPagamento;
 import it.almaviva.siap.istruttoria.repository.PagamentoRepository;
 import it.almaviva.siap.istruttoria.repository.search.PagamentoSearchRepository;
 import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
@@ -177,11 +174,27 @@ public class PagamentoResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<Pagamento> searchPagamentos(@RequestParam String query) {
+    public ResponseEntity<List<Pagamento>> searchPagamentos(@RequestParam String query, Pageable pageable) throws URISyntaxException {
         log.debug("REST request to search Pagamentos for query {}", query);
-        return StreamSupport
-            .stream(pagamentoSearchRepository.search(queryStringQuery(query)).spliterator(), false)
-            .collect(Collectors.toList());
+	    /*
+	     * Using QueryDsl as explained in 
+	     * https://jhipster.github.io/tips/003_tip_add_querydsl_support.html
+	     */
+	    QPagamento pagamento = new QPagamento("pagamento");
+	    Predicate predicate;
+	    try {
+	    	predicate = pagamento.elencoPagamento.domanda.idDomanda.eq(Integer.parseInt(query.trim()))
+					.or(pagamento.elencoPagamento.domanda.soggetto.cuaa.eq(query.trim()));
+	    }
+	    catch (NumberFormatException  nfe) {
+	    	predicate = pagamento.elencoPagamento.domanda.soggetto.cuaa.eq(query.trim());
+	    }
+	    Page<Pagamento> page = pagamentoRepository.findAll(predicate, pageable);
+	    HttpHeaders headers = PaginationUtil.generateSearchPaginationHttpHeaders(query, page, "/api/_search/pagamentos");
+	    return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+//        return StreamSupport
+//            .stream(pagamentoSearchRepository.search(queryStringQuery(query)).spliterator(), false)
+//            .collect(Collectors.toList());
     }
 
 

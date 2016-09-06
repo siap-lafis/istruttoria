@@ -1,13 +1,9 @@
 package it.almaviva.siap.istruttoria.web.rest;
 
-import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 import javax.inject.Inject;
 
@@ -27,8 +23,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codahale.metrics.annotation.Timed;
+import com.mysema.query.types.Predicate;
 
 import it.almaviva.siap.istruttoria.domain.ElencoPagamento;
+import it.almaviva.siap.istruttoria.domain.QElencoPagamento;
 import it.almaviva.siap.istruttoria.repository.ElencoPagamentoRepository;
 import it.almaviva.siap.istruttoria.repository.search.ElencoPagamentoSearchRepository;
 import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
@@ -176,11 +174,27 @@ public class ElencoPagamentoResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<ElencoPagamento> searchElencoPagamentos(@RequestParam String query) {
+    public ResponseEntity<List<ElencoPagamento>> searchElencoPagamentos(@RequestParam String query, Pageable pageable) throws URISyntaxException {
         log.debug("REST request to search ElencoPagamentos for query {}", query);
-        return StreamSupport
-            .stream(elencoPagamentoSearchRepository.search(queryStringQuery(query)).spliterator(), false)
-            .collect(Collectors.toList());
+        /*
+         * Using QueryDsl as explained in 
+         * https://jhipster.github.io/tips/003_tip_add_querydsl_support.html
+         */
+        QElencoPagamento elencoPagamento = new QElencoPagamento("elencoPagamento");
+        Predicate predicate;
+        try {
+        	predicate = elencoPagamento.domanda.idDomanda.eq(Integer.parseInt(query.trim()))
+					.or(elencoPagamento.domanda.soggetto.cuaa.eq(query.trim()));
+        }
+        catch (NumberFormatException  nfe) {
+        	predicate = elencoPagamento.domanda.soggetto.cuaa.eq(query.trim());
+        }
+        Page<ElencoPagamento> page = elencoPagamentoRepository.findAll(predicate, pageable);
+        HttpHeaders headers = PaginationUtil.generateSearchPaginationHttpHeaders(query, page, "/api/_search/elenco-pagamentos");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        //  return StreamSupport
+        //   .stream(elencoPagamentoSearchRepository.search(queryStringQuery(query)).spliterator(), false)
+        // .collect(Collectors.toList());
     }
 
 
