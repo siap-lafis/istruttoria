@@ -43,10 +43,19 @@ public class Superficie implements Serializable {
 
     @Column(name = "supe_ammi_netta")
     private Integer supeAmmiNetta;
-
+    
     @OneToOne
     @JoinColumn(unique = true)
     private Domanda domanda;
+    
+    @Column(name = "comune")
+    private String comune;
+    
+    @Column(name = "particella")
+    private String particella;
+    
+    @Column(name = "sub")
+    private String sub;
 
     public Long getId() {
         return id;
@@ -119,8 +128,34 @@ public class Superficie implements Serializable {
     public void setDomanda(Domanda domanda) {
         this.domanda = domanda;
     }
+    
+    
 
-    @Override
+    public String getComune() {
+		return comune;
+	}
+
+	public void setComune(String comune) {
+		this.comune = comune;
+	}
+
+	public String getParticella() {
+		return particella;
+	}
+
+	public void setParticella(String particella) {
+		this.particella = particella;
+	}
+
+	public String getSub() {
+		return sub;
+	}
+
+	public void setSub(String sub) {
+		this.sub = sub;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -140,11 +175,16 @@ public class Superficie implements Serializable {
         return Objects.hashCode(id);
     }
 
+	
+
     @Override
     public String toString() {
         return "Superficie{" +
             "id=" + id +
             ", codNazionale='" + codNazionale + "'" +
+            ", comune='" + comune + "'" +
+            ", particella='" + particella + "'" +
+            ", sub='" + sub + "'" +
             ", foglio='" + foglio + "'" +
             ", codIntervento='" + codIntervento + "'" +
             ", codColtura='" + codColtura + "'" +
@@ -153,4 +193,5 @@ public class Superficie implements Serializable {
             ", supeAmmiNetta='" + supeAmmiNetta + "'" +
             '}';
     }
+    
 }
