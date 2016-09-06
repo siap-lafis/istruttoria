@@ -5,7 +5,7 @@
                 "title": "Obbligo Inverdimentos",
                 "createLabel": "Create a new Obbligo Inverdimento",
                 "createOrEditLabel": "Create or edit a Obbligo Inverdimento",
-                "search": "Search for Obbligo Inverdimento"
+                "search": "Search for Id Domanda or CUAA"
             },
             "created": "A new Obbligo Inverdimento is created with identifier {{ param }}",
             "updated": "A Obbligo Inverdimento is updated with identifier {{ param }}",

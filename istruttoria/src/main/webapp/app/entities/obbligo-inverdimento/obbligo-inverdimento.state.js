@@ -191,7 +191,7 @@
         })
         .state('obbligo-inverdimento.superficie-inverdimento', {
             parent: 'entity',
-            url: '/obbligo-inverdimento/{id}?page&sort&search',
+            url: '/obbligo-inverdimento/superficie-inverdimento/{id}?page&sort&search',
             data: {
             	authorities: ['ROLE_USER'],
             	pageTitle: 'istruttoriaApp.obbligoInverdimento.home.title'

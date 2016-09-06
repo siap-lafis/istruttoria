@@ -5,7 +5,7 @@
                 "title": "Obblighi Inverdimento",
                 "createLabel": "Crea un nuovo Obbligo Inverdimento",
                 "createOrEditLabel": "Crea o modifica un  Obbligo Inverdimento",
-                "search": "Ricerca per Obbligo Inverdimento"
+                "search": "Ricerca per Id Domanda o CUAA"
             },
             "created": "Un nuovo Obbligo Inverdimento è stato creato con identificativo {{ param }}",
             "updated": "Un Obbligo Inverdimento è stato aggiornato con identificativo {{ param }}",

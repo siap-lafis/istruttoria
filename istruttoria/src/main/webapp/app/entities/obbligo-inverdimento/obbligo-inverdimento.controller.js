@@ -29,24 +29,38 @@
 	    var vm = this;
 	    
 	    vm.loadPage = loadPage;
-	    vm.predicate = pagingParams.predicate;
-	    vm.reverse = pagingParams.ascending;
-	    vm.transition = transition;
-	    vm.itemsPerPage = paginationConstants.itemsPerPage;
+        vm.predicate = pagingParams.predicate;
+        vm.reverse = pagingParams.ascending;
+        vm.transition = transition;
+        vm.search = search;
+        vm.itemsPerPage = paginationConstants.itemsPerPage;
 	    
-	
+	    vm.clear = clear;    
+		vm.loadAll = loadAll;
+	    vm.searchQuery = pagingParams.search;
+	    vm.currentSearch = pagingParams.search;
 	 
 	   
 	    loadAll();
 	                              
 	    function loadAll () {
-	    	ObbligoInverdimento.query({
-	            page: pagingParams.page - 1,
-	            size: vm.itemsPerPage,
-	            sort: sort()
+	    	if (pagingParams.search) {	
+	    		ObbligoInverdimentoSearch.query({
+	    			query: pagingParams.search,
+	    			page: pagingParams.page - 1,
+	    			size: vm.itemsPerPage,
+	    			sort: sort()
+	    		}, onSuccess, onError);
+	    	}else {
+	    		ObbligoInverdimento.query({
+	    			page: pagingParams.page - 1,
+	    			size: vm.itemsPerPage,
+	    			sort: sort()
 	        }, onSuccess, onError);
+	    }
 	        function sort() {
-	            var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
+	        
+	        	var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
 	            if (vm.predicate !== 'id') {
 	                result.push('id');
 	            }
@@ -63,12 +77,12 @@
 	            AlertService.error(error.data.message);
 	        }
 	    }
-	
+
 	    function loadPage (page) {
 	        vm.page = page;
 	        vm.transition();
 	    }
-	
+
 	    function transition () {
 	        $state.transitionTo($state.$current, {
 	    	    page: vm.page,
@@ -77,12 +91,25 @@
 	    	});
 	    }
 
-        function search () {
-            if (!vm.searchQuery) {
-                return vm.loadAll();
-            }
-            ObbligoInverdimentoSearch.query({query: vm.searchQuery}, function(result) {
-                vm.obbligoInverdimentos = result;
-            });
-        }    }
+	    function search (searchQuery) {
+	        if (!searchQuery){
+	            return vm.clear();
+	        }
+	        vm.links = null;
+	        vm.page = 1;
+	        vm.predicate = 'id';
+	        vm.reverse = false;
+	        vm.currentSearch = searchQuery;
+	        vm.transition();
+	    }
+
+	    function clear () {
+	        vm.links = null;
+	        vm.page = 1;
+	        vm.predicate = 'id';
+	        vm.reverse = true;
+	        vm.currentSearch = null;
+	        vm.transition();
+	    }
+    }
 })();
