@@ -5,7 +5,7 @@
                 "title": "Superfici",
                 "createLabel": "Crea una nuova Superficie",
                 "createOrEditLabel": "Crea o modifica una Superficie",
-                "search": "Ricerca per Superficie"
+                "search": "Ricerca per Id Domanda o CUAA"
             },
             "created": "Una nuova Superficie è stata creata con identificativo {{ param }}",
             "updated": "Una Superficie è stata aggiornata con identificativo {{ param }}",
@@ -23,7 +23,10 @@
             "supeDich": "Supe Dich",
             "supeAmmi": "Supe Ammi",
             "supeAmmiNetta": "Supe Ammi Netta",
-            "domanda": "Domanda"
+            "domanda": "Domanda",
+            "comune": "Comune",
+            "particella": "Particella",
+            "sub": "Sub"
         }
     }
 }

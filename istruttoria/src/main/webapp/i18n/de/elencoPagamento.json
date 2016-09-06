@@ -5,7 +5,7 @@
                 "title": "Elenco Pagamentos",
                 "createLabel": "Elenco Pagamento erstellen",
                 "createOrEditLabel": "Elenco Pagamento erstellen oder bearbeiten",
-                "search": "Suche nach Elenco Pagamento"
+                "search": "Suche nach Id Domanda oder CUAA"
             },
             "created": "Elenco Pagamento erstellt mit ID {{ param }}",
             "updated": "Elenco Pagamento aktualisiert mit ID {{ param }}",

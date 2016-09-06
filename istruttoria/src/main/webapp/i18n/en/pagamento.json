@@ -5,7 +5,7 @@
                 "title": "Pagamentos",
                 "createLabel": "Create a new Pagamento",
                 "createOrEditLabel": "Create or edit a Pagamento",
-                "search": "Search for Pagamento"
+                "search": "Search for Id Domanda or CUAA"
             },
             "created": "A new Pagamento is created with identifier {{ param }}",
             "updated": "A Pagamento is updated with identifier {{ param }}",

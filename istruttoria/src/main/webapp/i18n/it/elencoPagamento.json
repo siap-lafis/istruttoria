@@ -5,7 +5,7 @@
                 "title": "Elenchi Pagamento",
                 "createLabel": "Crea un nuovo Elenco Pagamento",
                 "createOrEditLabel": "Crea o modifica un Elenco Pagamento",
-                "search": "Ricerca per Elenco Pagamento"
+                "search": "Ricerca per Id Domanda o CUAA"
             },
             "created": "Un nuovo Elenco Pagamento è stato creato con identificativo {{ param }}",
             "updated": "Un Elenco Pagamento è stato aggiornato con identificativo {{ param }}",

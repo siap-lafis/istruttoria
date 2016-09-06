@@ -5,7 +5,7 @@
                 "title": "Superfici Inverdimento",
                 "createLabel": "Crea una nuova Superficie Inverdimento",
                 "createOrEditLabel": "Crea o aggiorna una Superficie Inverdimento",
-                "search": "Ricerca per Superficie Inverdimento"
+                "search": "Ricerca per Id Domanda o CUAA"
             },
             "created": "Una nuova Superficie Inverdimento è stata creata con identificativo {{ param }}",
             "updated": "Una Superficie Inverdimento è stata aggiornata con identificativo {{ param }}",
