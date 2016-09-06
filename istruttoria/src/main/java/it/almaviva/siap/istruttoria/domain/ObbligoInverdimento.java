@@ -4,6 +4,8 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
 
+import com.mysema.query.annotations.QueryInit;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -55,6 +57,7 @@ public class ObbligoInverdimento implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
+    @QueryInit("domanda.soggetto.*")
     private SuperficieInverdimento superficiInverdimento;
 
     public Long getId() {

@@ -1,13 +1,9 @@
 package it.almaviva.siap.istruttoria.web.rest;
 
-import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 import javax.inject.Inject;
 
@@ -27,9 +23,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codahale.metrics.annotation.Timed;
+import com.mysema.query.types.Predicate;
 
 import it.almaviva.siap.istruttoria.domain.ObbligoInverdimento;
-import it.almaviva.siap.istruttoria.domain.SuperficieInverdimento;
+import it.almaviva.siap.istruttoria.domain.QObbligoInverdimento;
 import it.almaviva.siap.istruttoria.repository.ObbligoInverdimentoRepository;
 import it.almaviva.siap.istruttoria.repository.search.ObbligoInverdimentoSearchRepository;
 import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
@@ -177,11 +174,27 @@ public class ObbligoInverdimentoResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<ObbligoInverdimento> searchObbligoInverdimentos(@RequestParam String query) {
+    public ResponseEntity<List<ObbligoInverdimento>> searchObbligoInverdimentos(@RequestParam String query, Pageable pageable) throws URISyntaxException {
         log.debug("REST request to search ObbligoInverdimentos for query {}", query);
-        return StreamSupport
-            .stream(obbligoInverdimentoSearchRepository.search(queryStringQuery(query)).spliterator(), false)
-            .collect(Collectors.toList());
+        /*
+         * Using QueryDsl as explained in 
+         * https://jhipster.github.io/tips/003_tip_add_querydsl_support.html
+         */
+        QObbligoInverdimento obbligoInverdimento = new QObbligoInverdimento("obbligoInverdimento");
+        Predicate predicate;
+        try {
+        	predicate = obbligoInverdimento.superficiInverdimento.domanda.idDomanda.eq(Integer.parseInt(query.trim()))
+					.or(obbligoInverdimento.superficiInverdimento.domanda.soggetto.cuaa.eq(query.trim()));
+        }
+        catch (NumberFormatException  nfe) {
+        	predicate = obbligoInverdimento.superficiInverdimento.domanda.soggetto.cuaa.eq(query.trim());
+        }
+        Page<ObbligoInverdimento> page = obbligoInverdimentoRepository.findAll(predicate, pageable);
+        HttpHeaders headers = PaginationUtil.generateSearchPaginationHttpHeaders(query, page, "/api/_search/obbligo-inverdimentos");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+//        return StreamSupport
+//            .stream(obbligoInverdimentoSearchRepository.search(queryStringQuery(query)).spliterator(), false)
+//            .collect(Collectors.toList());
     }
     
     /**
