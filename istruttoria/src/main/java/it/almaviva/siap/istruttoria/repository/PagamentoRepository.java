@@ -1,20 +1,19 @@
 package it.almaviva.siap.istruttoria.repository;
 
-import it.almaviva.siap.istruttoria.domain.Pagamento;
-import it.almaviva.siap.istruttoria.domain.Superficie;
-import it.almaviva.siap.istruttoria.domain.SuperficieInverdimento;
+import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 
-import java.util.List;
+import it.almaviva.siap.istruttoria.domain.Pagamento;
 
 /**
  * Spring Data JPA repository for the Pagamento entity.
  */
 @SuppressWarnings("unused")
-public interface PagamentoRepository extends JpaRepository<Pagamento,Long> {
+public interface PagamentoRepository extends JpaRepository<Pagamento,Long>, QueryDslPredicateExecutor<Pagamento> {
 
 	List<Pagamento> findByElencoPagamentoDomandaId(Long id);
 	List<Pagamento> findByIdAttoAmmi(Integer idAttoAmmi);
