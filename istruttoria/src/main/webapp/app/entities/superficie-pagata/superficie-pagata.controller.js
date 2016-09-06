@@ -27,26 +27,40 @@
         function SuperficiePagataController ($scope, $state, SuperficiePagata, SuperficiePagataSearch,ParseLinks, AlertService, pagingParams, paginationConstants) {
         	var vm = this;
             
-            vm.loadPage = loadPage;
-    	    vm.search = search;
+        	vm.loadPage = loadPage;
             vm.predicate = pagingParams.predicate;
             vm.reverse = pagingParams.ascending;
             vm.transition = transition;
+            vm.search = search;
             vm.itemsPerPage = paginationConstants.itemsPerPage;
             
+            vm.clear = clear;    
+        	vm.loadAll = loadAll;
+            vm.searchQuery = pagingParams.search;
+            vm.currentSearch = pagingParams.search;
 
          
            
             loadAll();
                                       
             function loadAll () {
-            	SuperficiePagata.query({
-                    page: pagingParams.page - 1,
-                    size: vm.itemsPerPage,
-                    sort: sort()
+            	if (pagingParams.search) {	
+            		SuperficiePagataSearch.query({
+            			query: pagingParams.search,
+            			page: pagingParams.page - 1,
+            			size: vm.itemsPerPage,
+            			sort: sort()
+            		}, onSuccess, onError);
+            	}else {
+            		SuperficiePagata.query({
+            			page: pagingParams.page - 1,
+            			size: vm.itemsPerPage,
+            			sort: sort()
                 }, onSuccess, onError);
+            }
                 function sort() {
-                    var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
+                
+                	var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
                     if (vm.predicate !== 'id') {
                         result.push('id');
                     }
@@ -63,31 +77,42 @@
                     AlertService.error(error.data.message);
                 }
             }
+            
+                   
 
             function loadPage (page) {
                 vm.page = page;
                 vm.transition();
             }
 
+                
             function transition () {
                 $state.transitionTo($state.$current, {
-            	    page: vm.page,
-            	    sort: vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc'),
-            	    search: vm.currentSearch
-            	});
+                    page: vm.page,
+                    sort: vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc'),
+                    search: vm.currentSearch
+                });
             }
-        
 
-        function search () {
-            if (!vm.searchQuery) {
-                return vm.loadAll();
+            function search (searchQuery) {
+                if (!searchQuery){
+                    return vm.clear();
+                }
+                vm.links = null;
+                vm.page = 1;
+                vm.predicate = 'id';
+                vm.reverse = false;
+                vm.currentSearch = searchQuery;
+                vm.transition();
             }
-            SuperficiePagataSearch.query({query: vm.searchQuery}, function(result) {
-                vm.superficiePagatas = result;
-	            vm.totalItems = vm.superficiePagatas.length;
-	            vm.queryCount = vm.superficiePagatas.length;
-	            vm.page = 0;
-            });
-        }    
-    }
+
+            function clear () {
+                vm.links = null;
+                vm.page = 1;
+                vm.predicate = 'id';
+                vm.reverse = true;
+                vm.currentSearch = null;
+                vm.transition();
+            }
+           }
 })();
