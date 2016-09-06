@@ -1,13 +1,9 @@
 package it.almaviva.siap.istruttoria.web.rest;
 
-import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 import javax.inject.Inject;
 
@@ -27,16 +23,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codahale.metrics.annotation.Timed;
+import com.mysema.query.types.Predicate;
 
 import it.almaviva.siap.istruttoria.domain.Penalita;
-import it.almaviva.siap.istruttoria.domain.Superficie;
+import it.almaviva.siap.istruttoria.domain.QPenalita;
 import it.almaviva.siap.istruttoria.repository.PenalitaRepository;
 import it.almaviva.siap.istruttoria.repository.search.PenalitaSearchRepository;
 import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
 import it.almaviva.siap.istruttoria.web.rest.util.PaginationUtil;
-
-import com.mysema.query.types.Predicate;
-import it.almaviva.siap.istruttoria.domain.QPenalita;
 
 /**
  * REST controller for managing Penalita.
@@ -194,7 +188,7 @@ public class PenalitaResource {
         }
     	
 		Page<Penalita> page = penalitaRepository.findAll(predicate, pageable);
-		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/_search/penalitas?query=" + query);
+		HttpHeaders headers = PaginationUtil.generateSearchPaginationHttpHeaders(query,page, "/api/_search/penalitas");
 		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
         /*
         return StreamSupport

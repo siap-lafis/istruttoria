@@ -1,13 +1,9 @@
 package it.almaviva.siap.istruttoria.web.rest;
 
-import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 import javax.inject.Inject;
 
@@ -27,16 +23,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codahale.metrics.annotation.Timed;
+import com.mysema.query.types.Predicate;
 
 import it.almaviva.siap.istruttoria.domain.Domanda;
-import it.almaviva.siap.istruttoria.domain.Superficie;
+import it.almaviva.siap.istruttoria.domain.QDomanda;
 import it.almaviva.siap.istruttoria.repository.DomandaRepository;
 import it.almaviva.siap.istruttoria.repository.search.DomandaSearchRepository;
 import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
 import it.almaviva.siap.istruttoria.web.rest.util.PaginationUtil;
-
-import com.mysema.query.types.Predicate;
-import it.almaviva.siap.istruttoria.domain.QDomanda;
 
 /**
  * REST controller for managing Domanda.
@@ -196,7 +190,7 @@ public class DomandaResource {
         	predicate = domanda.soggetto.cuaa.eq(query.trim());
         }
 		Page<Domanda> page = domandaRepository.findAll(predicate, pageable);
-		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/_search/domandas?query=" + query);
+		HttpHeaders headers = PaginationUtil.generateSearchPaginationHttpHeaders(query,page, "/api/_search/domandas");
 		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
         /*
         return StreamSupport

@@ -1,13 +1,9 @@
 package it.almaviva.siap.istruttoria.web.rest;
 
-import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 import javax.inject.Inject;
 
@@ -27,16 +23,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codahale.metrics.annotation.Timed;
+import com.mysema.query.types.Predicate;
 
-import it.almaviva.siap.istruttoria.domain.Superficie;
+import it.almaviva.siap.istruttoria.domain.QSuperficiePagata;
 import it.almaviva.siap.istruttoria.domain.SuperficiePagata;
 import it.almaviva.siap.istruttoria.repository.SuperficiePagataRepository;
 import it.almaviva.siap.istruttoria.repository.search.SuperficiePagataSearchRepository;
 import it.almaviva.siap.istruttoria.web.rest.util.HeaderUtil;
 import it.almaviva.siap.istruttoria.web.rest.util.PaginationUtil;
-
-import com.mysema.query.types.Predicate;
-import it.almaviva.siap.istruttoria.domain.QSuperficiePagata;
 
 /**
  * REST controller for managing SuperficiePagata.
@@ -194,7 +188,7 @@ public class SuperficiePagataResource {
         }
     	
 		Page<SuperficiePagata> page = superficiePagataRepository.findAll(predicate, pageable);
-		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/_search/soggettos?query=" + query);
+		HttpHeaders headers = PaginationUtil.generateSearchPaginationHttpHeaders(query,page, "/api/_search/superficie-pagatas");
 		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
         /*
         return StreamSupport
