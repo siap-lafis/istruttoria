@@ -37,7 +37,10 @@
                   <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span><span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="codNazionale"><span translate="istruttoriaApp.superficie.codNazionale">Cod Nazionale</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="comune"><span translate="istruttoriaApp.superficie.comune">Comune</span><span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="foglio"><span translate="istruttoriaApp.superficie.foglio">Foglio</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="particella"><span translate="istruttoriaApp.superficie.particella">Particella</span><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="sub"><span translate="istruttoriaApp.superficie.sub">Sub</span><span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="codIntervento"><span translate="istruttoriaApp.superficie.codIntervento">Cod Intervento</span><span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="codColtura"><span translate="istruttoriaApp.superficie.codColtura">Cod Coltura</span><span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="supeDich"><span translate="istruttoriaApp.superficie.supeDich">Supe Dich</span><span class="glyphicon glyphicon-sort"></span></th>
@@ -51,7 +54,10 @@
                 <tr ng-repeat="superficie in vm.superficies track by superficie.id">
                     <td><a ui-sref="superficie-detail({id:superficie.id})">{{superficie.id}}</a></td>
                     <td>{{superficie.codNazionale}}</td>
+                    <td>{{superficie.comune}}</td>
                     <td>{{superficie.foglio}}</td>
+                    <td>{{superficie.particella}}</td>
+                    <td>{{superficie.sub}}</td>
                     <td>{{superficie.codIntervento}}</td>
                     <td>{{superficie.codColtura}}</td>
                     <td>{{superficie.supeDich}}</td>
