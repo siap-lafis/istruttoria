@@ -12,13 +12,52 @@ Cod_Coltura, Supe_Util As Supe_Dich, Supe_Ammi, Supe_Ammi_Netta, Id_Domanda As D
 From Temp_Doma_Utilizzo_Gis Where Id_Domanda In (Select Id_Domanda From Domanda));
 
 --versione TN
-Create Or Replace View Superficie As 
-(Select rownum as id, Cod_Nazionale, Foglio, Codice_Intervento As Cod_Intervento, 
-Cod_Utilizzo||'-'||Codice_Prodotto||'-'||Codice_Varieta As Cod_Coltura, 
-Sum(Superficie_Utilizz) As Supe_Dich, Null As Supe_Ammi, Sum(Fg_Supe_Ammi) As Supe_Ammi_Netta, 
-Id_Domanda As Domanda_Id From T_Du_Utilizzo_Gis 
-Where Id_Domanda In (Select Id_Domanda From Domanda)
-Group By rownum, Cod_Nazionale, Foglio, Codice_Intervento, Cod_Utilizzo, Codice_Prodotto, Codice_Varieta, Id_Domanda);
+DROP VIEW FASCICOLO.SUPERFICIE;
+
+/* Formatted on 07/09/2016 14:54:12 (QP5 v5.215.12089.38647) */
+CREATE OR REPLACE FORCE VIEW FASCICOLO.SUPERFICIE
+(
+   ID,
+   COD_NAZIONALE,
+   COMUNE,
+   FOGLIO,
+   PARTICELLA,
+   SUB,
+   COD_INTERVENTO,
+   COD_COLTURA,
+   SUPE_DICH,
+   SUPE_AMMI,
+   SUPE_AMMI_NETTA,
+   DOMANDA_ID
+)
+AS
+     SELECT ROWNUM AS id,
+            Cod_Nazionale,
+            c.nome,
+            Foglio,
+            Particella,
+            Sub,
+            Codice_Intervento AS Cod_Intervento,
+            Cod_Utilizzo || '-' || Codice_Prodotto || '-' || Codice_Varieta
+               AS Cod_Coltura,
+            SUM (Superficie_Utilizz) * 10000 AS Supe_Dich,
+            NULL AS Supe_Ammi,
+            SUM (Fg_Supe_Ammi) * 10000 AS Supe_Ammi_Netta,
+            Id_Domanda AS Domanda_Id
+       FROM T_Du_Utilizzo_Gis, siticomu_istat c
+      WHERE     Id_Domanda IN (SELECT Id_Domanda FROM Domanda)
+            AND c.codi_fisc_luna = Cod_Nazionale
+   GROUP BY ROWNUM,
+            Cod_Nazionale,
+            c.nome,
+            Foglio,
+            Particella,
+            Sub,
+            Codice_Intervento,
+            Cod_Utilizzo,
+            Codice_Prodotto,
+            Codice_Varieta,
+            Id_Domanda;
 
 Create or replace View Capo_Pagato As (Select rownum As Id, Z.Marca_Capo, Z.Ammissibile, 
 Z.N_Uba As Num_Uba, Z.Mancanza_Analisi_Latte, Z.Medie_Latte_Soma, Z.Medie_Latte_Germ, 
