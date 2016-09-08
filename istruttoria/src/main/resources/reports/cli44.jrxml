@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
-<!-- 2016-08-23T09:55:15 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cli44" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d5ec1ed6-cf88-45f7-b490-0453d106e356">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -67,17 +65,17 @@
 			</staticText>
 			<textField isBlankWhenNull="false">
 				<reportElement key="textField-47" x="390" y="0" width="48" height="22" uuid="4673711f-03b0-4532-8f1f-79e5085d5762"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{unita}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
 				<reportElement key="textField-48" x="437" y="0" width="58" height="22" uuid="a5b169a6-9d62-4c4b-a248-c8f4bca797a6"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{qntaAmme}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
 				<reportElement key="textField-49" x="494" y="0" width="77" height="22" uuid="2f8b7b6c-e7c4-4e49-80ee-77296fff387c"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{impoAmme}]]></textFieldExpression>
@@ -105,7 +103,7 @@
 			</staticText>
 			<staticText>
 				<reportElement key="staticText-65" x="390" y="21" width="48" height="50" uuid="32b2cfb2-4250-4e8c-a189-fa1cb59fe1eb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font size="10" isBold="true" pdfFontName="Helvetica"/>
 				</textElement>
 				<text><![CDATA[gg]]></text>
@@ -139,7 +137,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10" isBold="true" pdfFontName="Helvetica"/>
 				</textElement>
-				<text><![CDATA[Riduzione per incapienza massimale nazionale]]></text>
+				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
 				<reportElement key="staticText-75" x="390" y="72" width="48" height="43" uuid="9638fd1e-3faa-4e79-8949-f8eef5af239d"/>
@@ -169,7 +167,7 @@
 			</staticText>
 			<textField isBlankWhenNull="false">
 				<reportElement key="textField-57" x="390" y="115" width="48" height="26" uuid="e08f3b21-2ca4-43e7-a78a-adf7daf96343"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{unita}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
@@ -214,7 +212,7 @@
 			</staticText>
 			<textField isBlankWhenNull="false">
 				<reportElement key="textField-60" x="390" y="161" width="48" height="22" uuid="7790974e-7f9f-41c8-b37f-c8205332f129"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{unita}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
@@ -238,7 +236,7 @@
 			</staticText>
 			<textField isBlankWhenNull="false">
 				<reportElement key="textField-63" x="390" y="182" width="48" height="22" uuid="6ac84fbe-6377-4aa6-ad3b-6ea7a8efb443"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{unita}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">

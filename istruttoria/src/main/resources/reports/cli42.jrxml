@@ -1,34 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"  ?>
-<!-- Created with iReport - A designer for JasperReports -->
-<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
-<jasperReport
-		 name="cli42"
-		 columnCount="1"
-		 printOrder="Vertical"
-		 orientation="Portrait"
-		 pageWidth="595"
-		 pageHeight="842"
-		 columnWidth="535"
-		 columnSpacing="0"
-		 leftMargin="0"
-		 rightMargin="0"
-		 topMargin="0"
-		 bottomMargin="0"
-		 whenNoDataType="AllSectionsNoDetail"
-		 isTitleNewPage="false"
-		 isSummaryNewPage="false">
-	<property name="ireport.zoom" value="1.0" />
-	<property name="ireport.x" value="0" />
-	<property name="ireport.y" value="0" />
-	<property name="ireport.scriptlethandling" value="0" />
-	<property name="ireport.encoding" value="UTF-8" />
-	<import value="java.util.*" />
-	<import value="net.sf.jasperreports.engine.*" />
-	<import value="net.sf.jasperreports.engine.data.*" />
-
-	<parameter name="riduzioniDS" isForPrompting="false" class="net.sf.jasperreports.engine.JRDataSource"/>
-	<parameter name="sanzioniDS" isForPrompting="false" class="net.sf.jasperreports.engine.JRDataSource"/>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cli42" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3befaf0f-fe79-49cb-a96e-4a3870bf4850">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="riduzioniDS" class="net.sf.jasperreports.engine.JRDataSource" isForPrompting="false"/>
+	<parameter name="sanzioniDS" class="net.sf.jasperreports.engine.JRDataSource" isForPrompting="false"/>
 	<field name="unita" class="java.lang.String"/>
 	<field name="quantita" class="java.math.BigDecimal"/>
 	<field name="importo" class="java.math.BigDecimal"/>
@@ -37,185 +18,98 @@
 	<field name="esito" class="java.lang.String"/>
 	<field name="totaQntaSanz" class="java.math.BigDecimal"/>
 	<field name="totaImpoSanz" class="java.math.BigDecimal"/>
-
-		<background>
-			<band height="0"  isSplitAllowed="true" >
-			</band>
-		</background>
-		<title>
-			<band height="0"  isSplitAllowed="true" >
-			</band>
-		</title>
-		<pageHeader>
-			<band height="0"  isSplitAllowed="true" >
-			</band>
-		</pageHeader>
-		<columnHeader>
-			<band height="0"  isSplitAllowed="true" >
-			</band>
-		</columnHeader>
-		<detail>
-			<band height="50"  isSplitAllowed="true" >
-				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
-					<reportElement
-						x="390"
-						y="0"
-						width="48"
-						height="50"
-						key="textField-52"/>
-					<box></box>
-					<textElement textAlignment="Center" verticalAlignment="Top">
-						<font/>
-					</textElement>
-				<textFieldExpression   class="java.lang.String"><![CDATA[$F{unita}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="false" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
-					<reportElement
-						x="437"
-						y="0"
-						width="58"
-						height="50"
-						key="textField-53"/>
-					<box></box>
-					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None">
-						<font/>
-					</textElement>
-				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{quantita}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="false" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
-					<reportElement
-						x="494"
-						y="0"
-						width="77"
-						height="50"
-						key="textField-54"/>
-					<box></box>
-					<textElement textAlignment="Center" verticalAlignment="Top">
-						<font/>
-					</textElement>
-				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{importo}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
-					<reportElement
-						x="6"
-						y="0"
-						width="152"
-						height="50"
-						key="textField-61"/>
-					<box></box>
-					<textElement textAlignment="Left" verticalAlignment="Top">
-						<font/>
-					</textElement>
-				<textFieldExpression   class="java.lang.String"><![CDATA[$F{tipologia}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
-					<reportElement
-						x="157"
-						y="0"
-						width="106"
-						height="50"
-						key="textField-62"/>
-					<box></box>
-					<textElement textAlignment="Center" verticalAlignment="Top">
-						<font/>
-					</textElement>
-				<textFieldExpression   class="java.lang.String"><![CDATA[$F{classe}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
-					<reportElement
-						x="262"
-						y="0"
-						width="129"
-						height="50"
-						key="textField-63"/>
-					<box></box>
-					<textElement textAlignment="Center" verticalAlignment="Top">
-						<font/>
-					</textElement>
-				<textFieldExpression   class="java.lang.String"><![CDATA[$F{esito}]]></textFieldExpression>
-				</textField>
-				<frame>					<reportElement
-						x="0"
-						y="0"
-						width="575"
-						height="50"
-						key="frame-1"/>
-					<box>					<leftPen lineWidth="0.5"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-52" x="390" y="0" width="48" height="50" uuid="a8903f3b-8cfb-43f6-8684-6ec6bbc151c9"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{unita}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
+				<reportElement key="textField-53" x="437" y="0" width="58" height="50" uuid="2c9c840e-63ba-43e1-b71b-0567b88d3668"/>
+				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None"/>
+				<textFieldExpression><![CDATA[$F{quantita}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
+				<reportElement key="textField-54" x="494" y="0" width="77" height="50" uuid="75e6b3f4-401c-499b-a187-6db18839806c"/>
+				<textElement textAlignment="Right" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{importo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-61" x="6" y="0" width="152" height="50" uuid="4dba0bd7-2eb8-46d7-958b-e442e6b8d96a"/>
+				<textElement textAlignment="Left" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{tipologia}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-62" x="157" y="0" width="106" height="50" uuid="85864046-d5f0-4d08-99c0-69fcf99e46a1"/>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{classe}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-63" x="262" y="0" width="129" height="50" uuid="fc513224-36c6-4a56-80a3-1d947b7e7ff4"/>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{esito}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement key="frame-1" x="0" y="0" width="575" height="50" uuid="8b15aff8-a6f7-49d3-a2df-868b4ff8ae2b"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
-</box>
-				</frame>			</band>
-		</detail>
-		<columnFooter>
-			<band height="0"  isSplitAllowed="true" >
-			</band>
-		</columnFooter>
-		<pageFooter>
-			<band height="0"  isSplitAllowed="true" >
-			</band>
-		</pageFooter>
-		<summary>
-			<band height="22"  isSplitAllowed="true" >
-				<staticText>
-					<reportElement
-						x="6"
-						y="0"
-						width="385"
-						height="20"
-						key="staticText-102"/>
-					<box></box>
-					<textElement textAlignment="Left" verticalAlignment="Middle">
-						<font pdfFontName="Helvetica-Bold" size="10" isBold="true"/>
-					</textElement>
+				</box>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-102" x="6" y="0" width="385" height="20" uuid="2f04cf05-a930-4072-9258-7303cfc4cf2a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
 				<text><![CDATA[Totale sanzioni applicate a seguito dei controlli in loco e/o amministrativi	]]></text>
-				</staticText>
-				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
-					<reportElement
-						x="390"
-						y="0"
-						width="48"
-						height="20"
-						key="textField-58"/>
-					<box></box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font/>
-					</textElement>
-				<textFieldExpression   class="java.lang.String"><![CDATA[$F{unita}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="false" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
-					<reportElement
-						x="437"
-						y="0"
-						width="58"
-						height="20"
-						key="textField-59"/>
-					<box></box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font/>
-					</textElement>
-				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[($F{totaQntaSanz}==null?new BigDecimal(0):$F{totaQntaSanz})]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="false" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
-					<reportElement
-						x="494"
-						y="0"
-						width="77"
-						height="20"
-						key="textField-60"/>
-					<box></box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font pdfFontName="Helvetica-Bold"/>
-					</textElement>
-				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[($F{totaImpoSanz}==null?new BigDecimal(0):$F{totaImpoSanz})]]></textFieldExpression>
-				</textField>
-				<frame>					<reportElement
-						x="0"
-						y="0"
-						width="575"
-						height="22"
-						key="frame-2"/>
-					<box>					<leftPen lineWidth="0.5"/>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-58" x="390" y="0" width="48" height="20" uuid="2637127a-2d73-4d9b-a8e8-2acde412b838"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{unita}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement key="textField-59" x="437" y="0" width="58" height="20" uuid="f4814dd2-5e50-4030-a6d3-378fd0c5f33d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[($F{totaQntaSanz}==null?new BigDecimal(0):$F{totaQntaSanz})]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement key="textField-60" x="494" y="0" width="77" height="20" uuid="e110ff31-952c-4251-8938-8d5480e94ecd"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{totaImpoSanz}==null?new BigDecimal(0):$F{totaImpoSanz})]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement key="frame-2" x="0" y="0" width="575" height="22" uuid="a00a33b2-85a8-4b0c-83c1-0484658a7b8e"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
-</box>
-				</frame>			</band>
-		</summary>
+				</box>
+			</frame>
+		</band>
+	</summary>
 </jasperReport>
