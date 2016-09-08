@@ -113,6 +113,9 @@ public class ReportResource {
         int idDecreto = elencoPagamentoMaxDecr.getIdDecr();
         log.debug("idDecreto : {}", idDecreto); 
         
+        // data domanda
+        Date dataDomanda = dao.getDataProtocolloDomanda(domanda.getIdDomanda());
+        
         List<Map<String,Object>> controlli = dao.getControlliIstruttoriDU(id, idDecreto, annoCampagna); // decreto e annoCampagna fissi
         List<Map<String,Object>> interventi = dao.getListaInterventiRichiesti(id, idDecreto);	// TODO: decreto fisso
         log.debug("interventi: " + interventi);
@@ -188,7 +191,7 @@ public class ReportResource {
 		Collection<Map<String, ?>> lista = new ArrayList<Map<String, ?>>();;    		
     	Collection<Map<String, ?>> listaPrimaPagina = 
     			new CheckListReportMappingPrimaPagina()
-    				.preparaPagina1(domanda,interventi,elencoPagamentoMaxDecr,pathImage,flagEsclusa250);	    		
+    				.preparaPagina1(domanda,interventi,elencoPagamentoMaxDecr,pathImage,flagEsclusa250,dataDomanda);	    		
         preparaSezione(listaPrimaPagina,lista);
     	cli1DS = new JRMapCollectionDataSource(listaPrimaPagina);
     	srMap.put("cli1DS", cli1DS);	

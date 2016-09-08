@@ -3,6 +3,7 @@ package it.almaviva.siap.istruttoria.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +14,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.SqlOutParameter;
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Component;
@@ -267,6 +267,30 @@ public class StoredProcedureDao extends JdbcDaoSupport {
 		Map<String,Object> returnMap = new HashMap<String,Object>() ;
 		
 		return result;
+	}
+	
+	
+	public Date getDataProtocolloDomanda (long idDomanda) {
+		RowMapper mapper = new RowMapper() {
+			public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Map<String,Object> map = new HashMap<String,Object>();
+				map.put("idInte", Integer.valueOf(rs.getInt("id_inte")));				
+				return map;
+			}
+		};
+		SimpleJdbcCall sjc = new SimpleJdbcCall(getJdbcTemplate());
+		sjc.withCatalogName("domanda_pck");  // nome del package
+		sjc.withFunctionName("get_data_protocollo_domanda ");  // nome della funzione
+		sjc.withoutProcedureColumnMetaDataAccess();  // importante
+		// I parametri vanno dichiarati nell'ordine in cui vengono richiesti dalla funzione
+		sjc.declareParameters(new SqlOutParameter("data", OracleTypes.DATE, mapper),
+							  new SqlParameter("pin_id_domanda", Types.NUMERIC));
+							
+		MapSqlParameterSource param = new MapSqlParameterSource();
+		param.addValue("pin_id_domanda", idDomanda);		
+		Map<String,Object> result = sjc.execute(param);  // si esegue la funzione passandogli il parametro impostato 
+		return  (Date)result.get("data");  // si prende il parametro di output
+             
 	}
 	
 	

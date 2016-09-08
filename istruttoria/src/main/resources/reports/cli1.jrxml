@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
-<!-- 2016-08-23T09:33:51 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cli1" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="5" rightMargin="5" topMargin="20" bottomMargin="20" uuid="6d24ba7c-d4c8-46c6-9843-502c59543206">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<property name="ireport.scriptlethandling" value="0"/>
@@ -24,11 +22,19 @@
 	<field name="protocollo" class="java.lang.String"/>
 	<field name="checked" class="java.lang.Boolean"/>
 	<field name="pathImage" class="java.lang.String"/>
+	<field name="dataDomanda" class="java.util.Date"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="229" splitType="Stretch">
+			<staticText>
+				<reportElement x="275" y="27" width="15" height="13" uuid="c42bef25-ab96-483d-9a66-5e0ec3aa9529"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[del ]]></text>
+			</staticText>
 			<frame>
 				<reportElement key="frame-1" x="0" y="68" width="570" height="160" forecolor="#FFFFFF" uuid="bdf8d68b-051b-47e4-8ba4-1b0ef1dc4367"/>
 				<box>
@@ -50,7 +56,7 @@
 				</box>
 			</frame>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
-				<reportElement key="textField-3" x="204" y="27" width="92" height="13" uuid="910abdef-06ad-4269-acbc-147ca20b1d96"/>
+				<reportElement key="textField-3" x="204" y="27" width="72" height="13" uuid="910abdef-06ad-4269-acbc-147ca20b1d96"/>
 				<textElement verticalAlignment="Middle">
 					<font size="10" isBold="false" isItalic="false" pdfFontName="Helvetica"/>
 				</textElement>
@@ -185,6 +191,13 @@
 				</textElement>
 				<text><![CDATA[Campagna 2015]]></text>
 			</staticText>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-3" x="312" y="27" width="92" height="13" uuid="3cf4c881-d24f-4629-ad09-8d3d4e30da38"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false" isItalic="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataDomanda}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>

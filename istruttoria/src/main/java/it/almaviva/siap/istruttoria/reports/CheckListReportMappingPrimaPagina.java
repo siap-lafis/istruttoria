@@ -8,6 +8,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +25,12 @@ public class CheckListReportMappingPrimaPagina  {
 	
 	
 	
-	public Collection<Map<String, ?>> preparaPagina1(Domanda domanda,List<Map<String,Object>> interventi, ElencoPagamento decreto,String pathImage,Boolean flag250Esclusa) {
+	public Collection<Map<String, ?>> preparaPagina1(Domanda domanda,
+													 List<Map<String,Object>> interventi, 
+													 ElencoPagamento decreto,
+													 String pathImage,
+													 Boolean flag250Esclusa,
+													 Date dataDomanda) {
 		
 		Collection<Map<String, ?>> cli1 =  new ArrayList<Map<String, ?>>();			
 		Soggetto soggetto = domanda.getSoggetto();	   
@@ -37,7 +43,7 @@ public class CheckListReportMappingPrimaPagina  {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}			
-					
+			map.put("dataDomanda", dataDomanda);		
 			map.put("dataDecr", data);
 			//map.put("protocollo", decreto.getProtocollo());
 			map.put("cuaa", soggetto.getCuaa());
