@@ -153,11 +153,8 @@ public class ReportResource {
 		
 		Map<String,Object> subreport = new HashMap<String,Object>();
 
-		// TODO: il file cli4.jasper contiene il dettaglio degli aiuti senza le aggiunte che sono state richieste in un secondo momento,
-		//       mentre il file cli4Prova.jasper è la versione modificata. Per generare il template 'prima maniera' è sufficente caricare
-		//		 il file cli4.jasper
-		//String cli4 = dir + "cli4.jasper"; 
-		String cli4 = dir + "cli4Prova.jasper"; 
+		
+		String cli4 = dir + "cli4.jasper"; 		
 		String cli1 = dir + "cli1.jasper"; 		
 		String cli2 = dir + "cli2.jasper"; 
 		String cli41 = dir + "cli41.jasper"; 
