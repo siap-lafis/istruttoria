@@ -107,7 +107,8 @@ public class ReportResource {
 	
         log.debug("REST request to get Report : {}", id); 
         // recupero il decreto massimo a partire dalla domanda   
-        Domanda domanda = domandaRepository.findById(id);
+        //Domanda domanda = domandaRepository.findById(id);
+        Domanda domanda = domandaRepository.findOne(id);
         List<ElencoPagamento> elencoPagamenti = elencoPagamentoRepository.findByDomandaId(id);
         ElencoPagamento elencoPagamentoMaxDecr =  getElencoPagamentoMaxDecr(elencoPagamenti);
         int idDecreto = elencoPagamentoMaxDecr.getIdDecr();
@@ -127,18 +128,19 @@ public class ReportResource {
 		for (int i=0; i<interventi.size(); i++) {
 			Map<String,Object> m = interventi.get(i);
 			int idInte = ((Integer)m.get("idInte")).intValue();
-			InterventoLiquidato intervento = dao.getDettaglioImportoLiquidato(id, idDecreto, idInte);
+			int idDecr = ((Integer)m.get("idDecr")).intValue();
+			InterventoLiquidato intervento = dao.getDettaglioImportoLiquidato(id, idDecr, idInte);
 			intervento.setCodiInte((String)m.get("codiInte"));
 			intervento.setDescInte((String)m.get("descInte"));
 			// se è un intervento di greening 
 			if ("008".equals(intervento.getCodiInte())) {
-				Map<String,Object> checkGreening = dao.getFlagGreening(domanda.getId(), idDecreto, annoCampagna);
+				Map<String,Object> checkGreening = dao.getFlagGreening(domanda.getId(), idDecr, annoCampagna);
 				intervento.setFlagGreening(checkGreening);
 			}
 			// se è un intervento di bsp o giovane agricoltore
 			if ("026".equals(intervento.getCodiInte()) ||
 				"300".equals(intervento.getCodiInte())	) {
-				Map<String,Object> titoliBSP = dao.getTitoli(domanda.getId(), idDecreto, annoCampagna);
+				Map<String,Object> titoliBSP = dao.getTitoli(domanda.getId(), idDecr, annoCampagna);
 				intervento.setTitoli(titoliBSP);
 			}
 			importi.add(intervento);
