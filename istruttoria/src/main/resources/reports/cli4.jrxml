@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cli4" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3f819ee1-ef1c-4953-8d14-6d7150f0df7f">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="229"/>
+	<property name="ireport.y" value="593"/>
 	<property name="ireport.scriptlethandling" value="0"/>
 	<property name="ireport.encoding" value="UTF-8"/>
 	<import value="net.sf.jasperreports.engine.*"/>
@@ -294,12 +294,12 @@
 				<subreportExpression><![CDATA[$P{cli44}]]></subreportExpression>
 			</subreport>
 			<subreport isUsingCache="true">
-				<reportElement key="subreport-5" positionType="Float" isPrintRepeatedValues="false" x="0" y="24" width="122" height="20" isRemoveLineWhenBlank="true" uuid="a4bb35e3-1076-44d3-ba03-c4959b80887b"/>
+				<reportElement key="subreport-5" positionType="Float" isPrintRepeatedValues="false" x="0" y="24" width="122" height="48" isRemoveLineWhenBlank="true" uuid="a4bb35e3-1076-44d3-ba03-c4959b80887b"/>
 				<dataSourceExpression><![CDATA[$F{cli45DS}]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{cli45}]]></subreportExpression>
 			</subreport>
 			<subreport isUsingCache="true">
-				<reportElement key="subreport-6" positionType="Float" isPrintRepeatedValues="false" x="0" y="25" width="126" height="105" isRemoveLineWhenBlank="true" uuid="38f37fd0-7d6c-4b92-8b4d-625edc4ffacb"/>
+				<reportElement key="subreport-6" positionType="Float" isPrintRepeatedValues="false" x="0" y="25" width="126" height="110" isRemoveLineWhenBlank="true" uuid="38f37fd0-7d6c-4b92-8b4d-625edc4ffacb"/>
 				<dataSourceExpression><![CDATA[$F{cli46DS}]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{cli46}]]></subreportExpression>
 			</subreport>

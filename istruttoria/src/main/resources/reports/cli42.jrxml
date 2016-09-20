@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cli42" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3befaf0f-fe79-49cb-a96e-4a3870bf4850">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cli42" pageWidth="595" pageHeight="25" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3befaf0f-fe79-49cb-a96e-4a3870bf4850">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -31,39 +31,39 @@
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="50" splitType="Stretch">
+		<band height="25" splitType="Stretch">
 			<textField isBlankWhenNull="false">
-				<reportElement key="textField-52" x="390" y="0" width="48" height="50" uuid="a8903f3b-8cfb-43f6-8684-6ec6bbc151c9"/>
+				<reportElement key="textField-52" x="390" y="0" width="48" height="23" uuid="a8903f3b-8cfb-43f6-8684-6ec6bbc151c9"/>
 				<textElement verticalAlignment="Top"/>
 				<textFieldExpression><![CDATA[$F{unita}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
-				<reportElement key="textField-53" x="437" y="0" width="58" height="50" uuid="2c9c840e-63ba-43e1-b71b-0567b88d3668"/>
+				<reportElement key="textField-53" x="437" y="0" width="58" height="23" uuid="2c9c840e-63ba-43e1-b71b-0567b88d3668"/>
 				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None"/>
 				<textFieldExpression><![CDATA[$F{quantita}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
-				<reportElement key="textField-54" x="494" y="0" width="77" height="50" uuid="75e6b3f4-401c-499b-a187-6db18839806c"/>
+				<reportElement key="textField-54" x="494" y="0" width="77" height="23" uuid="75e6b3f4-401c-499b-a187-6db18839806c"/>
 				<textElement textAlignment="Right" verticalAlignment="Top"/>
 				<textFieldExpression><![CDATA[$F{importo}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="false">
-				<reportElement key="textField-61" x="6" y="0" width="152" height="50" uuid="4dba0bd7-2eb8-46d7-958b-e442e6b8d96a"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement key="textField-61" x="6" y="0" width="151" height="23" uuid="4dba0bd7-2eb8-46d7-958b-e442e6b8d96a"/>
 				<textElement textAlignment="Left" verticalAlignment="Top"/>
 				<textFieldExpression><![CDATA[$F{tipologia}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement key="textField-62" x="157" y="0" width="106" height="50" uuid="85864046-d5f0-4d08-99c0-69fcf99e46a1"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement key="textField-62" x="157" y="0" width="233" height="23" uuid="85864046-d5f0-4d08-99c0-69fcf99e46a1"/>
 				<textElement textAlignment="Center" verticalAlignment="Top"/>
 				<textFieldExpression><![CDATA[$F{classe}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="false">
-				<reportElement key="textField-63" x="262" y="0" width="129" height="50" uuid="fc513224-36c6-4a56-80a3-1d947b7e7ff4"/>
+				<reportElement key="textField-63" x="262" y="0" width="129" height="23" uuid="fc513224-36c6-4a56-80a3-1d947b7e7ff4"/>
 				<textElement textAlignment="Center" verticalAlignment="Top"/>
 				<textFieldExpression><![CDATA[$F{esito}]]></textFieldExpression>
 			</textField>
 			<frame>
-				<reportElement key="frame-1" x="0" y="0" width="575" height="50" uuid="8b15aff8-a6f7-49d3-a2df-868b4ff8ae2b"/>
+				<reportElement key="frame-1" x="0" y="0" width="575" height="25" uuid="8b15aff8-a6f7-49d3-a2df-868b4ff8ae2b"/>
 				<box>
 					<leftPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
